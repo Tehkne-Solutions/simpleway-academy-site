@@ -1,45 +1,36 @@
-# Changelog — SimpleWay Academy Site
+# Changelog
 
-## v1.0.0 — Final patch completo
+## [1.2.1] — Brand Assets + Favicon
 
-### Sprint 0 — Fundação
-- Projeto Astro estático.
-- Configuração Cloudflare Pages.
-- SEO base, sitemap e robots.
-- Identidade visual SimpleWay aplicada.
+- Adicionados os logos oficiais da SimpleWay Academy em `public/brand/`.
+- Header atualizado para usar o logotipo oficial do farol.
+- Footer atualizado com o logo completo oficial e assinatura Tehkné Solutions.
+- Favicon `.ico`, SVG, PNG 16/32, Apple Touch Icon e Android Chrome Icons gerados.
+- `site.webmanifest` criado para identidade PWA/browser.
+- Open Graph atualizado para `og-simpleway-academy.png`.
+- Schema.org atualizado com `logo` e `image` da marca.
 
-### Sprint 1 — Home Premium SEO Conversion
-- Home premium com hero, farol, CTAs, método, app oficial, ofertas, FAQ e lead form.
-- Schema Course e FAQ.
-- Open Graph visual.
+## [1.2.0] — APF Light Premium Complete
 
-### Sprint 2 — Páginas institucionais SEO
-- `/metodologia`
-- `/simpleway-english`
-- Fluxo didático com OPI, Mini-story, Q&A, Activation 72 e Review.
+- Redesenho completo com visual claro, lúdico e premium.
+- Removida predominância de dark mode.
+- Redução de títulos excessivamente grandes.
+- Cores SimpleWay aplicadas em todo o sistema: azul, vermelho e amarelo/dourado.
+- Padronização da etapa inicial como Fala Inicial / APF — Ativação Pessoal de Fala.
+- Conteúdo aprofundado usando a Fonte do projeto.
+- Home com copy estratégica e widgets visuais.
+- Páginas completas: Metodologia, SimpleWay English, Planos, Para Escolas, Depoimentos, FAQ, Blog, Contato, Pré-matrícula, Privacidade e Termos.
+- Blog SEO com 5 artigos iniciais.
+- Formulários redirecionando para WhatsApp +55 19 99893-0846.
+- Imagens remotas via Unsplash CDN.
+- Schema.org para organização, website, curso, FAQ e artigos.
+- Responsivo desktop → mobile com cuidado para 320px+.
+- Assinatura Tehkné Solutions preservada.
 
-### Sprint 3 — Blog/SEO
-- `/blog`
-- 5 artigos iniciais.
-- Schema Article.
-- Sitemap automático.
+## [1.1.0] — Light Premium
 
-### Sprint 4 — Leads e pré-matrícula
-- Formulário responsivo com WhatsApp payload.
-- Preparado para n8n, Google Sheets ou Supabase.
+- Primeira versão light premium com imagens remotas, copy melhorada e WhatsApp.
 
-### Sprint 5 — Conversão e expansão comercial
-- `/planos`
-- `/para-escolas`
-- `/depoimentos`
-- `/faq`
-- CTA comercial.
+## [1.0.0] — All Sprints Final
 
-### Sprint 6 — Final patch e QA mobile
-- Header mobile com menu nativo.
-- Cards e grids com `minmax(0, 1fr)`.
-- Botões full width no mobile.
-- Safe-area bottom no footer.
-- Headers de segurança em `_headers`.
-- Rotas de app em `_redirects`.
-- Patch final em `patches/PATCH_FINAL_SITE_COMPLETO.diff`.
+- Consolidação das sprints 0–6.

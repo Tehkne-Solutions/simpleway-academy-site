@@ -2,52 +2,23 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import { offerCards, site } from '../data/site';
+import LeadForm from '../components/LeadForm.astro';
+import PlanGrid from '../components/PlanGrid.astro';
+import Accordion from '../components/Accordion.astro';
+const planFaq = [
+  { question: 'Os valores já estão fechados?', answer: 'Os planos podem variar conforme turma, carga horária, acesso ao app e formato. O site capta interesse e direciona a proposta ideal pelo WhatsApp.' },
+  { question: 'Posso começar só pela plataforma?', answer: 'Sim. A plataforma SimpleWay pode ser usada como caminho inicial para estudar no próprio ritmo, com possibilidade de evoluir para turma ao vivo.' },
+  { question: 'Tem opção para duas pessoas ou pequenos grupos?', answer: 'Sim. A SimpleWay pode montar formatos para duplas, pequenos grupos, turmas fechadas e projetos especiais.' }
+];
 ---
-<BaseLayout title="Planos SimpleWay Academy | Turma, plataforma e comunidade" description="Conheça as ofertas iniciais da SimpleWay Academy: turma ao vivo com app, plataforma separada e aulas gravadas com comunidade.">
+<BaseLayout title="Planos SimpleWay Academy | Turmas, plataforma e gravadas" description="Conheça os formatos da SimpleWay Academy: turma ao vivo com app, plataforma separada, aulas gravadas com comunidade e planos para escolas.">
   <Header />
   <main id="conteudo">
-    <section class="section page-hero">
-      <div class="container page-head center">
-        <p class="eyebrow">Planos</p>
-        <h1>Escolha o melhor caminho para começar.</h1>
-        <p class="lead">A proposta comercial foi pensada para vender de forma simples: turma ao vivo, plataforma ou aulas gravadas com comunidade.</p>
-      </div>
-    </section>
-    <section class="section">
-      <div class="container cards-3">
-        {offerCards.map((offer) => (
-          <article class="card step-card">
-            <span>{offer.badge}</span>
-            <h2>{offer.title}</h2>
-            <p>{offer.description}</p>
-            <ul class="list">{offer.features.map((feature) => <li>{feature}</li>)}</ul>
-            <a class="btn btn-primary" href="/pre-matricula">Tenho interesse</a>
-          </article>
-        ))}
-      </div>
-    </section>
-    <section class="section cta-band">
-      <div class="container grid-2">
-        <div><p class="eyebrow">Conversão</p><h2>Comece com lista de interesse e venda consultiva.</h2><p>A UX já está pronta para captar leads agora via WhatsApp. A automação pode evoluir para n8n, Google Sheets ou Supabase sem mudar a experiência.</p></div>
-        <a class="btn btn-primary" href={site.whatsappUrl}>Chamar no WhatsApp</a>
-      </div>
-    </section>
-  </main><Footer />
+    <section class="section page-hero"><div class="container"><p class="eyebrow">Planos</p><h1>Comece simples e evolua com estrutura.</h1><p class="lead">A SimpleWay foi pensada para vender sem complicar: captação clara, conversa pelo WhatsApp e plano ajustado ao perfil do aluno, turma ou instituição.</p></div></section>
+    <section class="section"><div class="container"><PlanGrid /></div></section>
+    <section class="section compare"><div class="container grid-2"><div><p class="eyebrow">Como escolher</p><h2>O plano certo depende da rotina de prática.</h2><p class="lead">Quem precisa de compromisso e feedback humano tende a evoluir melhor com turma ao vivo. Quem já tem disciplina pode começar pela plataforma. Quem precisa de flexibilidade pode usar aulas gravadas com comunidade.</p></div><Accordion items={planFaq} /></div></section>
+    <section class="section"><div class="container grid-2"><div><p class="eyebrow">Receber orientação</p><h2>Envie seu objetivo e montamos o melhor caminho.</h2></div><LeadForm title="Quero entender os planos" /></div></section>
+  </main>
+  <Footer />
 </BaseLayout>
-
-<style>
-  .page-hero { padding-top: clamp(58px, 8vw, 96px); }
-  .page-head { max-width: 900px; }
-  .page-head .lead { max-width: 820px; }
-  .gap-top { margin-top: 28px; }
-  .step-card { display: grid; gap: 12px; }
-  .step-card span { color: #ffd166; font-weight: 900; text-transform: uppercase; letter-spacing: .12em; font-size: .78rem; }
-  .list { display: grid; gap: 12px; padding: 0; margin: 0; list-style: none; }
-  .list li { padding: 14px 16px; border-radius: 16px; background: rgba(0,87,216,.12); border: 1px solid rgba(234,234,234,.1); color: #d8e0eb; font-weight: 800; }
-  .hero-panel { min-height: 360px; display: grid; align-content: center; }
-  .hero-panel strong { color: #ffd166; font-size: 3rem; font-family: Poppins, Inter, sans-serif; line-height: 1; }
-  .cta-band { background: linear-gradient(90deg, rgba(0,87,216,.22), rgba(255,209,102,.09)); border-block: 1px solid rgba(234,234,234,.08); }
-  .actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 28px; }
-  @media(max-width:720px){ .actions{display:grid}.hero-panel{min-height:auto}.hero-panel strong{font-size:2.3rem} }
-</style>
+<style>.page-hero{background:linear-gradient(135deg,#fff6d8,#eaf3ff)}.compare{background:#f7fbff}</style>

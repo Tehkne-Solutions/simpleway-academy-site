@@ -3,10 +3,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 ---
-<BaseLayout title="Página não encontrada | SimpleWay Academy" noindex={true}>
-  <Header /><main id="conteudo"><section class="section page-hero"><div class="container page-head center"><p class="eyebrow">404</p><h1>Esse caminho ainda não foi iluminado.</h1><p class="lead">Volte para a home ou entre na lista de interesse.</p><div class="actions"><a class="btn btn-primary" href="/">Voltar para home</a><a class="btn btn-outline" href="/pre-matricula">Pré-matrícula</a></div></div></section></main><Footer />
+<BaseLayout title="Página não encontrada | SimpleWay Academy" description="A página não foi encontrada.">
+  <Header />
+  <main id="conteudo"><section class="section"><div class="container notfound"><p class="eyebrow">404</p><h1>Ops, essa página saiu da rota.</h1><p class="lead">Volte para a home e continue explorando a SimpleWay Academy.</p><a class="btn btn-primary" href="/">Voltar para a home</a></div></section></main><Footer />
 </BaseLayout>
-
-<style>
-.page-hero{padding-top:clamp(58px,8vw,96px)}.page-head{max-width:900px}.actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:28px}.gap-top{margin-top:28px}.article-card{display:grid;gap:10px}.article-card span{color:#ffd166;font-weight:900;text-transform:uppercase;letter-spacing:.12em;font-size:.78rem}.legal h2{margin-top:34px}.legal p,.legal li{color:#c8d0dc;line-height:1.8}@media(max-width:720px){.actions{display:grid}}
-</style>
+<style>.notfound{text-align:center}.notfound h1,.notfound .lead{margin-inline:auto}.notfound .btn{margin-top:18px}</style>

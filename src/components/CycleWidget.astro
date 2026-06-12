@@ -1,0 +1,20 @@
+---
+import { cycleOne } from '../data/site';
+---
+<div class="cycle-widget" aria-label="Ciclo 1 SimpleWay English">
+  {cycleOne.map((item, index) => (
+    <article class="cycle-card">
+      <strong>{item.lesson}</strong>
+      <div>
+        <h3>{item.title}</h3>
+        <p>{item.focus}</p>
+        <span>{item.status}</span>
+      </div>
+    </article>
+  ))}
+</div>
+<style>
+  .cycle-widget{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:10px}.cycle-card{background:white;border:1px solid var(--sw-line);border-radius:20px;padding:14px;box-shadow:0 10px 30px rgba(16,32,51,.06);min-height:172px;display:flex;flex-direction:column;gap:14px}.cycle-card strong{width:46px;height:46px;border-radius:16px;background:linear-gradient(135deg,var(--sw-blue),var(--sw-red));color:white;display:grid;place-items:center;font-family:Poppins,Inter,sans-serif}.cycle-card:nth-child(2n) strong{background:linear-gradient(135deg,var(--sw-gold),var(--sw-red));color:var(--sw-ink)}.cycle-card h3{font-size:1rem}.cycle-card p{margin:.35rem 0;color:var(--sw-muted);font-size:.9rem}.cycle-card span{font-size:.75rem;color:var(--sw-blue);font-weight:900;text-transform:uppercase}
+  @media(max-width:1100px){.cycle-widget{grid-template-columns:repeat(2,minmax(0,1fr))}.cycle-card{min-height:auto}}
+  @media(max-width:560px){.cycle-widget{grid-template-columns:1fr}.cycle-card{flex-direction:row;align-items:flex-start}}
+</style>

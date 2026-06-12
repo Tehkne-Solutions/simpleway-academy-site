@@ -1,0 +1,24 @@
+---
+import { methodSteps } from '../data/site';
+import Icon from './Icon.astro';
+const { compact = false } = Astro.props;
+---
+<div class={`method-timeline ${compact ? 'is-compact' : ''}`}>
+  {methodSteps.map((step, index) => (
+    <article class={`method-card ${step.color}`}>
+      <div class="method-top">
+        <span class="method-number">{step.number}</span>
+        <span class={`icon-bubble ${step.color === 'gold' ? 'gold' : step.color === 'red' ? 'red' : ''}`}><Icon name={step.icon} size={25} /></span>
+      </div>
+      <h3>{step.title}</h3>
+      <p class="technical">{step.technical}</p>
+      <p>{step.short}</p>
+      {!compact && <details><summary>Entender melhor</summary><p>{step.detail}</p></details>}
+    </article>
+  ))}
+</div>
+<style>
+  .method-timeline{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:16px}.method-card{background:white;border:1px solid var(--sw-line);border-radius:26px;padding:20px;box-shadow:var(--shadow-soft);position:relative;overflow:hidden}.method-card::after{content:"";position:absolute;inset:auto -30px -40px auto;width:130px;height:130px;border-radius:999px;opacity:.18;background:var(--sw-blue)}.method-card.gold::after{background:var(--sw-gold);opacity:.34}.method-card.red::after{background:var(--sw-red)}.method-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}.method-number{font-family:Poppins,Inter,sans-serif;font-weight:900;font-size:1.55rem;color:rgba(16,32,51,.18)}.technical{font-size:.85rem;color:var(--sw-blue);font-weight:900;margin:.4rem 0 .2rem}.method-card p:not(.technical){color:var(--sw-muted);font-size:.95rem}.method-card details{margin-top:14px;position:relative;z-index:1}.method-card summary{cursor:pointer;font-weight:900;color:var(--sw-red)}.is-compact{grid-template-columns:repeat(5,minmax(0,1fr))}.is-compact .method-card p:not(.technical){display:none}
+  @media(max-width:1100px){.method-timeline,.is-compact{grid-template-columns:repeat(2,minmax(0,1fr))}.method-card:last-child{grid-column:1/-1}}
+  @media(max-width:620px){.method-timeline,.is-compact{grid-template-columns:1fr}.method-card:last-child{grid-column:auto}}
+</style>

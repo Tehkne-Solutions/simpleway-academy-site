@@ -3,260 +3,183 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import LeadForm from '../components/LeadForm.astro';
+import MethodTimeline from '../components/MethodTimeline.astro';
+import PlanGrid from '../components/PlanGrid.astro';
+import CycleWidget from '../components/CycleWidget.astro';
+import Accordion from '../components/Accordion.astro';
+import Icon from '../components/Icon.astro';
+import { faqs, site, unsplash } from '../data/site';
 import { courseSchema, faqSchema } from '../utils/schema';
-import { homeFaqs, lessonSteps, methodPillars, offerCards, site, testimonials } from '../data/site';
 ---
 <BaseLayout
-  title="SimpleWay Academy | Inglês com método, app e prática de fala"
-  description="Conheça a SimpleWay Academy: inglês com metodologia própria, app oficial, speaking, histórias, Activation 72, revisão e captação para novas turmas."
-  schema={[courseSchema(), faqSchema(homeFaqs)]}
+  title="SimpleWay Academy | Escola de inglês com app, método e prática real"
+  description="Conheça a SimpleWay Academy: inglês com Fala Inicial, histórias guiadas, Desafio das 72 Frases, app oficial, speaking e revisão inteligente."
+  schema={[courseSchema(), faqSchema()]}
 >
   <Header />
   <main id="conteudo">
-    <section class="hero section">
-      <div class="container grid-2 hero-grid">
+    <section class="hero">
+      <div class="container hero-grid">
         <div class="hero-copy">
-          <span class="badge">Site institucional + app oficial de aprendizagem</span>
-          <p class="eyebrow">SimpleWay Academy</p>
-          <h1>Inglês com leveza, método e tecnologia para destravar a fala.</h1>
-          <p class="lead">A SimpleWay Academy transforma aula, apostila e prática em uma jornada guiada com histórias, speaking, treino neural de frases, revisão e progresso visível.</p>
+          <p class="eyebrow">SimpleWay English + App oficial</p>
+          <h1>Inglês leve, divertido e guiado para você finalmente falar.</h1>
+          <p class="lead">Uma escola de cursos com cara de produto digital premium: metodologia própria, aulas com propósito, prática ativa e um app que transforma cada lição em jornada.</p>
           <div class="hero-actions">
-            <a class="btn btn-primary" href="/pre-matricula">Entrar na lista de interesse</a>
-            <a class="btn btn-outline" href="/metodologia">Conhecer o método</a>
+            <a class="btn btn-primary" href="/pre-matricula/">Entrar na lista de interesse</a>
+            <a class="btn btn-gold" href={`https://wa.me/${site.whatsappNumber}?text=${encodeURIComponent('Olá! Quero conhecer a SimpleWay Academy.')}`}>Chamar no WhatsApp</a>
           </div>
-          <div class="trust-row" aria-label="Diferenciais principais">
-            <span>App oficial</span>
-            <span>Speaking</span>
-            <span>XP e progresso</span>
-            <span>SEO + captação</span>
+          <div class="pill-row hero-pills" aria-label="Diferenciais SimpleWay">
+            <span class="pill"><strong>APF</strong> Fala Inicial</span>
+            <span class="pill"><strong>72</strong> frases por lição</span>
+            <span class="pill"><strong>4</strong> habilidades</span>
           </div>
         </div>
-        <aside class="hero-card card" aria-label="Resumo da plataforma">
-          <div class="beam" aria-hidden="true"></div>
-          <div class="light" aria-hidden="true"></div>
-          <div class="tower" aria-hidden="true"></div>
-          <h2>O site vende. O app ensina.</h2>
-          <p>Marketing, SEO e captação vivem aqui. A jornada do aluno acontece no app SimpleWay Academy.</p>
-          <div class="mini-grid">
-            <span>OPI</span><span>Mini-story</span><span>Q&A</span><span>Activation 72</span>
+        <div class="hero-visual">
+          <div class="image-frame hero-image floaty">
+            <img src={unsplash.hero} alt="Estudantes felizes em uma escola moderna" width="1200" height="900" loading="eager" fetchpriority="high" />
+            <div class="image-badge">O site apresenta. O app ensina. O aluno pratica.</div>
           </div>
-        </aside>
+          <div class="mini-widget widget-one">
+            <span class="icon-bubble gold"><Icon name="spark" /></span>
+            <strong>Fala Inicial</strong>
+            <small>Comece falando sobre você</small>
+          </div>
+          <div class="mini-widget widget-two">
+            <span class="icon-bubble red"><Icon name="bolt" /></span>
+            <strong>Activation 72</strong>
+            <small>Treino gamificado</small>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section class="section proof-strip" aria-label="Indicadores da proposta SimpleWay">
-      <div class="container proof-grid">
-        <article><strong>5</strong><span>steps por lição</span></article>
-        <article><strong>72</strong><span>frases de ativação</span></article>
-        <article><strong>4</strong><span>habilidades: ouvir, falar, ler e escrever</span></article>
-        <article><strong>1</strong><span>app oficial para a jornada do aluno</span></article>
+    <section class="section trust-band">
+      <div class="container trust-grid">
+        <article><strong>5 etapas</strong><span>por lição</span></article>
+        <article><strong>7 lições</strong><span>por ciclo</span></article>
+        <article><strong>72 frases</strong><span>no desafio principal</span></article>
+        <article><strong>App oficial</strong><span>para aluno e professor</span></article>
       </div>
     </section>
 
     <section class="section problem-section">
       <div class="container grid-2">
-        <div>
-          <p class="eyebrow">Por que existe</p>
-          <h2>O inglês não precisa parecer uma parede. Ele precisa virar caminho.</h2>
-          <p class="lead small-lead">O aluno trava quando só consome conteúdo, decora regra e não pratica fala com segurança. A SimpleWay organiza o aprendizado como uma rota clara, leve e progressiva.</p>
+        <div class="image-frame">
+          <img src={unsplash.study} alt="Aluno estudando inglês com caderno e tecnologia" width="1200" height="900" loading="lazy" />
         </div>
-        <div class="cards-stack">
-          <article class="card feature-card"><h3>Menos trava</h3><p>Respostas reais e guiadas para o aluno começar a falar sem medo de errar.</p></article>
-          <article class="card feature-card"><h3>Mais contexto</h3><p>Mini-stories e tradução estratégica ajudam a entender antes de decorar.</p></article>
-          <article class="card feature-card"><h3>Mais constância</h3><p>Gamificação, revisão e progresso tornam o estudo mais visível e motivador.</p></article>
+        <div>
+          <p class="eyebrow">O problema que resolvemos</p>
+          <h2>Não é falta de vontade. É falta de caminho claro.</h2>
+          <p class="lead">Muita gente passa anos vendo regra, lista de palavra e aula solta, mas trava quando precisa responder uma pergunta simples. A SimpleWay organiza o aprendizado em pequenos ciclos: entender, falar, treinar, revisar e desbloquear.</p>
+          <div class="problem-list">
+            <span>❌ Curso que vira só gramática</span>
+            <span>❌ Prática oral insuficiente</span>
+            <span>❌ Falta de revisão inteligente</span>
+            <span>✅ Método visual, guiado e mensurável</span>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="section method-band">
+    <section class="section method-section">
       <div class="container">
-        <div class="section-head">
-          <p class="eyebrow">Método SimpleWay</p>
-          <h2>Uma aula organizada como jornada: ouvir, responder, praticar, revisar e evoluir.</h2>
+        <div class="method-head">
+          <div>
+            <p class="eyebrow">Método SimpleWay</p>
+            <h2>O aluno entende o porquê de cada etapa.</h2>
+          </div>
+          <p class="lead">A metodologia não fica escondida em apostila ou README. Ela aparece como experiência de produto: cards, checkpoints, speaking, histórias, desafios e feedback.</p>
         </div>
-        <div class="cards-3 gap-top">
-          {methodPillars.map((pillar) => (
-            <article class="card method-card">
-              <span class="method-icon">✦</span>
-              <h3>{pillar.title}</h3>
-              <p>{pillar.short}</p>
-              <small>{pillar.detail}</small>
-            </article>
-          ))}
-        </div>
-        <div class="card steps-map">
-          {lessonSteps.map((step, index) => (
-            <span><strong>{index + 1}. {step.title}</strong><small>{step.description}</small></span>
-          ))}
-        </div>
+        <MethodTimeline />
       </div>
     </section>
 
     <section class="section app-section">
       <div class="container grid-2">
-        <div class="app-panel card is-highlight">
-          <span class="badge">Plataforma oficial</span>
-          <h2>O app SimpleWay Academy é onde a evolução acontece.</h2>
-          <p>O site institucional atrai, educa e converte. O app entrega a aula, o progresso, o speaking, os desafios e a experiência do aluno.</p>
+        <div>
+          <p class="eyebrow">Plataforma oficial</p>
+          <h2>O app SimpleWay Academy é onde o curso ganha vida.</h2>
+          <p class="lead">O site vende e educa. O app ensina, acompanha e registra progresso. Nele, o aluno treina escuta, fala, escrita e leitura em uma experiência gamificada com XP, revisão e trilhas por ciclo.</p>
+          <div class="feature-grid">
+            <article><Icon name="phone" /><strong>App do aluno</strong><span>Lições, speaking, XP e revisão.</span></article>
+            <article><Icon name="chart" /><strong>Progresso</strong><span>Domínio por habilidade.</span></article>
+            <article><Icon name="school" /><strong>Professor</strong><span>Qualidade pedagógica e auditoria.</span></article>
+            <article><Icon name="target" /><strong>Checkpoint</strong><span>Validação antes de avançar.</span></article>
+          </div>
         </div>
-        <div class="app-list">
-          <article class="card"><h3>Aulas interativas</h3><p>Fluxo de lição com OPI, história, Q&A, Activation 72 e revisão.</p></article>
-          <article class="card"><h3>Voz e speaking</h3><p>Estrutura preparada para áudio, fala ativa e feedback de pronúncia.</p></article>
-          <article class="card"><h3>Progresso visível</h3><p>XP, revisão, desbloqueio e trilha para manter a jornada clara.</p></article>
+        <div class="app-mock card">
+          <div class="app-top"><span></span><span></span><span></span></div>
+          <div class="app-content">
+            <p class="eyebrow">Lesson 1</p>
+            <h3>My Name is Michael McNew</h3>
+            <div class="progress"><span style="width:74%"></span></div>
+            <div class="app-steps">
+              <strong>Fala Inicial</strong>
+              <strong>História Guiada</strong>
+              <strong>Desafio das 72</strong>
+              <strong>Revisão Inteligente</strong>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="section offers-section">
+    <section class="section cycle-section">
       <div class="container">
-        <div class="section-head center">
-          <p class="eyebrow">Ofertas iniciais</p>
-          <h2>Três formas de começar com a SimpleWay.</h2>
-        </div>
-        <div class="cards-3 gap-top">
-          {offerCards.map((offer) => (
-            <article class="card offer-card">
-              <span>{offer.badge}</span>
-              <h3>{offer.title}</h3>
-              <p>{offer.description}</p>
-              <ul>{offer.features.map((feature) => <li>{feature}</li>)}</ul>
-              <a href="/pre-matricula">Tenho interesse →</a>
-            </article>
-          ))}
-        </div>
+        <p class="eyebrow">Ciclo 1</p>
+        <h2>Uma jornada de 6 lições progressivas + 1 checkpoint.</h2>
+        <p class="lead">O primeiro ciclo começa com identidade e presente, passa por passado, rotina, família, futuro e sentimentos. A sétima lição não adiciona conteúdo novo: ela revisa, mistura e valida domínio.</p>
+        <CycleWidget />
       </div>
     </section>
 
-    <section class="section testimonials-section">
+    <section class="section plans-section">
       <div class="container">
-        <div class="section-head center">
-          <p class="eyebrow">Prova social</p>
-          <h2>Uma marca educacional com cara de produto premium.</h2>
+        <div class="method-head">
+          <div>
+            <p class="eyebrow">Planos</p>
+            <h2>Escolha o formato ideal para começar.</h2>
+          </div>
+          <p class="lead">A oferta pode ser aula ao vivo com app, uso da plataforma ou aulas gravadas com comunidade. O objetivo é começar simples e evoluir com estrutura.</p>
         </div>
-        <div class="cards-3 gap-top">
-          {testimonials.map((item) => (
-            <article class="card quote-card">
-              <p>“{item.quote}”</p>
-              <strong>{item.name}</strong>
-              <span>{item.role}</span>
-            </article>
-          ))}
-        </div>
+        <PlanGrid />
       </div>
     </section>
 
-    <section class="section seo-section">
+    <section class="section image-strip" aria-label="Ambiente SimpleWay">
+      <div class="container strip-grid">
+        <img src={unsplash.teacher} alt="Professor em sala de aula moderna" loading="lazy" width="900" height="700" />
+        <img src={unsplash.classroom} alt="Crianças em ambiente educacional colorido" loading="lazy" width="900" height="700" />
+        <img src={unsplash.online} alt="Estudo online em notebook" loading="lazy" width="900" height="700" />
+      </div>
+    </section>
+
+    <section class="section form-section">
       <div class="container grid-2">
         <div>
-          <p class="eyebrow">SEO e autoridade</p>
-          <h2>Conteúdo para ranquear, educar e preparar o aluno antes da matrícula.</h2>
+          <p class="eyebrow">Próximo passo</p>
+          <h2>Quer montar uma turma ou testar a plataforma?</h2>
+          <p class="lead">Envie seu interesse pelo formulário. Ele abre uma mensagem pronta no WhatsApp {site.whatsappDisplay}, com as informações que ajudam a direcionar o atendimento.</p>
         </div>
-        <div class="card article-list">
-          <a href="/blog/como-aprender-ingles-com-mais-leveza">Como aprender inglês com mais leveza</a>
-          <a href="/metodologia">Como funciona o Método SimpleWay</a>
-          <a href="/simpleway-english">Por que o app é parte central do curso</a>
-        </div>
+        <LeadForm />
       </div>
     </section>
 
     <section class="section faq-section">
-      <div class="container grid-2 top-align">
+      <div class="container grid-2">
         <div>
           <p class="eyebrow">FAQ</p>
-          <h2>Dúvidas rápidas antes de entrar na lista.</h2>
-          <p>FAQ com marcação Schema.org para melhorar elegibilidade em resultados de busca.</p>
+          <h2>Respostas rápidas para decidir com segurança.</h2>
+          <p class="lead">O FAQ também ajuda o SEO, porque responde dúvidas reais sobre metodologia, plataforma, speaking e formato de curso.</p>
         </div>
-        <div class="faq-list">
-          {homeFaqs.map((faq) => (
-            <details class="card">
-              <summary>{faq.question}</summary>
-              <p>{faq.answer}</p>
-            </details>
-          ))}
-        </div>
-      </div>
-    </section>
-
-    <section class="section conversion-section" id="pre-matricula-home">
-      <div class="container grid-2 top-align">
-        <div>
-          <p class="eyebrow">Pré-matrícula</p>
-          <h2>Entre na lista de interesse da SimpleWay English.</h2>
-          <p class="lead small-lead">Receba informações sobre turmas, plataforma, planos, testes do app e próximos passos.</p>
-          <div class="contact-actions">
-            <a class="btn btn-outline" href={site.whatsappUrl} rel="noopener">Chamar no WhatsApp</a>
-            <a class="btn btn-outline" href={site.appUrl} rel="noopener">Acessar app</a>
-          </div>
-        </div>
-        <div class="card form-card">
-          <LeadForm />
-        </div>
+        <Accordion items={faqs} />
       </div>
     </section>
   </main>
   <Footer />
 </BaseLayout>
 <style>
-  .hero { padding-top: clamp(58px, 8vw, 98px); }
-  .hero-grid { align-items: stretch; }
-  .hero-copy { align-self: center; }
-  .hero-actions, .contact-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 32px; }
-  .trust-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 30px; color: #d8e0eb; font-weight: 900; }
-  .trust-row span { border: 1px solid rgba(234,234,234,.12); background: rgba(255,255,255,.04); padding: 10px 12px; border-radius: 999px; }
-  .hero-card { min-height: 540px; display: grid; align-content: center; justify-items: center; text-align: center; position: relative; overflow: hidden; }
-  .hero-card::before { content: ''; position: absolute; inset: -40%; background: radial-gradient(circle, rgba(255,209,102,.16), transparent 42%); animation: pulse 7s ease-in-out infinite; }
-  .hero-card > * { position: relative; }
-  .beam { position: absolute; width: 72%; height: 190px; top: 126px; right: -6%; background: linear-gradient(90deg, rgba(255,209,102,.26), transparent); clip-path: polygon(0 42%, 100% 0, 100% 100%, 0 58%); filter: blur(.5px); }
-  .light { width: 142px; height: 142px; border-radius: 999px; background: #ffd166; box-shadow: 0 0 120px rgba(255,209,102,.72); }
-  .tower { width: 92px; height: 154px; margin: -8px auto 26px; background: linear-gradient(180deg, #e63946, #0057d8); clip-path: polygon(35% 0,65% 0,100% 100%,0 100%); }
-  .mini-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 18px; width: 100%; }
-  .mini-grid span, .steps-map span { border: 1px solid rgba(234,234,234,.12); background: rgba(0,87,216,.15); border-radius: 16px; padding: 13px; color: #dbe7f7; font-weight: 900; }
-  .steps-map span { display: grid; gap: 8px; }
-  .steps-map small { color: #a8b3c3; line-height: 1.55; font-weight: 700; }
-  .gap-top { margin-top: 26px; }
-  .small-lead { font-size: 1.08rem; }
-  .proof-strip { padding: 26px 0; border-block: 1px solid rgba(234,234,234,.08); background: rgba(255,255,255,.03); }
-  .proof-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
-  .proof-grid article { padding: 18px; border-radius: 22px; background: rgba(13,17,23,.58); border: 1px solid rgba(234,234,234,.08); }
-  .proof-grid strong { display: block; font-family: Poppins, Inter, sans-serif; color: #ffd166; font-size: 2.2rem; line-height: 1; }
-  .proof-grid span { display: block; margin-top: 8px; color: #c8d0dc; font-weight: 800; }
-  .cards-stack, .app-list, .faq-list, .article-list { display: grid; gap: 16px; }
-  .feature-card:nth-child(2) { transform: translateX(24px); }
-  .feature-card:nth-child(3) { transform: translateX(48px); }
-  .method-band { background: linear-gradient(90deg, rgba(0,87,216,.18), rgba(255,209,102,.07)); border-block: 1px solid rgba(234,234,234,.08); }
-  .section-head { max-width: 940px; }
-  .method-card small { color: #8f9aaa; line-height: 1.65; display: block; }
-  .method-icon { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 16px; background: rgba(255,209,102,.16); color: #ffd166; font-weight: 900; margin-bottom: 18px; }
-  .steps-map { margin-top: 24px; display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; }
-  .app-section, .conversion-section { background: linear-gradient(180deg, rgba(16,23,34,.92), rgba(7,10,15,.82)); }
-  .app-panel { min-height: 420px; display: grid; align-content: center; }
-  .offer-card { position: relative; overflow: hidden; }
-  .offer-card::after { content: ''; position: absolute; width: 120px; height: 120px; right: -48px; top: -48px; border-radius: 999px; background: rgba(255,209,102,.13); }
-  .offer-card span { color: #ffd166; font-weight: 900; font-size: .84rem; text-transform: uppercase; letter-spacing: .12em; }
-  .offer-card ul { margin: 18px 0; padding-left: 20px; color: #c8d0dc; line-height: 1.8; }
-  .offer-card a, .article-list a { color: #ffd166; text-decoration: none; font-weight: 900; }
-  .article-list a { padding: 16px; border-radius: 18px; background: rgba(0,87,216,.13); }
-  .quote-card p { color: #d8e0eb; font-size: 1.05rem; }
-  .quote-card strong { display: block; margin-top: 18px; }
-  .quote-card span { color: #ffd166; font-weight: 800; font-size: .9rem; }
-  details summary { cursor: pointer; color: #fff; font-weight: 900; }
-  details p { margin-bottom: 0; }
-  .form-card { overflow: hidden; }
-  @keyframes pulse { 0%,100% { transform: scale(1); opacity: .78; } 50% { transform: scale(1.08); opacity: 1; } }
-  @media(max-width: 980px) {
-    .hero-card { min-height: auto; padding-top: 42px; padding-bottom: 42px; }
-    .proof-grid, .steps-map { grid-template-columns: repeat(2, 1fr); }
-    .feature-card:nth-child(2), .feature-card:nth-child(3) { transform: none; }
-    .app-panel { min-height: auto; }
-  }
-  @media(max-width: 720px) {
-    .hero { padding-top: 48px; }
-    .hero-actions, .contact-actions { display: grid; grid-template-columns: 1fr; }
-    .trust-row span { width: calc(50% - 5px); text-align: center; font-size: .86rem; }
-    .hero-card { text-align: left; justify-items: start; }
-    .light { width: 92px; height: 92px; }
-    .tower { width: 66px; height: 112px; margin-left: 12px; }
-    .beam { width: 100%; right: -24%; top: 80px; opacity: .82; }
-    .proof-grid, .steps-map, .mini-grid { grid-template-columns: 1fr; }
-  }
+  .hero{padding:clamp(54px,8vw,92px) 0 44px;position:relative;overflow:hidden}.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 15% 20%,rgba(255,209,102,.5),transparent 22rem),radial-gradient(circle at 85% 12%,rgba(0,87,216,.14),transparent 24rem),radial-gradient(circle at 70% 90%,rgba(230,57,70,.12),transparent 22rem);pointer-events:none}.hero-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:clamp(28px,5vw,64px);align-items:center;position:relative}.hero-copy{position:relative;z-index:2}.hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin:26px 0 20px}.hero-pills{margin-top:6px}.hero-visual{position:relative}.hero-image img{min-height:470px}.mini-widget{position:absolute;background:white;border:1px solid var(--sw-line);border-radius:22px;box-shadow:var(--shadow-soft);padding:12px 14px;display:grid;grid-template-columns:48px 1fr;gap:10px;align-items:center;min-width:210px}.mini-widget strong{display:block}.mini-widget small{color:var(--sw-muted);font-weight:800}.widget-one{left:-24px;top:38px}.widget-two{right:-8px;bottom:54px}.trust-band{padding:28px 0}.trust-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}.trust-grid article{background:white;border:1px solid var(--sw-line);border-radius:22px;padding:18px;text-align:center;box-shadow:0 10px 30px rgba(16,32,51,.06)}.trust-grid strong{display:block;font-family:Poppins,Inter,sans-serif;font-size:1.45rem;color:var(--sw-blue)}.trust-grid span{color:var(--sw-muted);font-weight:800}.problem-section{background:linear-gradient(180deg,#fffdf7,#f2f7ff)}.problem-list{display:grid;gap:10px;margin-top:22px}.problem-list span{background:white;border:1px solid var(--sw-line);border-radius:16px;padding:12px 14px;font-weight:900;box-shadow:0 10px 26px rgba(16,32,51,.05)}.method-head{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:end;margin-bottom:28px}.app-section{background:linear-gradient(135deg,#eaf3ff,#fff5d3)}.feature-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:24px}.feature-grid article{background:white;border:1px solid var(--sw-line);border-radius:20px;padding:18px;box-shadow:0 10px 26px rgba(16,32,51,.06)}.feature-grid svg{color:var(--sw-blue);margin-bottom:10px}.feature-grid strong{display:block}.feature-grid span{color:var(--sw-muted);font-size:.92rem}.app-mock{background:#102033;color:white;border:0;min-height:440px;display:flex;flex-direction:column}.app-top{display:flex;gap:8px}.app-top span{width:12px;height:12px;border-radius:999px;background:var(--sw-gold)}.app-top span:nth-child(2){background:var(--sw-red)}.app-top span:nth-child(3){background:var(--sw-blue)}.app-content{margin:auto 0}.app-content h3{color:white;font-size:2rem}.app-content .eyebrow{color:var(--sw-gold)}.progress{height:14px;border-radius:999px;background:rgba(255,255,255,.14);overflow:hidden;margin:24px 0}.progress span{display:block;height:100%;border-radius:inherit;background:linear-gradient(90deg,var(--sw-gold),var(--sw-red),var(--sw-blue))}.app-steps{display:grid;gap:10px}.app-steps strong{padding:14px 16px;border-radius:16px;background:rgba(255,255,255,.1)}.cycle-section{background:#fff}.plans-section{background:linear-gradient(180deg,#fffdf7,#f7fbff)}.strip-grid{display:grid;grid-template-columns:1.2fr .8fr 1fr;gap:16px}.strip-grid img{width:100%;height:280px;object-fit:cover;border-radius:28px;box-shadow:var(--shadow-soft);border:6px solid white}.strip-grid img:nth-child(2){margin-top:36px}.form-section{background:linear-gradient(135deg,#fff6da,#eff6ff)}
+  @media(max-width:980px){.hero-grid,.method-head{grid-template-columns:1fr}.hero-image img{min-height:320px}.widget-one,.widget-two{position:static;margin-top:12px}.hero-visual{display:grid;gap:12px}.trust-grid{grid-template-columns:1fr 1fr}.strip-grid{grid-template-columns:1fr}.strip-grid img{height:250px}.strip-grid img:nth-child(2){margin-top:0}.feature-grid{grid-template-columns:1fr}}
+  @media(max-width:560px){.hero{padding-top:42px}.hero-actions{display:grid}.trust-grid{grid-template-columns:1fr}.hero-image img{min-height:250px}.app-mock{min-height:360px}.app-content h3{font-size:1.5rem}}
 </style>

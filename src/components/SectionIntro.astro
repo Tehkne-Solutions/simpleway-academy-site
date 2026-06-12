@@ -1,0 +1,11 @@
+---
+const { eyebrow, title, lead, align = 'left' } = Astro.props;
+---
+<div class={`section-intro section-intro--${align}`}>
+  {eyebrow && <p class="eyebrow">{eyebrow}</p>}
+  <h2>{title}</h2>
+  {lead && <p class="lead">{lead}</p>}
+</div>
+<style>
+  .section-intro{margin-bottom:28px}.section-intro--center{text-align:center;margin-inline:auto}.section-intro--center h2,.section-intro--center .lead{margin-inline:auto}.section-intro h2{margin-bottom:14px}.section-intro .lead{margin-top:0}
+</style>

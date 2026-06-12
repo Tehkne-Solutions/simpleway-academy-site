@@ -2,41 +2,71 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import { courseSchema, breadcrumbSchema } from '../utils/schema';
-import { site } from '../data/site';
+import LeadForm from '../components/LeadForm.astro';
+import MethodTimeline from '../components/MethodTimeline.astro';
+import CycleWidget from '../components/CycleWidget.astro';
+import Icon from '../components/Icon.astro';
+import { site, unsplash } from '../data/site';
+import { courseSchema } from '../utils/schema';
 ---
-<BaseLayout title="SimpleWay English | Curso de inglês com app e speaking" description="SimpleWay English é o primeiro curso da SimpleWay Academy: inglês com app oficial, aulas interativas, speaking, mini-stories e revisão." schema={[courseSchema(), breadcrumbSchema([{name:'Início',url:site.url},{name:'SimpleWay English',url:`${site.url}/simpleway-english`}])]}>
+<BaseLayout title="SimpleWay English | Curso de inglês com app e prática ativa" description="SimpleWay English é o primeiro curso da SimpleWay Academy: inglês com app, Fala Inicial, histórias, speaking, Desafio das 72 Frases e revisão inteligente." schema={[courseSchema()]}>
   <Header />
   <main id="conteudo">
-    <section class="section page-hero">
+    <section class="section course-hero">
       <div class="container grid-2">
-        <div class="page-head"><p class="eyebrow">Primeiro curso</p><h1>SimpleWay English</h1><p class="lead">O curso de inglês da SimpleWay Academy combina aula, app, speaking, histórias e treino ativo para destravar a comunicação com consistência.</p><div class="actions"><a class="btn btn-primary" href="/pre-matricula">Quero participar</a><a class="btn btn-outline" href="/planos">Ver planos</a></div></div>
-        <aside class="card hero-panel"><strong>App + aula</strong><p>A plataforma oficial do curso é o app SimpleWay Academy. O site institucional capta e explica. O app ensina.</p></aside>
+        <div>
+          <p class="eyebrow">Primeiro curso da academia</p>
+          <h1>SimpleWay English: inglês para falar, não só assistir aula.</h1>
+          <p class="lead">Um curso pensado para quem quer sair da sensação de “eu até entendo, mas travo para responder”. A jornada combina professor, app, voz, frases úteis, revisão e método visual.</p>
+          <div class="pill-row"><span class="pill"><strong>Listen</strong></span><span class="pill"><strong>Speak</strong></span><span class="pill"><strong>Read</strong></span><span class="pill"><strong>Write</strong></span></div>
+        </div>
+        <div class="image-frame">
+          <img src={unsplash.group} alt="Jovens estudando juntos em ambiente moderno" width="1200" height="900" loading="eager" />
+          <div class="image-badge">Curso + app + método + rotina de prática.</div>
+        </div>
       </div>
     </section>
+
     <section class="section">
-      <div class="container cards-3">
-        <article class="card step-card"><span>Para quem</span><h2>Iniciantes e travados</h2><p>Ideal para quem entende um pouco, mas ainda trava para responder e manter conversas simples.</p></article>
-        <article class="card step-card"><span>Como funciona</span><h2>Prática ativa</h2><p>O aluno não fica só assistindo: ele responde, escreve, ouve, fala e revisa dentro da jornada.</p></article>
-        <article class="card step-card"><span>Diferencial</span><h2>Método + produto</h2><p>A experiência une metodologia, app, conteúdo e visual premium em uma marca educacional clara.</p></article>
+      <div class="container grid-3">
+        <article class="card color-card"><span class="icon-bubble"><Icon name="phone" /></span><h3>App oficial</h3><p>O curso acontece dentro da plataforma SimpleWay Academy, com lições interativas e trilha de progresso.</p></article>
+        <article class="card color-card"><span class="icon-bubble red"><Icon name="chat" /></span><h3>Speaking desde o início</h3><p>A Fala Inicial coloca o aluno em modo ativo antes da teoria virar bloqueio.</p></article>
+        <article class="card color-card"><span class="icon-bubble gold"><Icon name="target" /></span><h3>Checkpoints reais</h3><p>Cada ciclo revisa e valida domínio antes de avançar para novas estruturas.</p></article>
       </div>
     </section>
+
+    <section class="section sample-section">
+      <div class="container grid-2">
+        <div>
+          <p class="eyebrow">Exemplo de Lesson 1</p>
+          <h2>O aluno aprende identidade, presente e respostas completas.</h2>
+          <p class="lead">A primeira lição trabalha apresentação pessoal, compreensão de mini-história, perguntas sobre personagem e estruturas como like, speak, eat e drink.</p>
+        </div>
+        <div class="lesson-card card">
+          <h3>My Name is Michael McNew</h3>
+          <ol>
+            <li>Fala Inicial: perguntas pessoais guiadas.</li>
+            <li>História Guiada: inglês e português em pares.</li>
+            <li>Perguntas da História: resposta em terceira pessoa.</li>
+            <li>Desafio das 72 Frases: prática gamificada.</li>
+            <li>Revisão Inteligente: consolidação e retenção.</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <p class="eyebrow">Fluxo da experiência</p>
+        <h2>O método por trás da aula.</h2>
+        <MethodTimeline compact={true} />
+      </div>
+    </section>
+
+    <section class="section cycle-section"><div class="container"><p class="eyebrow">Ciclo 1</p><h2>Da apresentação pessoal ao primeiro checkpoint.</h2><CycleWidget /></div></section>
+
+    <section class="section form-section"><div class="container grid-2"><div><p class="eyebrow">Quero começar</p><h2>Fale com a SimpleWay pelo WhatsApp.</h2><p class="lead">Envie seu objetivo e receba orientação sobre turma ao vivo, plataforma ou aulas gravadas com comunidade.</p></div><LeadForm title="Quero SimpleWay English" /></div></section>
   </main>
   <Footer />
 </BaseLayout>
-
-<style>
-  .page-hero { padding-top: clamp(58px, 8vw, 96px); }
-  .page-head { max-width: 900px; }
-  .page-head .lead { max-width: 820px; }
-  .gap-top { margin-top: 28px; }
-  .step-card { display: grid; gap: 12px; }
-  .step-card span { color: #ffd166; font-weight: 900; text-transform: uppercase; letter-spacing: .12em; font-size: .78rem; }
-  .list { display: grid; gap: 12px; padding: 0; margin: 0; list-style: none; }
-  .list li { padding: 14px 16px; border-radius: 16px; background: rgba(0,87,216,.12); border: 1px solid rgba(234,234,234,.1); color: #d8e0eb; font-weight: 800; }
-  .hero-panel { min-height: 360px; display: grid; align-content: center; }
-  .hero-panel strong { color: #ffd166; font-size: 3rem; font-family: Poppins, Inter, sans-serif; line-height: 1; }
-  .cta-band { background: linear-gradient(90deg, rgba(0,87,216,.22), rgba(255,209,102,.09)); border-block: 1px solid rgba(234,234,234,.08); }
-  .actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 28px; }
-  @media(max-width:720px){ .actions{display:grid}.hero-panel{min-height:auto}.hero-panel strong{font-size:2.3rem} }
-</style>
+<style>.course-hero{background:linear-gradient(135deg,#eef6ff,#fff6d5)}.sample-section{background:#fff}.lesson-card ol{margin:0;padding-left:22px}.lesson-card li{margin:12px 0;color:var(--sw-muted);font-weight:800}.cycle-section{background:#f7fbff}.form-section{background:linear-gradient(135deg,#fff5d8,#eff6ff)}</style>

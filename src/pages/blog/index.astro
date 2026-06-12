@@ -2,13 +2,16 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
-import { blogPosts } from '../../data/site';
+const posts = [
+  { href: '/blog/como-aprender-ingles-com-mais-leveza/', title: 'Como aprender inglês com mais leveza', tag: 'Aprendizagem' },
+  { href: '/blog/metodo-simpleway/', title: 'O que é o Método SimpleWay', tag: 'Metodologia' },
+  { href: '/blog/activation-72/', title: 'Por que o Desafio das 72 Frases funciona', tag: 'Prática' },
+  { href: '/blog/como-destravar-a-fala-em-ingles/', title: 'Como destravar a fala em inglês', tag: 'Speaking' },
+  { href: '/blog/por-que-historias-ajudam-na-fluencia/', title: 'Por que histórias ajudam na fluência', tag: 'Imersão' }
+];
 ---
-<BaseLayout title="Blog SimpleWay Academy | Inglês, método e fluência" description="Conteúdos de SEO da SimpleWay Academy sobre inglês, método, speaking, histórias, revisão e aprendizagem leve.">
+<BaseLayout title="Blog SimpleWay Academy | Inglês, speaking e metodologia" description="Artigos da SimpleWay Academy sobre aprendizado de inglês, fala, histórias, repetição inteligente e metodologia.">
   <Header />
-  <main id="conteudo"><section class="section page-hero"><div class="container page-head"><p class="eyebrow">Blog e SEO</p><h1>Conteúdo para aprender melhor antes mesmo da matrícula.</h1><p class="lead">Artigos estratégicos para atrair alunos, explicar o método e fortalecer autoridade orgânica.</p></div></section><section class="section"><div class="container cards-3">{blogPosts.map((post) => <article class="card article-card"><span>{post.category} · {post.readingTime}</span><h2>{post.title}</h2><p>{post.description}</p><a class="btn btn-outline" href={`/blog/${post.slug}`}>Ler artigo</a></article>)}</div></section></main><Footer />
+  <main id="conteudo"><section class="section page-hero"><div class="container"><p class="eyebrow">Blog e SEO</p><h1>Conteúdo para aprender melhor antes mesmo de entrar no app.</h1><p class="lead">Artigos estratégicos para explicar a metodologia, educar interessados e fortalecer a autoridade da SimpleWay nos mecanismos de busca.</p></div></section><section class="section"><div class="container post-grid">{posts.map((post) => <a class="post-card card" href={post.href}><span>{post.tag}</span><h2>{post.title}</h2><p>Ler artigo completo</p></a>)}</div></section></main><Footer />
 </BaseLayout>
-
-<style>
-.page-hero{padding-top:clamp(58px,8vw,96px)}.page-head{max-width:900px}.actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:28px}.gap-top{margin-top:28px}.article-card{display:grid;gap:10px}.article-card span{color:#ffd166;font-weight:900;text-transform:uppercase;letter-spacing:.12em;font-size:.78rem}.legal h2{margin-top:34px}.legal p,.legal li{color:#c8d0dc;line-height:1.8}@media(max-width:720px){.actions{display:grid}}
-</style>
+<style>.page-hero{background:linear-gradient(135deg,#fff6d8,#eaf3ff)}.post-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}.post-card{text-decoration:none}.post-card span{display:inline-flex;background:var(--sw-gold);border-radius:999px;padding:7px 10px;font-weight:900;margin-bottom:14px}.post-card h2{font-size:1.45rem}.post-card p{color:var(--sw-blue);font-weight:900}@media(max-width:900px){.post-grid{grid-template-columns:1fr}}</style>

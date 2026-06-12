@@ -5,11 +5,8 @@ import Footer from '../components/Footer.astro';
 import LeadForm from '../components/LeadForm.astro';
 import { site } from '../data/site';
 ---
-<BaseLayout title="Contato | SimpleWay Academy" description="Fale com a SimpleWay Academy para turmas, parcerias, app e planos.">
+<BaseLayout title="Contato | SimpleWay Academy" description="Fale com a SimpleWay Academy pelo WhatsApp e conheça os formatos de curso, app e parceria educacional.">
   <Header />
-  <main id="conteudo"><section class="section page-hero"><div class="container grid-2 top-align"><div class="page-head"><p class="eyebrow">Contato</p><h1>Vamos conversar sobre o melhor caminho.</h1><p class="lead">Use o formulário para interesse em turma, plataforma, aulas gravadas, escola ou parceria.</p><div class="actions"><a class="btn btn-primary" href={site.whatsappUrl}>Chamar no WhatsApp</a><a class="btn btn-outline" href="/para-escolas">Parcerias</a></div></div><div class="card"><LeadForm /></div></div></section></main><Footer />
+  <main id="conteudo"><section class="section page-hero"><div class="container grid-2"><div><p class="eyebrow">Contato</p><h1>Fale com a SimpleWay Academy.</h1><p class="lead">Atendimento via WhatsApp {site.whatsappDisplay}. Use o formulário para enviar uma mensagem estruturada e acelerar a conversa.</p><a class="btn btn-gold" href={`https://wa.me/${site.whatsappNumber}`}>Abrir WhatsApp</a></div><LeadForm compact={true} title="Mensagem rápida" /></div></section></main><Footer />
 </BaseLayout>
-
-<style>
-.page-hero{padding-top:clamp(58px,8vw,96px)}.page-head{max-width:900px}.actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:28px}.gap-top{margin-top:28px}.article-card{display:grid;gap:10px}.article-card span{color:#ffd166;font-weight:900;text-transform:uppercase;letter-spacing:.12em;font-size:.78rem}.legal h2{margin-top:34px}.legal p,.legal li{color:#c8d0dc;line-height:1.8}@media(max-width:720px){.actions{display:grid}}
-</style>
+<style>.page-hero{background:linear-gradient(135deg,#eaf3ff,#fff6d8)}</style>

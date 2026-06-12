@@ -1,27 +1,34 @@
 # SimpleWay Academy — Site Institucional
 
-Site institucional da SimpleWay Academy em Astro, preparado para Cloudflare Pages.
+Site institucional da SimpleWay Academy em Astro, otimizado para Cloudflare Pages, SEO, UX responsivo e captação via WhatsApp.
 
 ## Stack
 
 - Astro static site
 - Cloudflare Pages
-- Blog e SEO no mesmo projeto
-- Formulários/leads via WhatsApp, preparados para n8n, Google Sheets ou Supabase
-- App oficial separado em `app.simplewayacademy.com.br`
-- Assinatura obrigatória: **Produto desenvolvido por Tehkné Solutions**
+- Sitemap automático com `@astrojs/sitemap`
+- Formulários estáticos que abrem WhatsApp para `+55 19 99893-0846`
+- Imagens remotas via Unsplash Images CDN
+- UI light premium com cores SimpleWay English: azul, vermelho e amarelo/dourado
+- Assinatura: Tehkné Solutions
 
-## Sprints incluídas
+## Conceito
 
-- Sprint 0 — Fundação Astro + Cloudflare Pages
-- Sprint 1 — Home Premium SEO Conversion
-- Sprint 2 — Metodologia + SimpleWay English SEO Pages
-- Sprint 3 — Blog/SEO avançado
-- Sprint 4 — Leads e pré-matrícula
-- Sprint 5 — Planos, B2B e conversão
-- Sprint 6 — Responsivo, performance, segurança e QA final
+O site vende e educa. O app SimpleWay Academy ensina.
 
-## Cloudflare Pages
+O site comunica:
+
+- Método SimpleWay
+- Fala Inicial / APF — Ativação Pessoal de Fala
+- História Guiada / Imersão Guiada
+- Perguntas da História
+- Desafio das 72 Frases
+- Revisão Inteligente
+- SimpleWay English
+- Planos e parcerias
+- Blog SEO
+
+## Deploy Cloudflare Pages
 
 Configuração recomendada:
 
@@ -30,33 +37,49 @@ Configuração recomendada:
 - Build output directory: `dist`
 - Root directory: `/`
 - Production branch: `main`
+- Deploy command: vazio
 - Node version: `20`
-- Deploy command: deixar vazio
 
-> Importante: não usar `npx wrangler deploy` como deploy command para este fluxo estático em Pages. Se ele estiver preenchido no painel, remover.
+Não usar `npx wrangler deploy` para este site estático.
 
-## Como publicar
+## Scripts
 
 ```bash
-git add .
-git commit -m "feat: ship SimpleWay Academy institutional site final patch"
-git push origin main
+npm install
+npm run dev
+npm run build
+npm run preview
 ```
 
-Depois, acione novo deploy no Cloudflare Pages.
+## Responsivo
 
-## QA responsivo
+O projeto foi estruturado mobile-first, com:
 
-Testar manualmente:
+- menu mobile acessível,
+- botões 100% no mobile,
+- grids colapsando para uma coluna,
+- cards sem overflow horizontal,
+- títulos com `clamp()` e limite visual,
+- imagens com `object-fit`, lazy loading e tamanhos declarados,
+- foco em telas a partir de 320px.
 
-- 360 × 740
-- 390 × 844
-- 430 × 932
-- 768 × 1024
-- 1024 × 768
-- 1366 × 768
-- 1440 × 900
 
-## Produto
+## Brand assets
 
-O site institucional vende, explica, ranqueia e capta. O app SimpleWay Academy ensina.
+Os arquivos oficiais de marca ficam em:
+
+```txt
+public/brand/simpleway-logomark.png
+public/brand/simpleway-logo-full.png
+public/favicon.ico
+public/favicon.svg
+public/favicon-16x16.png
+public/favicon-32x32.png
+public/apple-touch-icon.png
+public/android-chrome-192x192.png
+public/android-chrome-512x512.png
+public/site.webmanifest
+public/og-simpleway-academy.png
+```
+
+O header usa o logotipo do farol. O footer usa o logo completo oficial da SimpleWay Academy.

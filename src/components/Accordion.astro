@@ -1,0 +1,14 @@
+---
+const { items = [] } = Astro.props;
+---
+<div class="accordion">
+  {items.map((item, index) => (
+    <details class="accordion-item" open={index === 0}>
+      <summary>{item.question}</summary>
+      <p>{item.answer}</p>
+    </details>
+  ))}
+</div>
+<style>
+  .accordion{display:grid;gap:12px}.accordion-item{background:white;border:1px solid var(--sw-line);border-radius:20px;box-shadow:0 10px 30px rgba(16,32,51,.06);overflow:hidden}.accordion-item summary{cursor:pointer;list-style:none;padding:18px 20px;font-weight:900;color:var(--sw-ink);display:flex;justify-content:space-between;gap:18px}.accordion-item summary::-webkit-details-marker{display:none}.accordion-item summary::after{content:"+";width:28px;height:28px;border-radius:10px;background:var(--sw-gold);display:grid;place-items:center;flex:0 0 auto}.accordion-item[open] summary::after{content:"–"}.accordion-item p{padding:0 20px 20px;margin:0;color:var(--sw-muted)}
+</style>

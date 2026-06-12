@@ -4,9 +4,7 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 ---
 <BaseLayout title="Termos de Uso | SimpleWay Academy" description="Termos de uso do site institucional SimpleWay Academy.">
-  <Header /><main id="conteudo"><section class="section page-hero"><div class="narrow legal"><p class="eyebrow">Termos</p><h1>Termos de Uso</h1><p>Este site apresenta informações institucionais, comerciais e educacionais da SimpleWay Academy.</p><h2>Conteúdo</h2><p>As informações podem ser atualizadas a qualquer momento conforme evolução do produto, turmas e plataforma.</p><h2>Pré-matrícula</h2><p>O envio de interesse não garante vaga automática. A matrícula depende de confirmação comercial e disponibilidade.</p><h2>Assinatura</h2><p>Produto desenvolvido por Tehkné Solutions.</p></div></section></main><Footer />
+  <Header />
+  <main id="conteudo"><section class="section"><div class="container legal"><p class="eyebrow">Termos</p><h1>Termos de Uso</h1><p>Este site apresenta informações institucionais, metodologia, planos e canais de contato da SimpleWay Academy.</p><h2>Conteúdo</h2><p>Os textos, estrutura visual e materiais apresentados servem para comunicação comercial e educacional. Informações de planos podem ser ajustadas conforme turma, parceria ou disponibilidade.</p><h2>App e plataforma</h2><p>A plataforma oficial do curso é o app SimpleWay Academy, hospedado separadamente do site institucional.</p><h2>Assinatura</h2><p>Produto desenvolvido por Tehkné Solutions.</p></div></section></main><Footer />
 </BaseLayout>
-
-<style>
-.page-hero{padding-top:clamp(58px,8vw,96px)}.page-head{max-width:900px}.actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:28px}.gap-top{margin-top:28px}.article-card{display:grid;gap:10px}.article-card span{color:#ffd166;font-weight:900;text-transform:uppercase;letter-spacing:.12em;font-size:.78rem}.legal h2{margin-top:34px}.legal p,.legal li{color:#c8d0dc;line-height:1.8}@media(max-width:720px){.actions{display:grid}}
-</style>
+<style>.legal{max-width:820px}.legal h1{max-width:100%;font-size:clamp(2rem,4vw,3rem)}.legal h2{font-size:1.35rem;margin-top:30px}.legal p{color:var(--sw-muted)}</style>

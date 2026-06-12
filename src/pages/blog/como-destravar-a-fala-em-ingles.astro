@@ -3,14 +3,8 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import { articleSchema } from '../../utils/schema';
-const post = { title: 'Como destravar a fala em inglês', description: 'O caminho para sair da compreensão passiva e começar a responder com confiança.', slug: 'como-destravar-a-fala-em-ingles' };
+import { site, unsplash } from '../../data/site';
 ---
-<BaseLayout title="Como destravar a fala em inglês | SimpleWay Academy" description="O caminho para sair da compreensão passiva e começar a responder com confiança." schema={articleSchema(post)}>
-  <Header />
-  <main id="conteudo"><article class="section page-hero"><div class="narrow article"><p class="eyebrow">Speaking</p><h1>Como destravar a fala em inglês</h1><p class="lead">O caminho para sair da compreensão passiva e começar a responder com confiança.</p><h2>O problema da fala</h2><p>Muitos alunos entendem mais do que conseguem falar. Isso acontece porque compreensão passiva e resposta ativa são habilidades diferentes.</p><h2>A solução</h2><p>Começar com perguntas pessoais, respostas guiadas e prática frequente reduz o medo de errar e aumenta a velocidade de reação.</p></div></article></main><Footer />
-</BaseLayout>
-<style>.article h2{margin-top:42px}.article p,.article li{color:#c8d0dc;line-height:1.85}.article ul{padding-left:22px}.article .callout{margin:32px 0;padding:24px;border-radius:24px;border:1px solid rgba(255,209,102,.28);background:rgba(255,209,102,.08)}
-
-.page-hero{padding-top:clamp(58px,8vw,96px)}.page-head{max-width:900px}.actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:28px}.gap-top{margin-top:28px}.article-card{display:grid;gap:10px}.article-card span{color:#ffd166;font-weight:900;text-transform:uppercase;letter-spacing:.12em;font-size:.78rem}.legal h2{margin-top:34px}.legal p,.legal li{color:#c8d0dc;line-height:1.8}@media(max-width:720px){.actions{display:grid}}
-
-</style>
+<BaseLayout title="Como destravar a fala em inglês | SimpleWay Academy" description="Destravar a fala em inglês exige prática guiada, perguntas pessoais, histórias, repetição e revisão." schema={[articleSchema({ title: 'Como destravar a fala em inglês', description: 'Estratégias de speaking com Fala Inicial, contexto e treino ativo.', url: `${site.url}/blog/como-destravar-a-fala-em-ingles/` })]}>
+  <Header /><main id="conteudo"><section class="section page-hero"><div class="container grid-2"><div><p class="eyebrow">Speaking</p><h1>Como destravar a fala em inglês</h1><p class="lead">Falar não nasce só de assistir aula. Falar nasce de tentativa guiada, repetição útil e ambiente seguro para errar e ajustar.</p></div><div class="image-frame"><img src={unsplash.teacher} alt="Professor orientando estudante" loading="eager" width="1200" height="900" /></div></div></section><section class="section"><div class="container article-body"><p>A primeira barreira da fala é psicológica: medo de errar, vergonha e sensação de não ter frase pronta. A SimpleWay responde com a APF — Ativação Pessoal de Fala. O aluno começa por respostas pessoais e controladas, porque falar sobre si é mais natural do que repetir frases desconectadas.</p><p>Depois, a história e as perguntas aumentam a velocidade de resposta. O aluno deixa de pensar palavra por palavra e começa a recuperar blocos de linguagem.</p><p>Por fim, o Desafio das 72 Frases dá volume de prática. A combinação de fala inicial, contexto e repetição cria uma ponte entre saber e conseguir dizer.</p></div></section></main><Footer /></BaseLayout>
+<style>.page-hero{background:linear-gradient(135deg,#eaf3ff,#fff6d8)}.article-body{max-width:860px}.article-body p{font-size:1.08rem;color:var(--sw-muted)}</style>

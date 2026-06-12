@@ -1,161 +1,172 @@
 export const site = {
   name: 'SimpleWay Academy',
-  shortName: 'SimpleWay',
-  courseName: 'SimpleWay English',
-  domain: 'simplewayacademy.com.br',
+  course: 'SimpleWay English',
+  tagline: 'Aprenda com leveza. Fale com confiança. Evolua com propósito.',
+  description:
+    'A SimpleWay Academy une escola premium, método próprio e app interativo para transformar inglês em uma jornada prática, divertida e mensurável.',
   url: 'https://simplewayacademy.com.br',
   appUrl: 'https://app.simplewayacademy.com.br',
-  title: 'SimpleWay Academy | Inglês com leveza, método e tecnologia',
-  description:
-    'A SimpleWay Academy une método próprio, app oficial, speaking, histórias e tecnologia para transformar o estudo de inglês em uma jornada simples, prática e mensurável.',
-  tagline: 'Aprenda com leveza, evolua com propósito.',
-  signature: 'Produto desenvolvido por Tehkné Solutions',
-  city: 'Campinas',
-  region: 'Brasil',
-  whatsappNumber: '5500000000000',
-  whatsappUrl: 'https://wa.me/5500000000000?text=Tenho%20interesse%20na%20SimpleWay%20Academy',
-  ogImage: '/og-simpleway-academy.svg'
+  whatsappNumber: '5519998930846',
+  whatsappDisplay: '+55 19 99893-0846',
+  email: 'contato@simplewayacademy.com.br',
+  author: 'Tehkné Solutions',
+  logos: {
+    mark: '/brand/simpleway-logomark.png',
+    full: '/brand/simpleway-logo-full.png',
+    og: '/og-simpleway-academy.png',
+    favicon: '/favicon.ico'
+  },
+  colors: {
+    blue: '#0057D8',
+    red: '#E63946',
+    gold: '#FFD166',
+    ink: '#102033',
+    white: '#FFFDF7'
+  }
 };
 
 export const navItems = [
-  { label: 'Metodologia', href: '/metodologia' },
-  { label: 'SimpleWay English', href: '/simpleway-english' },
-  { label: 'Planos', href: '/planos' },
-  { label: 'Para escolas', href: '/para-escolas' },
-  { label: 'Blog', href: '/blog' },
-  { label: 'Contato', href: '/contato' }
+  { href: '/metodologia/', label: 'Metodologia' },
+  { href: '/simpleway-english/', label: 'SimpleWay English' },
+  { href: '/planos/', label: 'Planos' },
+  { href: '/para-escolas/', label: 'Para escolas' },
+  { href: '/blog/', label: 'Blog' }
 ];
 
-export const methodPillars = [
+export const methodSteps = [
   {
-    title: 'Imersão Guiada',
-    short: 'Histórias bilíngues e contexto real antes da regra fria.',
+    key: 'apf',
+    number: '01',
+    icon: 'spark',
+    title: 'Fala Inicial',
+    technical: 'APF — Ativação Pessoal de Fala',
+    color: 'blue',
+    short:
+      'O aluno começa falando sobre si com perguntas guiadas e estruturas simples.',
     detail:
-      'O aluno entende a situação, escuta padrões úteis e associa o inglês a significado antes de decorar estruturas.'
+      'Essa etapa aquece a comunicação, reduz o medo de errar e conecta a lição à vida real do aluno. Em vez de começar por regra gramatical, a SimpleWay começa por identidade, rotina e intenção de fala.'
   },
   {
-    title: 'Treino Neural de Frases',
-    short: 'Repetição inteligente para automatizar estruturas essenciais.',
+    key: 'story',
+    number: '02',
+    icon: 'story',
+    title: 'História Guiada',
+    technical: 'DFI — Imersão Guiada',
+    color: 'gold',
+    short:
+      'Mini-histórias bilíngues mostram o inglês acontecendo em contexto.',
     detail:
-      'O Activation 72 transforma frases e estruturas em prática guiada, com variação e consolidação progressiva.'
+      'O aluno entende primeiro o sentido. Depois, percebe padrões de frase, vocabulário e ritmo. Isso cria uma ponte entre compreensão passiva e produção ativa.'
   },
   {
-    title: 'Ciclo de Fala Ativa',
-    short: 'Responder, ouvir, ajustar e falar de novo com mais segurança.',
+    key: 'questions',
+    number: '03',
+    icon: 'chat',
+    title: 'Perguntas da História',
+    technical: 'Compreensão Ativa + Ciclo de Fala',
+    color: 'red',
+    short:
+      'Perguntas rápidas fazem o aluno recuperar informação, responder e ganhar velocidade.',
     detail:
-      'Cada etapa estimula o aluno a produzir respostas reais, evoluir a pronúncia e medir progresso.'
+      'A história deixa de ser apenas leitura. Ela vira treino de memória, escuta, resposta e flexibilidade mental, preparando o aluno para falar com menos tradução interna.'
+  },
+  {
+    key: 'activation',
+    number: '04',
+    icon: 'bolt',
+    title: 'Desafio das 72 Frases',
+    technical: 'NDP — Treino Neural de Frases + Activation 72',
+    color: 'blue',
+    short:
+      'As estruturas principais viram prática gamificada em escuta, fala, leitura e escrita.',
+    detail:
+      'O aluno não vê uma lista bruta e cansativa. A plataforma transforma os drills em cards, desafios e feedback, ajudando a automatizar frases úteis de verdade.'
+  },
+  {
+    key: 'review',
+    number: '05',
+    icon: 'target',
+    title: 'Revisão Inteligente',
+    technical: 'Retention Check + Checkpoint',
+    color: 'gold',
+    short:
+      'A lição termina com consolidação, retenção e preparação para o próximo nível.',
+    detail:
+      'O aluno revisa o que importa, mede domínio e segue com clareza. A cada ciclo, checkpoints misturam conteúdos anteriores para validar fluência real.'
   }
 ];
 
-export const lessonSteps = [
-  { title: 'OPI', description: 'Perguntas pessoais para ativar fala real desde o começo.' },
-  { title: 'Mini-story', description: 'Histórias EN/PT para criar contexto, memória e segurança.' },
-  { title: 'Q&A', description: 'Perguntas sobre a história para treinar compreensão rápida.' },
-  { title: 'Activation 72', description: 'Treino neural gamificado com variações de frase.' },
-  { title: 'Review', description: 'Revisão inteligente para consolidar antes de avançar.' }
+export const cycleOne = [
+  { lesson: 'L1', title: 'Identidade & Presente', focus: 'I am / I do', status: 'matriz validada' },
+  { lesson: 'L2', title: 'Passado Simples', focus: 'I did / Yesterday', status: 'produção guiada' },
+  { lesson: 'L3', title: 'Lugares e Rotinas', focus: 'Where / Routine', status: 'blueprint' },
+  { lesson: 'L4', title: 'Família e Terceira Pessoa', focus: 'He / She', status: 'blueprint' },
+  { lesson: 'L5', title: 'Futuro e Planos', focus: 'I will / Going to', status: 'blueprint' },
+  { lesson: 'L6', title: 'Adjetivos e Sentimentos', focus: 'It was / I feel', status: 'blueprint' },
+  { lesson: 'L7', title: 'Checkpoint I', focus: 'Review L1–L6', status: 'desbloqueio de nível' }
 ];
 
-export const offerCards = [
+export const planCards = [
   {
-    title: 'Turma ao vivo + app',
-    badge: 'Mais completo',
-    description: 'Aulas com professor, acesso ao app SimpleWay Academy, trilha de prática, speaking e revisão.',
-    features: ['Professor ao vivo', 'App oficial', 'Rotina guiada', 'Speaking e revisão']
+    title: 'Turma ao vivo + App',
+    tag: 'Mais completo',
+    description:
+      'Aulas com professor, prática orientada e acesso ao app SimpleWay para treinar entre os encontros.',
+    features: ['Aulas ao vivo', 'App oficial', 'Speaking guiado', 'Progresso e revisão'],
+    cta: 'Quero entrar na turma'
   },
   {
-    title: 'Plataforma',
-    badge: 'Flexível',
-    description: 'Acesso ao app para estudar, revisar e treinar no próprio ritmo com método SimpleWay.',
-    features: ['Acesso ao app', 'Lições interativas', 'Progressão por etapas', 'Treino de fala']
+    title: 'Plataforma SimpleWay',
+    tag: 'Ritmo próprio',
+    description:
+      'Para quem quer usar o app como professor autônomo, com trilha de estudo, voz, desafios e revisão.',
+    features: ['Lições interativas', 'Treino de frases', 'Revisão inteligente', 'Gamificação'],
+    cta: 'Quero testar o app'
   },
   {
-    title: 'Gravadas + comunidade',
-    badge: 'Escalável',
-    description: 'Aulas gravadas, desafios, comunidade e rotina de evolução para manter constância.',
-    features: ['Aulas gravadas', 'Comunidade', 'Desafios semanais', 'Plano de estudo']
+    title: 'Gravadas + Comunidade',
+    tag: 'Flexível',
+    description:
+      'Conteúdo gravado, apoio em comunidade e rotina de prática para manter constância sem complicar.',
+    features: ['Aulas gravadas', 'Comunidade', 'Rotina de estudo', 'Apoio progressivo'],
+    cta: 'Quero saber mais'
   }
 ];
 
-export const testimonials = [
+export const faqs = [
   {
-    quote: 'A proposta da SimpleWay é diferente porque não vende só aula: vende caminho, prática e acompanhamento.',
-    name: 'Aluno beta',
-    role: 'Validação de produto'
+    question: 'O curso acontece no site ou no app?',
+    answer:
+      'O site apresenta a escola, a metodologia, os planos e a captação. A experiência de estudo acontece no app SimpleWay Academy, que é a plataforma oficial do aluno e do professor.'
   },
   {
-    quote: 'O método fica claro: ouvir, responder, praticar e revisar. Isso facilita muito a comunicação com pais e alunos.',
-    name: 'Professor parceiro',
-    role: 'Validação pedagógica'
+    question: 'O que é a Fala Inicial?',
+    answer:
+      'É a APF — Ativação Pessoal de Fala. O aluno começa respondendo perguntas sobre si, sua rotina e sua vida real, com frases guiadas que ativam confiança antes da parte mais técnica.'
   },
   {
-    quote: 'O app como plataforma oficial deixa a escola com cara de produto premium, não apenas curso tradicional.',
-    name: 'Gestor educacional',
-    role: 'Validação comercial'
+    question: 'Por que existem 72 frases por lição?',
+    answer:
+      'Porque a SimpleWay usa repetição inteligente e progressiva. As frases não aparecem como lista bruta para o aluno: elas viram desafios de escuta, fala, leitura e escrita dentro da plataforma.'
+  },
+  {
+    question: 'Serve para iniciante?',
+    answer:
+      'Sim. O método começa com vocabulário controlado, histórias bilíngues e respostas simples, evoluindo por ciclos. A ideia é criar segurança, não sobrecarregar o aluno.'
+  },
+  {
+    question: 'Tem turma para escola ou empresa?',
+    answer:
+      'Sim. A SimpleWay pode ser aplicada em turmas fechadas, projetos educacionais, escolas parceiras e empresas que querem desenvolver inglês com acompanhamento e tecnologia.'
   }
 ];
 
-export const homeFaqs = [
-  {
-    question: 'A SimpleWay Academy é uma escola ou uma plataforma?',
-    answer:
-      'É uma marca educacional com método próprio. O site institucional apresenta a proposta e capta interessados; o app SimpleWay Academy é a plataforma oficial de aprendizagem.'
-  },
-  {
-    question: 'O curso é indicado para iniciantes?',
-    answer:
-      'Sim. A jornada foi pensada para conduzir o aluno com clareza, prática guiada, fala ativa, histórias e revisão progressiva.'
-  },
-  {
-    question: 'O aluno usa app durante o curso?',
-    answer:
-      'Sim. O app concentra aulas interativas, progresso, speaking, XP, revisão e a jornada do aluno.'
-  },
-  {
-    question: 'Quais planos estarão disponíveis?',
-    answer:
-      'A estrutura inicial prevê turma ao vivo com app, plataforma separada e aulas gravadas com comunidade.'
-  },
-  {
-    question: 'O site e o app são a mesma coisa?',
-    answer:
-      'Não. O site vende, explica o método, ranqueia no Google e capta leads. O app é onde o aluno estuda e evolui.'
-  }
-];
-
-export const blogPosts = [
-  {
-    title: 'Como aprender inglês com mais leveza',
-    slug: 'como-aprender-ingles-com-mais-leveza',
-    description: 'Um guia para estudar inglês com método, contexto, fala ativa e rotina sustentável.',
-    category: 'Aprendizado',
-    readingTime: '5 min'
-  },
-  {
-    title: 'O que é o Método SimpleWay',
-    slug: 'metodo-simpleway',
-    description: 'Entenda a lógica de Imersão Guiada, Treino Neural de Frases e Ciclo de Fala Ativa.',
-    category: 'Metodologia',
-    readingTime: '6 min'
-  },
-  {
-    title: 'Activation 72: por que praticar frases muda o jogo',
-    slug: 'activation-72',
-    description: 'Como o treino de frases ajuda o cérebro a automatizar estruturas úteis para falar.',
-    category: 'Prática',
-    readingTime: '4 min'
-  },
-  {
-    title: 'Como destravar a fala em inglês',
-    slug: 'como-destravar-a-fala-em-ingles',
-    description: 'O caminho para sair da compreensão passiva e começar a responder com confiança.',
-    category: 'Speaking',
-    readingTime: '5 min'
-  },
-  {
-    title: 'Por que histórias ajudam na fluência',
-    slug: 'por-que-historias-ajudam-na-fluencia',
-    description: 'Mini-stories criam contexto, memória e previsibilidade para aprender melhor.',
-    category: 'Neurodidática',
-    readingTime: '4 min'
-  }
-];
+export const unsplash = {
+  hero: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=82',
+  kids: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1200&q=82',
+  teacher: 'https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=1200&q=82',
+  study: 'https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=1200&q=82',
+  classroom: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1200&q=82',
+  online: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=82',
+  group: 'https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?auto=format&fit=crop&w=1200&q=82'
+};

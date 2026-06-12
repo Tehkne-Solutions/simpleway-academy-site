@@ -2,52 +2,85 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import { breadcrumbSchema, faqSchema } from '../utils/schema';
-import { homeFaqs, lessonSteps, methodPillars, site } from '../data/site';
+import MethodTimeline from '../components/MethodTimeline.astro';
+import CycleWidget from '../components/CycleWidget.astro';
+import Accordion from '../components/Accordion.astro';
+import Icon from '../components/Icon.astro';
+import { unsplash } from '../data/site';
+import { faqSchema } from '../utils/schema';
+
+const methodFaq = [
+  { question: 'Por que usar Fala Inicial?', answer: 'Porque Fala Inicial comunica melhor a intenção pedagógica da etapa: ativar a fala pessoal do aluno. O nome técnico interno é APF — Ativação Pessoal de Fala.' },
+  { question: 'Por que histórias antes de regras?', answer: 'Histórias dão sentido, emoção e contexto. O aluno entende a mensagem antes de tentar decorar uma estrutura, o que reduz ansiedade e melhora retenção.' },
+  { question: 'Por que 72 frases?', answer: 'As 72 frases funcionam como repertório controlado de prática. No app, elas viram cards e desafios, não uma lista cansativa exposta ao aluno.' },
+  { question: 'Como o método mede evolução?', answer: 'A evolução é vista por habilidade: listening, speaking, reading e writing. Checkpoints revisam ciclos inteiros antes do próximo avanço.' }
+];
 ---
-<BaseLayout title="Metodologia SimpleWay | Imersão, fala ativa e Activation 72" description="Conheça o Método SimpleWay: Imersão Guiada, Treino Neural de Frases, Ciclo de Fala Ativa, Activation 72 e Review." schema={[breadcrumbSchema([{name:'Início',url:site.url},{name:'Metodologia',url:`${site.url}/metodologia`}]), faqSchema(homeFaqs)]}>
+<BaseLayout title="Metodologia SimpleWay | Fala Inicial, Histórias e Desafio das 72 Frases" description="Entenda o Método SimpleWay: APF, Imersão Guiada, Perguntas da História, Desafio das 72 Frases e Revisão Inteligente." schema={[faqSchema(methodFaq)]}>
   <Header />
   <main id="conteudo">
-    <section class="section page-hero">
+    <section class="section hero-method">
       <div class="container grid-2">
-        <div class="page-head">
-          <p class="eyebrow">Metodologia</p>
-          <h1>O Caminho SimpleWay</h1>
-          <p class="lead">Uma metodologia pensada para transformar o estudo em uma jornada clara: o aluno entende, responde, pratica, revisa e evolui.</p>
-          <div class="actions"><a class="btn btn-primary" href="/pre-matricula">Entrar na lista</a><a class="btn btn-outline" href="/simpleway-english">Ver o curso</a></div>
+        <div>
+          <p class="eyebrow">O Caminho SimpleWay</p>
+          <h1>Uma metodologia visual, ativa e feita para destravar a fala.</h1>
+          <p class="lead">A SimpleWay organiza o aprendizado em uma sequência simples de entender: o aluno começa falando sobre si, compreende uma história, responde perguntas, treina estruturas e revisa até consolidar.</p>
         </div>
-        <aside class="card hero-panel"><strong>5 steps</strong><p>OPI, Mini-story, Q&A, Activation 72 e Review em uma sequência simples para aprender com propósito.</p></aside>
+        <div class="image-frame">
+          <img src={unsplash.kids} alt="Alunos aprendendo em sala de aula colorida" width="1200" height="900" loading="eager" />
+          <div class="image-badge">Aprender precisa ter direção, emoção e prática.</div>
+        </div>
       </div>
     </section>
+
     <section class="section">
-      <div class="container cards-3">
-        {methodPillars.map((pillar) => <article class="card step-card"><span>pilar</span><h2>{pillar.title}</h2><p>{pillar.detail}</p></article>)}
+      <div class="container">
+        <p class="eyebrow">Os 5 movimentos da lição</p>
+        <h2>Menos burocracia, mais experiência de aprendizagem.</h2>
+        <p class="lead">A interface não expõe documentação técnica para o aluno. Ela transforma a metodologia em cards, passos, progressos e checkpoints. O professor mantém acesso à lógica pedagógica; o aluno vive uma experiência clara e divertida.</p>
+        <MethodTimeline />
       </div>
     </section>
-    <section class="section cta-band">
-      <div class="container">
-        <div class="page-head center"><p class="eyebrow">Fluxo da lição</p><h2>Do primeiro contato à revisão inteligente.</h2></div>
-        <div class="cards-2 gap-top">
-          {lessonSteps.map((step, index) => <article class="card step-card"><span>Step {index + 1}</span><h3>{step.title}</h3><p>{step.description}</p></article>)}
+
+    <section class="section deep-section">
+      <div class="container grid-2">
+        <div class="card color-card" style="--blob: rgba(0,87,216,.2)">
+          <span class="icon-bubble"><Icon name="spark" /></span>
+          <h2>APF — Ativação Pessoal de Fala</h2>
+          <p>A etapa que antes poderia ser confundida com uma entrevista formal agora ganha nome próprio. A APF é o momento em que o aluno fala sobre si com segurança: nome, idade, rotina, preferências, trabalho, hobbies e objetivos.</p>
+          <p>Essa escolha melhora copy, produto e marca. No site usamos “Fala Inicial”. No material técnico, usamos “APF — Ativação Pessoal de Fala”. Assim, a SimpleWay tem uma linguagem própria, didática e memorável.</p>
         </div>
+        <div class="card color-card" style="--blob: rgba(255,209,102,.42)">
+          <span class="icon-bubble gold"><Icon name="story" /></span>
+          <h2>DFI — Imersão Guiada</h2>
+          <p>A mini-história bilíngue permite que o aluno entenda antes de performar. Ele vê inglês e português em pares, percebe contexto e entra em contato com vocabulário de forma menos mecânica.</p>
+          <p>O objetivo não é só traduzir. É fazer o cérebro associar som, sentido, imagem e estrutura. Isso sustenta a passagem para perguntas, respostas e treino ativo.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section cycle-section">
+      <div class="container">
+        <p class="eyebrow">Arquitetura pedagógica</p>
+        <h2>Ciclos com 6 lições progressivas e 1 checkpoint.</h2>
+        <p class="lead">O Ciclo 1 começa com fundamentos pessoais e termina com uma validação. A Lesson 7 não cria conteúdo novo: ela mistura e mede domínio do que veio antes.</p>
+        <CycleWidget />
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container grid-2">
+        <div>
+          <p class="eyebrow">Perguntas estratégicas</p>
+          <h2>O método explicado sem parecer manual técnico.</h2>
+          <p class="lead">Para SEO e UX, o conteúdo profundo fica organizado em acordeões e blocos visuais. Assim o site comunica autoridade sem criar uma parede de texto.</p>
+        </div>
+        <Accordion items={methodFaq} />
       </div>
     </section>
   </main>
   <Footer />
 </BaseLayout>
-
 <style>
-  .page-hero { padding-top: clamp(58px, 8vw, 96px); }
-  .page-head { max-width: 900px; }
-  .page-head .lead { max-width: 820px; }
-  .gap-top { margin-top: 28px; }
-  .step-card { display: grid; gap: 12px; }
-  .step-card span { color: #ffd166; font-weight: 900; text-transform: uppercase; letter-spacing: .12em; font-size: .78rem; }
-  .list { display: grid; gap: 12px; padding: 0; margin: 0; list-style: none; }
-  .list li { padding: 14px 16px; border-radius: 16px; background: rgba(0,87,216,.12); border: 1px solid rgba(234,234,234,.1); color: #d8e0eb; font-weight: 800; }
-  .hero-panel { min-height: 360px; display: grid; align-content: center; }
-  .hero-panel strong { color: #ffd166; font-size: 3rem; font-family: Poppins, Inter, sans-serif; line-height: 1; }
-  .cta-band { background: linear-gradient(90deg, rgba(0,87,216,.22), rgba(255,209,102,.09)); border-block: 1px solid rgba(234,234,234,.08); }
-  .actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 28px; }
-  @media(max-width:720px){ .actions{display:grid}.hero-panel{min-height:auto}.hero-panel strong{font-size:2.3rem} }
+  .hero-method{background:linear-gradient(135deg,#fff6d9,#eef6ff)}.deep-section{background:#f7fbff}.cycle-section{background:white}.card h2{margin:16px 0 12px}.card p{color:var(--sw-muted)}
 </style>

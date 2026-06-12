@@ -1,18 +1,15 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-  <defs>
-    <radialGradient id="g" cx="65%" cy="18%" r="70%">
-      <stop offset="0" stop-color="#FFD166" stop-opacity=".38"/>
-      <stop offset=".42" stop-color="#0057D8" stop-opacity=".28"/>
-      <stop offset="1" stop-color="#0D1117"/>
-    </radialGradient>
-  </defs>
-  <rect width="1200" height="630" fill="url(#g)"/>
-  <circle cx="940" cy="168" r="72" fill="#FFD166"/>
-  <path d="M856 548 912 224h56l56 324H856Z" fill="#0057D8"/>
-  <path d="M890 390h100l24 158H866l24-158Z" fill="#E63946" opacity=".92"/>
-  <text x="88" y="178" font-family="Inter, Arial" font-size="28" fill="#FFD166" font-weight="800" letter-spacing="7">SIMPLEWAY ACADEMY</text>
-  <text x="88" y="300" font-family="Poppins, Inter, Arial" font-size="78" fill="#FFFFFF" font-weight="900">Inglês com leveza,</text>
-  <text x="88" y="390" font-family="Poppins, Inter, Arial" font-size="78" fill="#FFFFFF" font-weight="900">método e tecnologia.</text>
-  <text x="88" y="474" font-family="Inter, Arial" font-size="32" fill="#D8E0EB">O site vende. O app ensina.</text>
-  <text x="88" y="548" font-family="Inter, Arial" font-size="22" fill="#FFD166" font-weight="800">Produto desenvolvido por Tehkné Solutions</text>
+  <defs><linearGradient id="g" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#0057D8"/><stop offset="0.5" stop-color="#E63946"/><stop offset="1" stop-color="#FFD166"/></linearGradient></defs>
+  <rect width="1200" height="630" fill="#FFFDF7"/>
+  <circle cx="1020" cy="110" r="190" fill="#FFD166" opacity="0.55"/>
+  <circle cx="105" cy="520" r="220" fill="#0057D8" opacity="0.14"/>
+  <rect x="80" y="85" width="1040" height="460" rx="48" fill="white" stroke="#102033" stroke-opacity="0.1"/>
+  <rect x="126" y="126" width="88" height="88" rx="28" fill="url(#g)"/>
+  <circle cx="170" cy="170" r="22" fill="#FFD166"/>
+  <text x="246" y="164" fill="#102033" font-family="Arial, sans-serif" font-size="44" font-weight="800">SimpleWay Academy</text>
+  <text x="126" y="302" fill="#102033" font-family="Arial, sans-serif" font-size="70" font-weight="900">Inglês leve, divertido</text>
+  <text x="126" y="382" fill="#102033" font-family="Arial, sans-serif" font-size="70" font-weight="900">e guiado para falar.</text>
+  <text x="130" y="462" fill="#586579" font-family="Arial, sans-serif" font-size="30" font-weight="700">Fala Inicial • Histórias • Desafio das 72 Frases • App oficial</text>
+  <rect x="126" y="492" width="238" height="54" rx="27" fill="#0057D8"/>
+  <text x="162" y="529" fill="white" font-family="Arial, sans-serif" font-size="23" font-weight="800">Tehkné Solutions</text>
 </svg>

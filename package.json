@@ -1,13 +1,12 @@
 {
   "name": "simpleway-academy-site",
-  "version": "1.0.0",
+  "version": "1.2.1",
   "private": true,
   "type": "module",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "preview": "astro preview",
-    "check:responsive": "echo 'Manual QA: 360, 390, 430, 768, 1024, 1440 px'"
+    "preview": "astro preview"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.3",

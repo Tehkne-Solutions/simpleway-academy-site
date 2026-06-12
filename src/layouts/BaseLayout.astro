@@ -3,53 +3,47 @@ import '../styles/global.css';
 import { site } from '../data/site';
 import { organizationSchema, websiteSchema } from '../utils/schema';
 
-interface Props {
-  title?: string;
-  description?: string;
-  schema?: Record<string, unknown> | Array<Record<string, unknown>>;
-  noindex?: boolean;
-}
-
-const title = Astro.props.title ?? site.title;
-const description = Astro.props.description ?? site.description;
+const {
+  title = `${site.name} | ${site.tagline}`,
+  description = site.description,
+  image = '/og-simpleway-academy.png',
+  schema = []
+} = Astro.props;
 const canonical = new URL(Astro.url.pathname, site.url).toString();
-const ogImage = new URL(site.ogImage, site.url).toString();
-const schema = Astro.props.schema
-  ? Array.isArray(Astro.props.schema)
-    ? [organizationSchema(), websiteSchema(), ...Astro.props.schema]
-    : [organizationSchema(), websiteSchema(), Astro.props.schema]
-  : [organizationSchema(), websiteSchema()];
+const schemas = [organizationSchema(), websiteSchema(), ...(Array.isArray(schema) ? schema : [schema])];
 ---
 <!doctype html>
 <html lang="pt-BR">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
-    <meta name="robots" content={Astro.props.noindex ? 'noindex, nofollow' : 'index, follow, max-image-preview:large'} />
-    <meta name="theme-color" content="#0D1117" />
-    <meta name="color-scheme" content="dark light" />
+    <meta name="theme-color" content="#0057D8" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="robots" content="index,follow,max-image-preview:large" />
     <meta property="og:type" content="website" />
-    <meta property="og:locale" content="pt_BR" />
-    <meta property="og:site_name" content={site.name} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
-    <meta property="og:image" content={ogImage} />
+    <meta property="og:image" content={new URL(image, site.url).toString()} />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={ogImage} />
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta name="twitter:image" content={new URL(image, site.url).toString()} />
+    <link rel="preconnect" href="https://images.unsplash.com" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&family=Poppins:wght@700;800;900&display=swap" rel="stylesheet" />
-    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(schemas)} />
   </head>
   <body>
-    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
     <slot />
   </body>
 </html>

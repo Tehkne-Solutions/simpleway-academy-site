@@ -1,93 +1,62 @@
 ---
 import { site } from '../data/site';
-const pagePath = Astro.url.pathname;
-const whatsappBase = `https://wa.me/${site.whatsappNumber}`;
+const { compact = false, title = 'Quero conhecer a SimpleWay' } = Astro.props;
 ---
-<form class="lead-form" name="pre-matricula" data-form="simpleway-lead" data-whatsapp={whatsappBase}>
-  <input type="hidden" name="source" value="site-simpleway-academy" />
-  <input type="hidden" name="utm_page" value={pagePath} />
-  <label>
-    Nome
-    <input name="name" autocomplete="name" placeholder="Seu nome" required />
+<form class={`lead-form ${compact ? 'is-compact' : ''}`} data-lead-form>
+  <div class="form-head">
+    <span>🚀</span>
+    <div>
+      <h3>{title}</h3>
+      <p>Preencha e abra uma mensagem pronta no WhatsApp da SimpleWay.</p>
+    </div>
+  </div>
+  <div class="form-grid">
+    <label>Nome
+      <input name="nome" required placeholder="Seu nome" />
+    </label>
+    <label>WhatsApp
+      <input name="telefone" inputmode="tel" placeholder="(19) 99999-9999" />
+    </label>
+    <label>E-mail
+      <input name="email" type="email" placeholder="voce@email.com" />
+    </label>
+    <label>Objetivo
+      <select name="objetivo">
+        <option>Destravar a fala</option>
+        <option>Inglês para trabalho</option>
+        <option>Inglês para escola/faculdade</option>
+        <option>Turma para escola/empresa</option>
+        <option>Quero testar o app</option>
+      </select>
+    </label>
+  </div>
+  <label>Mensagem
+    <textarea name="mensagem" placeholder="Conte seu nível atual, horário preferido ou dúvida principal"></textarea>
   </label>
-  <label>
-    WhatsApp
-    <input name="phone" inputmode="tel" autocomplete="tel" placeholder="(00) 00000-0000" required />
-  </label>
-  <label>
-    E-mail
-    <input name="email" type="email" autocomplete="email" placeholder="voce@email.com" required />
-  </label>
-  <label>
-    Preferência
-    <select name="offer" required>
-      <option value="">Selecione</option>
-      <option>Turma ao vivo + app</option>
-      <option>Plataforma</option>
-      <option>Aulas gravadas + comunidade</option>
-      <option>Escola ou empresa</option>
-      <option>Ainda não sei</option>
-    </select>
-  </label>
-  <label>
-    Nível atual
-    <select name="level" required>
-      <option value="">Selecione</option>
-      <option>Começando do zero</option>
-      <option>Básico</option>
-      <option>Intermediário travado</option>
-      <option>Quero destravar conversação</option>
-    </select>
-  </label>
-  <label>
-    Objetivo com inglês
-    <select name="goal" required>
-      <option value="">Selecione</option>
-      <option>Viagem</option>
-      <option>Trabalho</option>
-      <option>Conversação</option>
-      <option>Escola ou faculdade</option>
-      <option>Começar do zero</option>
-    </select>
-  </label>
-  <label class="full">
-    Mensagem
-    <textarea name="message" placeholder="Conte seu objetivo, disponibilidade e maior dificuldade hoje"></textarea>
-  </label>
-  <p class="privacy">Ao enviar, você concorda em ser contatado pela SimpleWay Academy. Nesta versão o formulário abre uma mensagem pronta no WhatsApp; a integração com n8n, Google Sheets ou Supabase entra como automação sem mudar a UX.</p>
-  <button class="btn btn-primary" type="submit">Enviar interesse pelo WhatsApp</button>
+  <button class="btn btn-primary" type="submit">Enviar pelo WhatsApp</button>
+  <p class="privacy">Ao enviar, você será redirecionado para o WhatsApp {site.whatsappDisplay}. Nenhum dado é salvo neste formulário estático.</p>
 </form>
-<script>
-  document.querySelectorAll('[data-form="simpleway-lead"]').forEach((form) => {
+<script define:vars={{ phone: site.whatsappNumber }}>
+  const forms = document.querySelectorAll('[data-lead-form]');
+  forms.forEach((form) => {
     form.addEventListener('submit', (event) => {
       event.preventDefault();
-      const currentForm = event.currentTarget;
-      if (!(currentForm instanceof HTMLFormElement)) return;
-      const data = new FormData(currentForm);
+      const data = new FormData(form);
       const message = [
-        'Olá! Tenho interesse na SimpleWay Academy.',
-        `Nome: ${data.get('name') || ''}`,
-        `WhatsApp: ${data.get('phone') || ''}`,
+        'Olá! Quero saber mais sobre a SimpleWay Academy.',
+        `Nome: ${data.get('nome') || ''}`,
+        `WhatsApp: ${data.get('telefone') || ''}`,
         `E-mail: ${data.get('email') || ''}`,
-        `Preferência: ${data.get('offer') || ''}`,
-        `Nível atual: ${data.get('level') || ''}`,
-        `Objetivo: ${data.get('goal') || ''}`,
-        `Mensagem: ${data.get('message') || ''}`,
-        `Origem: ${data.get('utm_page') || '/'}`
+        `Objetivo: ${data.get('objetivo') || ''}`,
+        `Mensagem: ${data.get('mensagem') || ''}`
       ].join('\n');
-      const base = currentForm.getAttribute('data-whatsapp') || 'https://wa.me/5500000000000';
-      window.location.href = `${base}?text=${encodeURIComponent(message)}`;
+      window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, '_blank', 'noopener,noreferrer');
     });
   });
 </script>
 <style>
-  .lead-form { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
-  label { display: grid; gap: 8px; color: #eaeaea; font-weight: 900; }
-  .full, .privacy, button { grid-column: 1 / -1; }
-  input, select, textarea { width: 100%; border: 1px solid rgba(234,234,234,.16); border-radius: 16px; background: rgba(13,17,23,.92); color: #fff; padding: 14px 15px; outline: none; min-width: 0; }
-  textarea { min-height: 126px; resize: vertical; }
-  input:focus, select:focus, textarea:focus { border-color: #ffd166; box-shadow: 0 0 0 4px rgba(255,209,102,.12); }
-  .privacy { margin: 0; font-size: .88rem; color: #8f9aaa; }
-  button { border: 0; cursor: pointer; }
-  @media (max-width: 720px) { .lead-form { grid-template-columns: 1fr; } }
+  .lead-form{background:white;border:1px solid var(--sw-line);border-radius:30px;box-shadow:var(--shadow-color);padding:clamp(20px,3vw,30px)}
+  .form-head{display:flex;gap:14px;align-items:flex-start;margin-bottom:20px}.form-head span{width:54px;height:54px;border-radius:18px;background:var(--sw-gold);display:grid;place-items:center;font-size:1.5rem;flex:0 0 auto}.form-head h3{margin:0 0 6px}.form-head p{margin:0;color:var(--sw-muted)}
+  .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.lead-form label{display:grid;gap:7px;font-weight:900;color:var(--sw-ink);margin-bottom:14px}.lead-form input,.lead-form select,.lead-form textarea{border:1px solid rgba(16,32,51,.14);border-radius:16px;padding:13px 14px;background:#fbfdff;color:var(--sw-ink);width:100%;outline:none}.lead-form textarea{min-height:106px;resize:vertical}.lead-form input:focus,.lead-form select:focus,.lead-form textarea:focus{border-color:var(--sw-blue);box-shadow:0 0 0 4px rgba(0,87,216,.1)}.privacy{font-size:.85rem;color:var(--sw-muted);margin:14px 0 0}.is-compact .form-grid{grid-template-columns:1fr}.is-compact textarea{min-height:88px}
+  @media(max-width:720px){.form-grid{grid-template-columns:1fr}.form-head{display:block}.form-head span{margin-bottom:12px}}
 </style>

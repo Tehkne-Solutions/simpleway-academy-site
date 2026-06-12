@@ -1,0 +1,21 @@
+---
+import { planCards } from '../data/site';
+import Icon from './Icon.astro';
+---
+<div class="plan-grid">
+  {planCards.map((plan, index) => (
+    <article class={`plan-card ${index === 0 ? 'featured' : ''}`}>
+      <div class="tag">{plan.tag}</div>
+      <h3>{plan.title}</h3>
+      <p>{plan.description}</p>
+      <ul>
+        {plan.features.map((feature) => <li><Icon name="check" size={18} /> {feature}</li>)}
+      </ul>
+      <a class={`btn ${index === 0 ? 'btn-primary' : index === 1 ? 'btn-red' : 'btn-gold'}`} href={`/pre-matricula/?plano=${encodeURIComponent(plan.title)}`}>{plan.cta}</a>
+    </article>
+  ))}
+</div>
+<style>
+  .plan-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}.plan-card{background:white;border:1px solid var(--sw-line);border-radius:30px;padding:26px;box-shadow:var(--shadow-soft);display:flex;flex-direction:column;min-height:100%;position:relative;overflow:hidden}.plan-card::before{content:"";position:absolute;inset:0 0 auto;height:9px;background:linear-gradient(90deg,var(--sw-blue),var(--sw-red),var(--sw-gold))}.plan-card.featured{transform:translateY(-10px);box-shadow:var(--shadow-color)}.tag{align-self:flex-start;background:#eef5ff;color:var(--sw-blue);font-weight:900;border-radius:999px;padding:8px 12px;margin-bottom:16px}.plan-card.featured .tag{background:var(--sw-gold);color:var(--sw-ink)}.plan-card h3{margin-bottom:10px}.plan-card p{color:var(--sw-muted)}.plan-card ul{padding:0;margin:10px 0 24px;list-style:none;display:grid;gap:10px}.plan-card li{display:flex;gap:8px;align-items:center;font-weight:800;color:var(--sw-ink)}.plan-card li svg{color:var(--sw-blue);flex:0 0 auto}.plan-card .btn{margin-top:auto}
+  @media(max-width:980px){.plan-grid{grid-template-columns:1fr}.plan-card.featured{transform:none}}
+</style>
