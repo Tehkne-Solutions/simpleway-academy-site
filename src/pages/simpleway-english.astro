@@ -1,0 +1,34 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { courseSchema } from '../utils/schema';
+---
+<BaseLayout title="SimpleWay English | Curso de inglês da SimpleWay Academy" schema={courseSchema()}>
+  <Header />
+  <main>
+    <section class="section">
+      <div class="container grid-2">
+        <div>
+          <p class="eyebrow">Primeiro curso</p>
+          <h1>SimpleWay English</h1>
+          <p class="lead">Curso de inglês com método próprio, app oficial, speaking, mini-stories e treino ativo para destravar a comunicação.</p>
+          <a class="btn btn-primary" href="/pre-matricula">Quero entrar na lista</a>
+        </div>
+        <div class="card">
+          <h2>Feito para quem quer sair do inglês travado.</h2>
+          <p>A proposta combina aula, tecnologia e prática progressiva para que o aluno consiga ouvir, responder, escrever, revisar e falar com mais segurança.</p>
+        </div>
+      </div>
+    </section>
+    <section class="section details">
+      <div class="container cards-3">
+        <article class="card"><h3>Turmas ao vivo</h3><p>Professor conduzindo a jornada e usando o app como plataforma de prática.</p></article>
+        <article class="card"><h3>App oficial</h3><p>Aluno acompanha lições, speaking, revisão, XP e progresso.</p></article>
+        <article class="card"><h3>Comunidade</h3><p>Modelo preparado para apoio, desafios e acompanhamento de evolução.</p></article>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>
+<style>.btn{margin-top:24px}.details{padding-top:0}</style>

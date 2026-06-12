@@ -1,0 +1,42 @@
+---
+import '../styles/global.css';
+import { site } from '../data/site';
+import { organizationSchema } from '../utils/schema';
+
+interface Props {
+  title?: string;
+  description?: string;
+  schema?: Record<string, unknown> | Array<Record<string, unknown>>;
+}
+
+const title = Astro.props.title ?? site.title;
+const description = Astro.props.description ?? site.description;
+const canonical = new URL(Astro.url.pathname, site.url).toString();
+const schema = Astro.props.schema
+  ? Array.isArray(Astro.props.schema)
+    ? [organizationSchema(), ...Astro.props.schema]
+    : [organizationSchema(), Astro.props.schema]
+  : [organizationSchema()];
+---
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta name="theme-color" content="#0D1117" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:site_name" content={site.name} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

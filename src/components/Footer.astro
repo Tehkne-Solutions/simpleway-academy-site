@@ -1,0 +1,33 @@
+---
+import { site } from '../data/site';
+const year = new Date().getFullYear();
+---
+<footer class="footer">
+  <div class="container footer-grid">
+    <div>
+      <strong>{site.name}</strong>
+      <p>{site.tagline}</p>
+      <p class="signature">{site.signature}</p>
+    </div>
+    <nav aria-label="Rodapé">
+      <a href="/metodologia">Metodologia</a>
+      <a href="/planos">Planos</a>
+      <a href="/blog">Blog</a>
+      <a href="/politica-de-privacidade">Privacidade</a>
+      <a href="/termos-de-uso">Termos</a>
+    </nav>
+  </div>
+  <div class="container copy">© {year} SimpleWay Academy. Todos os direitos reservados.</div>
+</footer>
+<style>
+  .footer { border-top: 1px solid rgba(234,234,234,.1); background: rgba(7,10,15,.95); padding: 54px 0 26px; }
+  .footer-grid { display: grid; grid-template-columns: 1fr auto; gap: 32px; align-items: start; }
+  strong { color: #fff; font-family: Poppins, Inter, sans-serif; font-size: 1.4rem; }
+  p { margin: 10px 0 0; }
+  .signature { color: #ffd166; font-weight: 800; }
+  nav { display: grid; gap: 10px; justify-items: end; font-weight: 800; color: #a8b3c3; }
+  a { text-decoration: none; }
+  a:hover { color: #ffd166; }
+  .copy { color: #7f8a99; font-size: .88rem; margin-top: 36px; }
+  @media (max-width: 760px) { .footer-grid { grid-template-columns: 1fr; } nav { justify-items: start; } }
+</style>

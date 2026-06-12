@@ -1,0 +1,21 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+---
+<BaseLayout title="Blog SimpleWay Academy | Inglês, fluência e aprendizagem">
+  <Header />
+  <main class="section">
+    <div class="container">
+      <p class="eyebrow">Blog e SEO</p>
+      <h1>Conteúdos para aprender inglês com mais clareza.</h1>
+      <div class="cards-3 posts">
+        <a class="card post" href="/blog/como-aprender-ingles-com-mais-leveza"><span>Guia</span><h2>Como aprender inglês com mais leveza</h2><p>Um caminho prático para sair da culpa e criar rotina real de aprendizado.</p></a>
+        <article class="card post"><span>Speaking</span><h2>Como destravar a fala em inglês</h2><p>Artigo planejado para a Sprint SEO 1.</p></article>
+        <article class="card post"><span>Metodologia</span><h2>Por que histórias ajudam na fluência</h2><p>Artigo planejado para a Sprint SEO 1.</p></article>
+      </div>
+    </div>
+  </main>
+  <Footer />
+</BaseLayout>
+<style>.posts{margin-top:32px}.post{text-decoration:none;display:grid;gap:12px}.post span{color:#ffd166;font-weight:900}h2{font-size:1.65rem}</style>

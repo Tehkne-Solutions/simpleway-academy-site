@@ -1,0 +1,42 @@
+<form class="lead-form" name="pre-matricula" method="post" data-form="simpleway-lead">
+  <label>
+    Nome
+    <input name="name" autocomplete="name" placeholder="Seu nome" required />
+  </label>
+  <label>
+    WhatsApp
+    <input name="phone" inputmode="tel" autocomplete="tel" placeholder="(00) 00000-0000" required />
+  </label>
+  <label>
+    E-mail
+    <input name="email" type="email" autocomplete="email" placeholder="voce@email.com" required />
+  </label>
+  <label>
+    Objetivo com inglês
+    <select name="goal" required>
+      <option value="">Selecione</option>
+      <option>Viagem</option>
+      <option>Trabalho</option>
+      <option>Conversação</option>
+      <option>Escola ou faculdade</option>
+      <option>Começar do zero</option>
+    </select>
+  </label>
+  <label class="full">
+    Mensagem
+    <textarea name="message" placeholder="Conte seu nível atual e o que você quer alcançar"></textarea>
+  </label>
+  <p class="privacy">Ao enviar, você concorda em ser contatado pela SimpleWay Academy. Integração com n8n/Supabase será ativada na sprint de automações.</p>
+  <button class="btn btn-primary" type="submit">Enviar interesse</button>
+</form>
+<style>
+  .lead-form { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  label { display: grid; gap: 8px; color: #eaeaea; font-weight: 900; }
+  .full, .privacy, button { grid-column: 1 / -1; }
+  input, select, textarea { width: 100%; border: 1px solid rgba(234,234,234,.16); border-radius: 16px; background: rgba(13,17,23,.92); color: #fff; padding: 14px 15px; font: inherit; outline: none; }
+  textarea { min-height: 126px; resize: vertical; }
+  input:focus, select:focus, textarea:focus { border-color: #ffd166; box-shadow: 0 0 0 4px rgba(255,209,102,.12); }
+  .privacy { margin: 0; font-size: .88rem; color: #8f9aaa; }
+  button { border: 0; cursor: pointer; }
+  @media (max-width: 720px) { .lead-form { grid-template-columns: 1fr; } }
+</style>

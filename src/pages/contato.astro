@@ -1,0 +1,20 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import LeadForm from '../components/LeadForm.astro';
+---
+<BaseLayout title="Contato | SimpleWay Academy">
+  <Header />
+  <main class="section">
+    <div class="container grid-2">
+      <div>
+        <p class="eyebrow">Contato</p>
+        <h1>Fale com a SimpleWay Academy.</h1>
+        <p class="lead">Use o formulário para interesse em turmas, plataforma, aulas gravadas, escolas ou parcerias.</p>
+      </div>
+      <div class="card"><LeadForm /></div>
+    </div>
+  </main>
+  <Footer />
+</BaseLayout>

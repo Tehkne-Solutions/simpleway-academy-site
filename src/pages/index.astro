@@ -1,0 +1,108 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { courseSchema, faqSchema } from '../utils/schema';
+
+const faqs = [
+  { question: 'A SimpleWay Academy é uma plataforma?', answer: 'Sim. O site institucional apresenta a marca e capta interessados; a plataforma oficial de estudo é o app SimpleWay Academy.' },
+  { question: 'O curso é para iniciantes?', answer: 'Sim. O método foi desenhado para conduzir o aluno com clareza, prática guiada, escuta, fala e revisão.' },
+  { question: 'O aluno usa app?', answer: 'Sim. O app concentra aulas, progresso, speaking, revisão, XP e jornada do aluno.' }
+];
+---
+<BaseLayout schema={[courseSchema(), faqSchema(faqs)]}>
+  <Header />
+  <main>
+    <section class="hero section">
+      <div class="container grid-2">
+        <div>
+          <span class="badge">Site institucional + app oficial de aprendizagem</span>
+          <p class="eyebrow">SimpleWay Academy</p>
+          <h1>Inglês com leveza, método e tecnologia para destravar a fala.</h1>
+          <p class="lead">A SimpleWay Academy transforma a apostila e a aula em uma experiência interativa com histórias, speaking, treino neural de frases, revisão e progresso real.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="/pre-matricula">Entrar na lista de interesse</a>
+            <a class="btn btn-outline" href="/metodologia">Conhecer o método</a>
+          </div>
+        </div>
+        <aside class="hero-card card" aria-label="Resumo da plataforma">
+          <div class="light"></div>
+          <div class="tower"></div>
+          <h2>O site vende. O app ensina.</h2>
+          <p>Marketing, SEO e captação vivem aqui. A jornada do aluno acontece no app SimpleWay Academy.</p>
+          <div class="mini-grid">
+            <span>OPI</span><span>Mini-story</span><span>Q&A</span><span>Activation 72</span>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <p class="eyebrow">Por que existe</p>
+        <h2>O inglês não precisa parecer uma parede. Ele precisa virar caminho.</h2>
+        <div class="cards-3 gap-top">
+          <article class="card"><h3>Menos trava</h3><p>O aluno pratica respostas reais, começa com estrutura guiada e ganha confiança para falar.</p></article>
+          <article class="card"><h3>Mais contexto</h3><p>Mini-stories e tradução estratégica ajudam a entender antes de decorar.</p></article>
+          <article class="card"><h3>Mais constância</h3><p>Gamificação, revisão e progresso tornam o estudo mais visível e motivador.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section method-band">
+      <div class="container grid-2">
+        <div>
+          <p class="eyebrow">Método SimpleWay</p>
+          <h2>Uma aula organizada como jornada: ouvir, responder, praticar, revisar e evoluir.</h2>
+        </div>
+        <div class="card steps">
+          <span>1. OPI — fala ativa</span>
+          <span>2. Mini-story — imersão guiada</span>
+          <span>3. Q&A — compreensão rápida</span>
+          <span>4. Activation 72 — treino neural</span>
+          <span>5. Review — consolidação</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <p class="eyebrow">Ofertas iniciais</p>
+        <h2>Três formas de começar com a SimpleWay.</h2>
+        <div class="cards-3 gap-top">
+          <article class="card"><h3>Turma ao vivo + app</h3><p>Acompanhamento humano com acesso à plataforma oficial para prática e revisão.</p></article>
+          <article class="card"><h3>Plataforma</h3><p>Uso do app para treinar no próprio ritmo com trilha, speaking e progresso.</p></article>
+          <article class="card"><h3>Gravadas + comunidade</h3><p>Aulas gravadas, suporte e comunidade para manter consistência.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section cta">
+      <div class="narrow card cta-card">
+        <p class="eyebrow">Pré-matrícula</p>
+        <h2>Entre na lista de interesse da SimpleWay English.</h2>
+        <p>Receba informações sobre turmas, plataforma, planos e próximos testes do app.</p>
+        <a class="btn btn-primary" href="/pre-matricula">Quero participar</a>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>
+<style>
+  .hero { padding-top: clamp(58px, 8vw, 98px); }
+  .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 32px; }
+  .hero-card { min-height: 520px; display: grid; align-content: center; justify-items: center; text-align: center; position: relative; overflow: hidden; }
+  .hero-card::before { content: ''; position: absolute; inset: -40%; background: radial-gradient(circle, rgba(255,209,102,.16), transparent 42%); animation: pulse 7s ease-in-out infinite; }
+  .hero-card > * { position: relative; }
+  .light { width: 142px; height: 142px; border-radius: 999px; background: #ffd166; box-shadow: 0 0 120px rgba(255,209,102,.72); }
+  .tower { width: 92px; height: 154px; margin: -8px auto 26px; background: linear-gradient(180deg, #e63946, #0057d8); clip-path: polygon(35% 0,65% 0,100% 100%,0 100%); }
+  .mini-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 18px; width: 100%; }
+  .mini-grid span, .steps span { border: 1px solid rgba(234,234,234,.12); background: rgba(0,87,216,.15); border-radius: 16px; padding: 13px; color: #dbe7f7; font-weight: 900; }
+  .gap-top { margin-top: 26px; }
+  .method-band { background: linear-gradient(90deg, rgba(0,87,216,.18), rgba(255,209,102,.07)); border-block: 1px solid rgba(234,234,234,.08); }
+  .steps { display: grid; gap: 12px; }
+  .cta { padding-top: 0; }
+  .cta-card { text-align: center; }
+  .cta-card p { max-width: 640px; margin-inline: auto; }
+  @keyframes pulse { 0%,100% { transform: scale(1); opacity: .82; } 50% { transform: scale(1.08); opacity: 1; } }
+</style>

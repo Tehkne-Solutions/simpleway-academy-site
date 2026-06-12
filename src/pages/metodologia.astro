@@ -1,0 +1,38 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { faqSchema } from '../utils/schema';
+
+const faqs = [
+  { question: 'O que é Activation 72?', answer: 'É o treino neural de frases do método SimpleWay, apresentado ao aluno como jogo e prática progressiva.' },
+  { question: 'Por que usar histórias?', answer: 'Histórias dão contexto, emoção e sentido para o cérebro compreender o inglês antes de automatizar estruturas.' }
+];
+---
+<BaseLayout title="Metodologia SimpleWay | SimpleWay Academy" schema={faqSchema(faqs)}>
+  <Header />
+  <main class="section">
+    <div class="container">
+      <p class="eyebrow">O Caminho SimpleWay</p>
+      <h1>Metodologia para estudar com clareza, praticar com ritmo e falar com confiança.</h1>
+      <p class="lead">O método organiza cada lição em etapas simples, interativas e mensuráveis. O aluno entende, responde, escuta, pratica e revisa.</p>
+      <div class="timeline">
+        <article class="card"><span>01</span><h2>OPI</h2><p>Entrevista oral guiada para o aluno falar sobre si e ativar vocabulário pessoal.</p></article>
+        <article class="card"><span>02</span><h2>Mini-story</h2><p>História curta em inglês com apoio estratégico em português para criar contexto.</p></article>
+        <article class="card"><span>03</span><h2>Q&A</h2><p>Perguntas rápidas sobre a história para treinar compreensão e resposta.</p></article>
+        <article class="card"><span>04</span><h2>Activation 72</h2><p>O Drill 72 vira jogo de escuta, fala, escrita e leitura, sem parecer lista bruta.</p></article>
+        <article class="card"><span>05</span><h2>Review</h2><p>Revisão inteligente para consolidar e preparar o desbloqueio da próxima lição.</p></article>
+      </div>
+    </div>
+  </main>
+  <Footer />
+</BaseLayout>
+<style>
+  h1 { max-width: 1020px; }
+  .timeline { display: grid; gap: 18px; margin-top: 34px; }
+  .timeline article { display: grid; grid-template-columns: 72px 220px 1fr; gap: 20px; align-items: center; }
+  span { width: 52px; height: 52px; border-radius: 18px; display: grid; place-items: center; color: #0d1117; background: #ffd166; font-weight: 900; }
+  h2 { font-size: 2rem; }
+  p { margin: 0; }
+  @media (max-width: 820px) { .timeline article { grid-template-columns: 1fr; } }
+</style>

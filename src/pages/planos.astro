@@ -1,0 +1,21 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+<BaseLayout title="Planos SimpleWay Academy | Turmas, plataforma e comunidade">
+  <Header />
+  <main class="section">
+    <div class="container">
+      <p class="eyebrow">Planos</p>
+      <h1>Escolha o melhor formato para começar.</h1>
+      <div class="cards-3 plans">
+        <article class="card plan"><h2>Turma ao vivo + app</h2><p>Melhor opção para alunos que querem acompanhamento, rotina e prática guiada.</p><a class="btn btn-primary" href="/pre-matricula">Tenho interesse</a></article>
+        <article class="card plan featured"><h2>Plataforma SimpleWay</h2><p>Estudo pelo app com trilhas, revisão, speaking e evolução no próprio ritmo.</p><a class="btn btn-primary" href="/pre-matricula">Entrar na lista</a></article>
+        <article class="card plan"><h2>Gravadas + comunidade</h2><p>Conteúdo gravado, desafios e apoio para manter consistência.</p><a class="btn btn-outline" href="/pre-matricula">Saber mais</a></article>
+      </div>
+    </div>
+  </main>
+  <Footer />
+</BaseLayout>
+<style>.plans{margin-top:32px}.plan{display:grid;align-content:start;gap:18px}.featured{border-color:rgba(255,209,102,.45);box-shadow:0 28px 100px rgba(255,209,102,.12)}h2{font-size:2rem}.btn{margin-top:8px}</style>
