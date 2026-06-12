@@ -1,3 +1,13 @@
+# CHANGELOG
+
+## v5.0.0 — Worker Deploy Fix
+
+- Adicionado `wrangler.jsonc`.
+- Adicionado script `npm run deploy`.
+- Adicionado marcador `SWA_WORKER_DEPLOY_FIX_V5`.
+- Corrigido fluxo para Cloudflare Workers & Pages publicar assets novos em `dist`.
+- Mantida home light premium e remoção de OPI no front.
+
 # Changelog
 
 ## [4.0.0] - Force Light Premium V4

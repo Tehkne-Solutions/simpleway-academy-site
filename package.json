@@ -1,12 +1,15 @@
 {
   "name": "simpleway-academy-site",
-  "version": "4.0.0",
+  "version": "5.0.0",
   "private": true,
   "type": "module",
   "scripts": {
     "build": "node scripts/build.mjs",
+    "deploy": "wrangler deploy",
     "preview": "python -m http.server 4321 -d dist"
   },
   "dependencies": {},
-  "devDependencies": {}
+  "devDependencies": {
+    "wrangler": "^4.86.0"
+  }
 }
