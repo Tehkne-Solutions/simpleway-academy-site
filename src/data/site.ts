@@ -43,9 +43,9 @@ export const methodSteps = [
     technical: 'APF — Ativação Pessoal de Fala',
     color: 'blue',
     short:
-      'O aluno começa falando sobre si com perguntas guiadas e estruturas simples.',
+      'Você começa respondendo perguntas simples sobre você, sua rotina e sua vida real. Assim, o inglês deixa de ser teoria e vira comunicação desde o primeiro minuto.',
     detail:
-      'Essa etapa aquece a comunicação, reduz o medo de errar e conecta a lição à vida real do aluno. Em vez de começar por regra gramatical, a SimpleWay começa por identidade, rotina e intenção de fala.'
+      'Etapa de aquecimento comunicativo em que o aluno responde perguntas pessoais com estruturas controladas, slots variáveis e feedback progressivo.'
   },
   {
     key: 'story',
@@ -143,7 +143,7 @@ export const faqs = [
   {
     question: 'O que é a Fala Inicial?',
     answer:
-      'É a APF — Ativação Pessoal de Fala. O aluno começa respondendo perguntas sobre si, sua rotina e sua vida real, com frases guiadas que ativam confiança antes da parte mais técnica.'
+      'É a APF — Ativação Pessoal de Fala. Você começa respondendo perguntas simples sobre você, sua rotina e sua vida real. Assim, o inglês deixa de ser teoria e vira comunicação desde o primeiro minuto.'
   },
   {
     question: 'Por que existem 72 frases por lição?',

@@ -1,3 +1,23 @@
+
+## Correção Cloudflare Worker — Node 22
+
+Configuração recomendada no Cloudflare:
+
+- Build command: `npm run build`
+- Deploy command: `npm run deploy`
+- Build output directory: `dist`
+- Root directory: `/`
+- Node version: `22`
+
+Este pacote usa `.node-version` com `22` e `wrangler` pinado em `4.86.0` para impedir que o Cloudflare instale automaticamente `wrangler@4.100.0` em Node 20.
+
+Valide depois do deploy em `/BUILD_MARKER.txt`. O retorno esperado inclui:
+
+```txt
+SWA_WORKER_DEPLOY_FIX_V6_NODE22
+SWA_STATIC_LIGHT_V4_2026_06_12_ROOT_ONLY
+```
+
 # SimpleWay Academy Site — FORCE LIGHT V4
 
 Pacote root-only, sem Astro, sem dependências e com build estático por Node.
