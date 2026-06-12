@@ -1,16 +1,12 @@
 {
   "name": "simpleway-academy-site",
-  "version": "1.2.1",
+  "version": "4.0.0",
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview"
+    "build": "node scripts/build.mjs",
+    "preview": "python -m http.server 4321 -d dist"
   },
-  "dependencies": {
-    "@astrojs/sitemap": "^3.7.3",
-    "astro": "^5.18.2"
-  },
+  "dependencies": {},
   "devDependencies": {}
 }
