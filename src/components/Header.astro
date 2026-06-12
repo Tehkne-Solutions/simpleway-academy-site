@@ -4,22 +4,48 @@ import { navItems, site } from '../data/site';
 <header class="site-header">
   <div class="container nav-wrap">
     <a class="brand" href="/" aria-label="SimpleWay Academy Home">
-      <span class="brand-mark">SW</span>
-      <span>{site.name}</span>
+      <span class="brand-mark" aria-hidden="true">SW</span>
+      <span class="brand-name">{site.name}</span>
     </a>
-    <nav aria-label="Menu principal">
+
+    <nav class="desktop-nav" aria-label="Menu principal">
       {navItems.map((item) => <a href={item.href}>{item.label}</a>)}
     </nav>
-    <a class="btn btn-primary" href="/pre-matricula">Pré-matrícula</a>
+
+    <div class="nav-actions">
+      <a class="app-link" href={site.appUrl} rel="noopener">Acessar app</a>
+      <a class="btn btn-primary nav-cta" href="/pre-matricula">Pré-matrícula</a>
+    </div>
+
+    <details class="mobile-menu">
+      <summary aria-label="Abrir menu"><span></span><span></span><span></span></summary>
+      <div class="mobile-panel">
+        {navItems.map((item) => <a href={item.href}>{item.label}</a>)}
+        <a href={site.appUrl} rel="noopener">Acessar app</a>
+        <a class="btn btn-primary" href="/pre-matricula">Pré-matrícula</a>
+      </div>
+    </details>
   </div>
 </header>
 <style>
   .site-header { position: sticky; top: 0; z-index: 50; border-bottom: 1px solid rgba(234,234,234,.08); background: rgba(13,17,23,.78); backdrop-filter: blur(18px); }
-  .nav-wrap { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 22px; }
-  .brand { display: inline-flex; align-items: center; gap: 12px; color: #fff; text-decoration: none; font-weight: 900; letter-spacing: -0.03em; }
-  .brand-mark { display: grid; place-items: center; width: 42px; height: 42px; border-radius: 14px; background: linear-gradient(135deg, #0057d8, #ffd166); color: #0d1117; font-size: .82rem; }
-  nav { display: flex; align-items: center; gap: 20px; color: #a8b3c3; font-size: .92rem; font-weight: 800; }
-  nav a { text-decoration: none; }
-  nav a:hover { color: #ffd166; }
-  @media (max-width: 920px) { nav { display: none; } .nav-wrap { min-height: 68px; } }
+  .nav-wrap { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 18px; }
+  .brand { display: inline-flex; align-items: center; gap: 12px; color: #fff; text-decoration: none; font-weight: 900; letter-spacing: -0.03em; white-space: nowrap; min-width: 0; }
+  .brand-mark { flex: 0 0 auto; display: grid; place-items: center; width: 42px; height: 42px; border-radius: 14px; background: linear-gradient(135deg, #0057d8, #ffd166); color: #0d1117; font-size: .82rem; box-shadow: 0 12px 38px rgba(0,87,216,.38); }
+  .brand-name { overflow: hidden; text-overflow: ellipsis; }
+  .desktop-nav { display: flex; align-items: center; gap: 18px; color: #a8b3c3; font-size: .9rem; font-weight: 800; }
+  .desktop-nav a, .app-link, .mobile-panel a { text-decoration: none; }
+  .desktop-nav a:hover, .app-link:hover, .mobile-panel a:hover { color: #ffd166; }
+  .nav-actions { display: inline-flex; align-items: center; gap: 12px; }
+  .app-link { color: #d8e0eb; font-weight: 900; font-size: .92rem; white-space: nowrap; }
+  .nav-cta { min-height: 44px; padding-inline: 18px; }
+  .mobile-menu { display: none; margin-left: auto; position: relative; }
+  .mobile-menu summary { width: 46px; height: 46px; display: grid; place-content: center; gap: 5px; border: 1px solid rgba(234,234,234,.16); border-radius: 15px; background: rgba(255,255,255,.04); list-style: none; cursor: pointer; }
+  .mobile-menu summary::-webkit-details-marker { display: none; }
+  .mobile-menu summary span { display: block; width: 19px; height: 2px; background: #eaeaea; border-radius: 999px; }
+  .mobile-panel { position: absolute; right: 0; top: 58px; width: min(88vw, 340px); display: grid; gap: 8px; padding: 16px; border: 1px solid rgba(234,234,234,.14); border-radius: 24px; background: rgba(13,17,23,.98); box-shadow: 0 24px 80px rgba(0,0,0,.45); }
+  .mobile-panel a:not(.btn) { padding: 14px 12px; border-radius: 14px; color: #d8e0eb; font-weight: 900; background: rgba(255,255,255,.035); }
+  @media (max-width: 1120px) { .desktop-nav { display: none; } .mobile-menu { display: block; } }
+  @media (max-width: 720px) { .nav-wrap { min-height: 68px; gap: 10px; } .app-link { display: none; } .nav-cta { display: none; } .brand-name { max-width: 190px; } }
+  @media (max-width: 390px) { .brand-name { display: none; } .mobile-panel { right: -4px; } }
 </style>

@@ -1,0 +1,16 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { articleSchema } from '../../utils/schema';
+const post = { title: 'O que é o Método SimpleWay', description: 'Entenda a lógica de Imersão Guiada, Treino Neural de Frases e Ciclo de Fala Ativa.', slug: 'metodo-simpleway' };
+---
+<BaseLayout title="O que é o Método SimpleWay | SimpleWay Academy" description="Entenda a lógica de Imersão Guiada, Treino Neural de Frases e Ciclo de Fala Ativa." schema={articleSchema(post)}>
+  <Header />
+  <main id="conteudo"><article class="section page-hero"><div class="narrow article"><p class="eyebrow">Metodologia</p><h1>O que é o Método SimpleWay</h1><p class="lead">Entenda a lógica de Imersão Guiada, Treino Neural de Frases e Ciclo de Fala Ativa.</p><h2>Três pilares</h2><p>A metodologia combina Imersão Guiada, Treino Neural de Frases e Ciclo de Fala Ativa para transformar conteúdo em prática.</p><h2>Da aula para o app</h2><p>Cada lição é organizada em OPI, Mini-story, Q&A, Activation 72 e Review. Essa estrutura permite que o aluno avance com clareza.</p><div class="callout">O método vira experiência dentro do app SimpleWay Academy.</div></div></article></main><Footer />
+</BaseLayout>
+<style>.article h2{margin-top:42px}.article p,.article li{color:#c8d0dc;line-height:1.85}.article ul{padding-left:22px}.article .callout{margin:32px 0;padding:24px;border-radius:24px;border:1px solid rgba(255,209,102,.28);background:rgba(255,209,102,.08)}
+
+.page-hero{padding-top:clamp(58px,8vw,96px)}.page-head{max-width:900px}.actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:28px}.gap-top{margin-top:28px}.article-card{display:grid;gap:10px}.article-card span{color:#ffd166;font-weight:900;text-transform:uppercase;letter-spacing:.12em;font-size:.78rem}.legal h2{margin-top:34px}.legal p,.legal li{color:#c8d0dc;line-height:1.8}@media(max-width:720px){.actions{display:grid}}
+
+</style>

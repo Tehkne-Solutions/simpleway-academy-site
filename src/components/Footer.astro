@@ -1,5 +1,5 @@
 ---
-import { site } from '../data/site';
+import { navItems, site } from '../data/site';
 const year = new Date().getFullYear();
 ---
 <footer class="footer">
@@ -10,9 +10,7 @@ const year = new Date().getFullYear();
       <p class="signature">{site.signature}</p>
     </div>
     <nav aria-label="Rodapé">
-      <a href="/metodologia">Metodologia</a>
-      <a href="/planos">Planos</a>
-      <a href="/blog">Blog</a>
+      {navItems.map((item) => <a href={item.href}>{item.label}</a>)}
       <a href="/politica-de-privacidade">Privacidade</a>
       <a href="/termos-de-uso">Termos</a>
     </nav>
@@ -20,7 +18,7 @@ const year = new Date().getFullYear();
   <div class="container copy">© {year} SimpleWay Academy. Todos os direitos reservados.</div>
 </footer>
 <style>
-  .footer { border-top: 1px solid rgba(234,234,234,.1); background: rgba(7,10,15,.95); padding: 54px 0 26px; }
+  .footer { border-top: 1px solid rgba(234,234,234,.1); background: rgba(7,10,15,.95); padding: 54px 0 calc(26px + var(--safe-bottom)); }
   .footer-grid { display: grid; grid-template-columns: 1fr auto; gap: 32px; align-items: start; }
   strong { color: #fff; font-family: Poppins, Inter, sans-serif; font-size: 1.4rem; }
   p { margin: 10px 0 0; }

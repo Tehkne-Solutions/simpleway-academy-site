@@ -3,15 +3,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 ---
-<BaseLayout title="Termos de Uso | SimpleWay Academy">
-  <Header />
-  <main class="section">
-    <div class="narrow">
-      <p class="eyebrow">Termos</p>
-      <h1>Termos de Uso</h1>
-      <p>Estes termos serão refinados antes da publicação comercial. O site institucional apresenta informações, conteúdos e formulários de interesse da SimpleWay Academy.</p>
-      <p>A plataforma oficial de ensino é o app SimpleWay Academy.</p>
-    </div>
-  </main>
-  <Footer />
+<BaseLayout title="Termos de Uso | SimpleWay Academy" description="Termos de uso do site institucional SimpleWay Academy.">
+  <Header /><main id="conteudo"><section class="section page-hero"><div class="narrow legal"><p class="eyebrow">Termos</p><h1>Termos de Uso</h1><p>Este site apresenta informações institucionais, comerciais e educacionais da SimpleWay Academy.</p><h2>Conteúdo</h2><p>As informações podem ser atualizadas a qualquer momento conforme evolução do produto, turmas e plataforma.</p><h2>Pré-matrícula</h2><p>O envio de interesse não garante vaga automática. A matrícula depende de confirmação comercial e disponibilidade.</p><h2>Assinatura</h2><p>Produto desenvolvido por Tehkné Solutions.</p></div></section></main><Footer />
 </BaseLayout>
+
+<style>
+.page-hero{padding-top:clamp(58px,8vw,96px)}.page-head{max-width:900px}.actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:28px}.gap-top{margin-top:28px}.article-card{display:grid;gap:10px}.article-card span{color:#ffd166;font-weight:900;text-transform:uppercase;letter-spacing:.12em;font-size:.78rem}.legal h2{margin-top:34px}.legal p,.legal li{color:#c8d0dc;line-height:1.8}@media(max-width:720px){.actions{display:grid}}
+</style>

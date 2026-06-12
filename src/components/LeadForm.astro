@@ -1,4 +1,11 @@
-<form class="lead-form" name="pre-matricula" method="post" data-form="simpleway-lead">
+---
+import { site } from '../data/site';
+const pagePath = Astro.url.pathname;
+const whatsappBase = `https://wa.me/${site.whatsappNumber}`;
+---
+<form class="lead-form" name="pre-matricula" data-form="simpleway-lead" data-whatsapp={whatsappBase}>
+  <input type="hidden" name="source" value="site-simpleway-academy" />
+  <input type="hidden" name="utm_page" value={pagePath} />
   <label>
     Nome
     <input name="name" autocomplete="name" placeholder="Seu nome" required />
@@ -10,6 +17,27 @@
   <label>
     E-mail
     <input name="email" type="email" autocomplete="email" placeholder="voce@email.com" required />
+  </label>
+  <label>
+    Preferência
+    <select name="offer" required>
+      <option value="">Selecione</option>
+      <option>Turma ao vivo + app</option>
+      <option>Plataforma</option>
+      <option>Aulas gravadas + comunidade</option>
+      <option>Escola ou empresa</option>
+      <option>Ainda não sei</option>
+    </select>
+  </label>
+  <label>
+    Nível atual
+    <select name="level" required>
+      <option value="">Selecione</option>
+      <option>Começando do zero</option>
+      <option>Básico</option>
+      <option>Intermediário travado</option>
+      <option>Quero destravar conversação</option>
+    </select>
   </label>
   <label>
     Objetivo com inglês
@@ -24,16 +52,39 @@
   </label>
   <label class="full">
     Mensagem
-    <textarea name="message" placeholder="Conte seu nível atual e o que você quer alcançar"></textarea>
+    <textarea name="message" placeholder="Conte seu objetivo, disponibilidade e maior dificuldade hoje"></textarea>
   </label>
-  <p class="privacy">Ao enviar, você concorda em ser contatado pela SimpleWay Academy. Integração com n8n/Supabase será ativada na sprint de automações.</p>
-  <button class="btn btn-primary" type="submit">Enviar interesse</button>
+  <p class="privacy">Ao enviar, você concorda em ser contatado pela SimpleWay Academy. Nesta versão o formulário abre uma mensagem pronta no WhatsApp; a integração com n8n, Google Sheets ou Supabase entra como automação sem mudar a UX.</p>
+  <button class="btn btn-primary" type="submit">Enviar interesse pelo WhatsApp</button>
 </form>
+<script>
+  document.querySelectorAll('[data-form="simpleway-lead"]').forEach((form) => {
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const currentForm = event.currentTarget;
+      if (!(currentForm instanceof HTMLFormElement)) return;
+      const data = new FormData(currentForm);
+      const message = [
+        'Olá! Tenho interesse na SimpleWay Academy.',
+        `Nome: ${data.get('name') || ''}`,
+        `WhatsApp: ${data.get('phone') || ''}`,
+        `E-mail: ${data.get('email') || ''}`,
+        `Preferência: ${data.get('offer') || ''}`,
+        `Nível atual: ${data.get('level') || ''}`,
+        `Objetivo: ${data.get('goal') || ''}`,
+        `Mensagem: ${data.get('message') || ''}`,
+        `Origem: ${data.get('utm_page') || '/'}`
+      ].join('\n');
+      const base = currentForm.getAttribute('data-whatsapp') || 'https://wa.me/5500000000000';
+      window.location.href = `${base}?text=${encodeURIComponent(message)}`;
+    });
+  });
+</script>
 <style>
-  .lead-form { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .lead-form { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
   label { display: grid; gap: 8px; color: #eaeaea; font-weight: 900; }
   .full, .privacy, button { grid-column: 1 / -1; }
-  input, select, textarea { width: 100%; border: 1px solid rgba(234,234,234,.16); border-radius: 16px; background: rgba(13,17,23,.92); color: #fff; padding: 14px 15px; font: inherit; outline: none; }
+  input, select, textarea { width: 100%; border: 1px solid rgba(234,234,234,.16); border-radius: 16px; background: rgba(13,17,23,.92); color: #fff; padding: 14px 15px; outline: none; min-width: 0; }
   textarea { min-height: 126px; resize: vertical; }
   input:focus, select:focus, textarea:focus { border-color: #ffd166; box-shadow: 0 0 0 4px rgba(255,209,102,.12); }
   .privacy { margin: 0; font-size: .88rem; color: #8f9aaa; }

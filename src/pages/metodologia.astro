@@ -2,37 +2,52 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import { faqSchema } from '../utils/schema';
-
-const faqs = [
-  { question: 'O que é Activation 72?', answer: 'É o treino neural de frases do método SimpleWay, apresentado ao aluno como jogo e prática progressiva.' },
-  { question: 'Por que usar histórias?', answer: 'Histórias dão contexto, emoção e sentido para o cérebro compreender o inglês antes de automatizar estruturas.' }
-];
+import { breadcrumbSchema, faqSchema } from '../utils/schema';
+import { homeFaqs, lessonSteps, methodPillars, site } from '../data/site';
 ---
-<BaseLayout title="Metodologia SimpleWay | SimpleWay Academy" schema={faqSchema(faqs)}>
+<BaseLayout title="Metodologia SimpleWay | Imersão, fala ativa e Activation 72" description="Conheça o Método SimpleWay: Imersão Guiada, Treino Neural de Frases, Ciclo de Fala Ativa, Activation 72 e Review." schema={[breadcrumbSchema([{name:'Início',url:site.url},{name:'Metodologia',url:`${site.url}/metodologia`}]), faqSchema(homeFaqs)]}>
   <Header />
-  <main class="section">
-    <div class="container">
-      <p class="eyebrow">O Caminho SimpleWay</p>
-      <h1>Metodologia para estudar com clareza, praticar com ritmo e falar com confiança.</h1>
-      <p class="lead">O método organiza cada lição em etapas simples, interativas e mensuráveis. O aluno entende, responde, escuta, pratica e revisa.</p>
-      <div class="timeline">
-        <article class="card"><span>01</span><h2>OPI</h2><p>Entrevista oral guiada para o aluno falar sobre si e ativar vocabulário pessoal.</p></article>
-        <article class="card"><span>02</span><h2>Mini-story</h2><p>História curta em inglês com apoio estratégico em português para criar contexto.</p></article>
-        <article class="card"><span>03</span><h2>Q&A</h2><p>Perguntas rápidas sobre a história para treinar compreensão e resposta.</p></article>
-        <article class="card"><span>04</span><h2>Activation 72</h2><p>O Drill 72 vira jogo de escuta, fala, escrita e leitura, sem parecer lista bruta.</p></article>
-        <article class="card"><span>05</span><h2>Review</h2><p>Revisão inteligente para consolidar e preparar o desbloqueio da próxima lição.</p></article>
+  <main id="conteudo">
+    <section class="section page-hero">
+      <div class="container grid-2">
+        <div class="page-head">
+          <p class="eyebrow">Metodologia</p>
+          <h1>O Caminho SimpleWay</h1>
+          <p class="lead">Uma metodologia pensada para transformar o estudo em uma jornada clara: o aluno entende, responde, pratica, revisa e evolui.</p>
+          <div class="actions"><a class="btn btn-primary" href="/pre-matricula">Entrar na lista</a><a class="btn btn-outline" href="/simpleway-english">Ver o curso</a></div>
+        </div>
+        <aside class="card hero-panel"><strong>5 steps</strong><p>OPI, Mini-story, Q&A, Activation 72 e Review em uma sequência simples para aprender com propósito.</p></aside>
       </div>
-    </div>
+    </section>
+    <section class="section">
+      <div class="container cards-3">
+        {methodPillars.map((pillar) => <article class="card step-card"><span>pilar</span><h2>{pillar.title}</h2><p>{pillar.detail}</p></article>)}
+      </div>
+    </section>
+    <section class="section cta-band">
+      <div class="container">
+        <div class="page-head center"><p class="eyebrow">Fluxo da lição</p><h2>Do primeiro contato à revisão inteligente.</h2></div>
+        <div class="cards-2 gap-top">
+          {lessonSteps.map((step, index) => <article class="card step-card"><span>Step {index + 1}</span><h3>{step.title}</h3><p>{step.description}</p></article>)}
+        </div>
+      </div>
+    </section>
   </main>
   <Footer />
 </BaseLayout>
+
 <style>
-  h1 { max-width: 1020px; }
-  .timeline { display: grid; gap: 18px; margin-top: 34px; }
-  .timeline article { display: grid; grid-template-columns: 72px 220px 1fr; gap: 20px; align-items: center; }
-  span { width: 52px; height: 52px; border-radius: 18px; display: grid; place-items: center; color: #0d1117; background: #ffd166; font-weight: 900; }
-  h2 { font-size: 2rem; }
-  p { margin: 0; }
-  @media (max-width: 820px) { .timeline article { grid-template-columns: 1fr; } }
+  .page-hero { padding-top: clamp(58px, 8vw, 96px); }
+  .page-head { max-width: 900px; }
+  .page-head .lead { max-width: 820px; }
+  .gap-top { margin-top: 28px; }
+  .step-card { display: grid; gap: 12px; }
+  .step-card span { color: #ffd166; font-weight: 900; text-transform: uppercase; letter-spacing: .12em; font-size: .78rem; }
+  .list { display: grid; gap: 12px; padding: 0; margin: 0; list-style: none; }
+  .list li { padding: 14px 16px; border-radius: 16px; background: rgba(0,87,216,.12); border: 1px solid rgba(234,234,234,.1); color: #d8e0eb; font-weight: 800; }
+  .hero-panel { min-height: 360px; display: grid; align-content: center; }
+  .hero-panel strong { color: #ffd166; font-size: 3rem; font-family: Poppins, Inter, sans-serif; line-height: 1; }
+  .cta-band { background: linear-gradient(90deg, rgba(0,87,216,.22), rgba(255,209,102,.09)); border-block: 1px solid rgba(234,234,234,.08); }
+  .actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 28px; }
+  @media(max-width:720px){ .actions{display:grid}.hero-panel{min-height:auto}.hero-panel strong{font-size:2.3rem} }
 </style>

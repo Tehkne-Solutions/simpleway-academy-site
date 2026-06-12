@@ -1,0 +1,16 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { articleSchema } from '../../utils/schema';
+const post = { title: 'Activation 72: por que praticar frases muda o jogo', description: 'Como o treino de frases ajuda o cérebro a automatizar estruturas úteis para falar.', slug: 'activation-72' };
+---
+<BaseLayout title="Activation 72: por que praticar frases muda o jogo | SimpleWay Academy" description="Como o treino de frases ajuda o cérebro a automatizar estruturas úteis para falar." schema={articleSchema(post)}>
+  <Header />
+  <main id="conteudo"><article class="section page-hero"><div class="narrow article"><p class="eyebrow">Prática</p><h1>Activation 72: por que praticar frases muda o jogo</h1><p class="lead">Como o treino de frases ajuda o cérebro a automatizar estruturas úteis para falar.</p><h2>Frase é músculo</h2><p>Para falar melhor, o aluno precisa transformar estrutura em resposta automática. O Activation 72 organiza esse treino sem parecer uma lista bruta.</p><h2>Como funciona</h2><ul><li>Frases curtas e úteis.</li><li>Variações controladas.</li><li>Prática de ouvir, falar, ler e escrever.</li><li>Revisão para retenção.</li></ul></div></article></main><Footer />
+</BaseLayout>
+<style>.article h2{margin-top:42px}.article p,.article li{color:#c8d0dc;line-height:1.85}.article ul{padding-left:22px}.article .callout{margin:32px 0;padding:24px;border-radius:24px;border:1px solid rgba(255,209,102,.28);background:rgba(255,209,102,.08)}
+
+.page-hero{padding-top:clamp(58px,8vw,96px)}.page-head{max-width:900px}.actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:28px}.gap-top{margin-top:28px}.article-card{display:grid;gap:10px}.article-card span{color:#ffd166;font-weight:900;text-transform:uppercase;letter-spacing:.12em;font-size:.78rem}.legal h2{margin-top:34px}.legal p,.legal li{color:#c8d0dc;line-height:1.8}@media(max-width:720px){.actions{display:grid}}
+
+</style>

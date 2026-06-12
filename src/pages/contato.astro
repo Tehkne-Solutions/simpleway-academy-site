@@ -3,18 +3,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import LeadForm from '../components/LeadForm.astro';
+import { site } from '../data/site';
 ---
-<BaseLayout title="Contato | SimpleWay Academy">
+<BaseLayout title="Contato | SimpleWay Academy" description="Fale com a SimpleWay Academy para turmas, parcerias, app e planos.">
   <Header />
-  <main class="section">
-    <div class="container grid-2">
-      <div>
-        <p class="eyebrow">Contato</p>
-        <h1>Fale com a SimpleWay Academy.</h1>
-        <p class="lead">Use o formulário para interesse em turmas, plataforma, aulas gravadas, escolas ou parcerias.</p>
-      </div>
-      <div class="card"><LeadForm /></div>
-    </div>
-  </main>
-  <Footer />
+  <main id="conteudo"><section class="section page-hero"><div class="container grid-2 top-align"><div class="page-head"><p class="eyebrow">Contato</p><h1>Vamos conversar sobre o melhor caminho.</h1><p class="lead">Use o formulário para interesse em turma, plataforma, aulas gravadas, escola ou parceria.</p><div class="actions"><a class="btn btn-primary" href={site.whatsappUrl}>Chamar no WhatsApp</a><a class="btn btn-outline" href="/para-escolas">Parcerias</a></div></div><div class="card"><LeadForm /></div></div></section></main><Footer />
 </BaseLayout>
+
+<style>
+.page-hero{padding-top:clamp(58px,8vw,96px)}.page-head{max-width:900px}.actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:28px}.gap-top{margin-top:28px}.article-card{display:grid;gap:10px}.article-card span{color:#ffd166;font-weight:900;text-transform:uppercase;letter-spacing:.12em;font-size:.78rem}.legal h2{margin-top:34px}.legal p,.legal li{color:#c8d0dc;line-height:1.8}@media(max-width:720px){.actions{display:grid}}
+</style>

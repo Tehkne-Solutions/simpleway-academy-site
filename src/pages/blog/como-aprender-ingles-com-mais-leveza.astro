@@ -2,24 +2,15 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
+import { articleSchema } from '../../utils/schema';
+const post = { title: 'Como aprender inglês com mais leveza', description: 'Um guia para estudar inglês com método, contexto, fala ativa e rotina sustentável.', slug: 'como-aprender-ingles-com-mais-leveza' };
 ---
-<BaseLayout title="Como aprender inglês com mais leveza | SimpleWay Academy" description="Veja como aprender inglês com mais leveza usando rotina simples, contexto, prática ativa e revisão inteligente.">
+<BaseLayout title="Como aprender inglês com mais leveza | SimpleWay Academy" description="Um guia para estudar inglês com método, contexto, fala ativa e rotina sustentável." schema={articleSchema(post)}>
   <Header />
-  <main class="section">
-    <article class="narrow article">
-      <p class="eyebrow">Guia SimpleWay</p>
-      <h1>Como aprender inglês com mais leveza</h1>
-      <p class="lead">Aprender inglês fica mais leve quando o aluno para de depender apenas de memorização e começa a viver uma rotina curta, clara e repetível.</p>
-      <h2>1. Comece pelo sentido, não pela regra</h2>
-      <p>Histórias, exemplos e situações reais ajudam o cérebro a entender o uso do idioma antes de entrar em explicações longas.</p>
-      <h2>2. Fale frases pequenas todos os dias</h2>
-      <p>A fala melhora quando existe prática ativa. Responder perguntas simples, repetir estruturas e ouvir o próprio progresso reduz a trava.</p>
-      <h2>3. Use revisão como ferramenta de confiança</h2>
-      <p>Revisar não é voltar atrás. É consolidar o que o cérebro já começou a entender.</p>
-      <h2>4. Transforme estudo em jornada</h2>
-      <p>No app SimpleWay Academy, cada lição vira uma sequência de etapas: OPI, mini-story, Q&A, Activation 72 e Review.</p>
-    </article>
-  </main>
-  <Footer />
+  <main id="conteudo"><article class="section page-hero"><div class="narrow article"><p class="eyebrow">Aprendizado</p><h1>Como aprender inglês com mais leveza</h1><p class="lead">Um guia para estudar inglês com método, contexto, fala ativa e rotina sustentável.</p><h2>Aprender leve não é aprender pouco</h2><p>Leveza significa reduzir ruído, ansiedade e excesso de teoria solta. O aluno precisa de contexto, repetição inteligente e pequenas vitórias visíveis.</p><h2>O caminho prático</h2><ul><li>Ouça e entenda uma situação real.</li><li>Responda perguntas simples sobre você.</li><li>Pratique frases úteis até ganhar velocidade.</li><li>Revise antes de avançar.</li></ul><div class="callout"><strong>SimpleWay:</strong> o site apresenta o caminho; o app conduz a prática.</div></div></article></main><Footer />
 </BaseLayout>
-<style>.article h1{font-size:clamp(2.7rem,6vw,4.8rem)}.article h2{margin-top:42px;font-size:2rem}.article p{font-size:1.08rem}.lead{font-size:1.28rem}</style>
+<style>.article h2{margin-top:42px}.article p,.article li{color:#c8d0dc;line-height:1.85}.article ul{padding-left:22px}.article .callout{margin:32px 0;padding:24px;border-radius:24px;border:1px solid rgba(255,209,102,.28);background:rgba(255,209,102,.08)}
+
+.page-hero{padding-top:clamp(58px,8vw,96px)}.page-head{max-width:900px}.actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:28px}.gap-top{margin-top:28px}.article-card{display:grid;gap:10px}.article-card span{color:#ffd166;font-weight:900;text-transform:uppercase;letter-spacing:.12em;font-size:.78rem}.legal h2{margin-top:34px}.legal p,.legal li{color:#c8d0dc;line-height:1.8}@media(max-width:720px){.actions{display:grid}}
+
+</style>

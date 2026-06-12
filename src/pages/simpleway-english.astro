@@ -2,33 +2,41 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import { courseSchema } from '../utils/schema';
+import { courseSchema, breadcrumbSchema } from '../utils/schema';
+import { site } from '../data/site';
 ---
-<BaseLayout title="SimpleWay English | Curso de inglês da SimpleWay Academy" schema={courseSchema()}>
+<BaseLayout title="SimpleWay English | Curso de inglês com app e speaking" description="SimpleWay English é o primeiro curso da SimpleWay Academy: inglês com app oficial, aulas interativas, speaking, mini-stories e revisão." schema={[courseSchema(), breadcrumbSchema([{name:'Início',url:site.url},{name:'SimpleWay English',url:`${site.url}/simpleway-english`}])]}>
   <Header />
-  <main>
-    <section class="section">
+  <main id="conteudo">
+    <section class="section page-hero">
       <div class="container grid-2">
-        <div>
-          <p class="eyebrow">Primeiro curso</p>
-          <h1>SimpleWay English</h1>
-          <p class="lead">Curso de inglês com método próprio, app oficial, speaking, mini-stories e treino ativo para destravar a comunicação.</p>
-          <a class="btn btn-primary" href="/pre-matricula">Quero entrar na lista</a>
-        </div>
-        <div class="card">
-          <h2>Feito para quem quer sair do inglês travado.</h2>
-          <p>A proposta combina aula, tecnologia e prática progressiva para que o aluno consiga ouvir, responder, escrever, revisar e falar com mais segurança.</p>
-        </div>
+        <div class="page-head"><p class="eyebrow">Primeiro curso</p><h1>SimpleWay English</h1><p class="lead">O curso de inglês da SimpleWay Academy combina aula, app, speaking, histórias e treino ativo para destravar a comunicação com consistência.</p><div class="actions"><a class="btn btn-primary" href="/pre-matricula">Quero participar</a><a class="btn btn-outline" href="/planos">Ver planos</a></div></div>
+        <aside class="card hero-panel"><strong>App + aula</strong><p>A plataforma oficial do curso é o app SimpleWay Academy. O site institucional capta e explica. O app ensina.</p></aside>
       </div>
     </section>
-    <section class="section details">
+    <section class="section">
       <div class="container cards-3">
-        <article class="card"><h3>Turmas ao vivo</h3><p>Professor conduzindo a jornada e usando o app como plataforma de prática.</p></article>
-        <article class="card"><h3>App oficial</h3><p>Aluno acompanha lições, speaking, revisão, XP e progresso.</p></article>
-        <article class="card"><h3>Comunidade</h3><p>Modelo preparado para apoio, desafios e acompanhamento de evolução.</p></article>
+        <article class="card step-card"><span>Para quem</span><h2>Iniciantes e travados</h2><p>Ideal para quem entende um pouco, mas ainda trava para responder e manter conversas simples.</p></article>
+        <article class="card step-card"><span>Como funciona</span><h2>Prática ativa</h2><p>O aluno não fica só assistindo: ele responde, escreve, ouve, fala e revisa dentro da jornada.</p></article>
+        <article class="card step-card"><span>Diferencial</span><h2>Método + produto</h2><p>A experiência une metodologia, app, conteúdo e visual premium em uma marca educacional clara.</p></article>
       </div>
     </section>
   </main>
   <Footer />
 </BaseLayout>
-<style>.btn{margin-top:24px}.details{padding-top:0}</style>
+
+<style>
+  .page-hero { padding-top: clamp(58px, 8vw, 96px); }
+  .page-head { max-width: 900px; }
+  .page-head .lead { max-width: 820px; }
+  .gap-top { margin-top: 28px; }
+  .step-card { display: grid; gap: 12px; }
+  .step-card span { color: #ffd166; font-weight: 900; text-transform: uppercase; letter-spacing: .12em; font-size: .78rem; }
+  .list { display: grid; gap: 12px; padding: 0; margin: 0; list-style: none; }
+  .list li { padding: 14px 16px; border-radius: 16px; background: rgba(0,87,216,.12); border: 1px solid rgba(234,234,234,.1); color: #d8e0eb; font-weight: 800; }
+  .hero-panel { min-height: 360px; display: grid; align-content: center; }
+  .hero-panel strong { color: #ffd166; font-size: 3rem; font-family: Poppins, Inter, sans-serif; line-height: 1; }
+  .cta-band { background: linear-gradient(90deg, rgba(0,87,216,.22), rgba(255,209,102,.09)); border-block: 1px solid rgba(234,234,234,.08); }
+  .actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 28px; }
+  @media(max-width:720px){ .actions{display:grid}.hero-panel{min-height:auto}.hero-panel strong{font-size:2.3rem} }
+</style>

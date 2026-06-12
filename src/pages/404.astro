@@ -3,16 +3,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 ---
-<BaseLayout title="Página não encontrada | SimpleWay Academy">
-  <Header />
-  <main class="section">
-    <div class="narrow card">
-      <p class="eyebrow">404</p>
-      <h1>Página não encontrada.</h1>
-      <p>O caminho que você tentou acessar não existe ou foi movido.</p>
-      <a class="btn btn-primary" href="/">Voltar para a home</a>
-    </div>
-  </main>
-  <Footer />
+<BaseLayout title="Página não encontrada | SimpleWay Academy" noindex={true}>
+  <Header /><main id="conteudo"><section class="section page-hero"><div class="container page-head center"><p class="eyebrow">404</p><h1>Esse caminho ainda não foi iluminado.</h1><p class="lead">Volte para a home ou entre na lista de interesse.</p><div class="actions"><a class="btn btn-primary" href="/">Voltar para home</a><a class="btn btn-outline" href="/pre-matricula">Pré-matrícula</a></div></div></section></main><Footer />
 </BaseLayout>
-<style>.card{text-align:center}h1{font-size:clamp(2.4rem,6vw,4.5rem)}.btn{margin-top:20px}</style>
+
+<style>
+.page-hero{padding-top:clamp(58px,8vw,96px)}.page-head{max-width:900px}.actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:28px}.gap-top{margin-top:28px}.article-card{display:grid;gap:10px}.article-card span{color:#ffd166;font-weight:900;text-transform:uppercase;letter-spacing:.12em;font-size:.78rem}.legal h2{margin-top:34px}.legal p,.legal li{color:#c8d0dc;line-height:1.8}@media(max-width:720px){.actions{display:grid}}
+</style>

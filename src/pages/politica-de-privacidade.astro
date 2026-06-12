@@ -3,15 +3,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 ---
-<BaseLayout title="Política de Privacidade | SimpleWay Academy">
-  <Header />
-  <main class="section">
-    <div class="narrow">
-      <p class="eyebrow">LGPD</p>
-      <h1>Política de Privacidade</h1>
-      <p>Esta página será refinada juridicamente antes da publicação final. A SimpleWay Academy coleta dados de contato apenas para atendimento, pré-matrícula e relacionamento com interessados.</p>
-      <p>Assinatura do produto: Tehkné Solutions.</p>
-    </div>
-  </main>
-  <Footer />
+<BaseLayout title="Política de Privacidade | SimpleWay Academy" description="Política de privacidade da SimpleWay Academy.">
+  <Header /><main id="conteudo"><section class="section page-hero"><div class="narrow legal"><p class="eyebrow">Privacidade</p><h1>Política de Privacidade</h1><p>A SimpleWay Academy coleta dados enviados voluntariamente em formulários de interesse, como nome, WhatsApp, e-mail, objetivo e preferência de plano.</p><h2>Uso dos dados</h2><p>Os dados são usados para contato comercial, organização de leads, matrícula, suporte e comunicação sobre turmas e plataforma.</p><h2>Compartilhamento</h2><p>Os dados não são vendidos. Podem ser processados por ferramentas operacionais como WhatsApp, planilhas, automações e CRM.</p><h2>Solicitações</h2><p>O usuário pode solicitar correção ou remoção dos dados pelos canais oficiais de contato.</p></div></section></main><Footer />
 </BaseLayout>
+
+<style>
+.page-hero{padding-top:clamp(58px,8vw,96px)}.page-head{max-width:900px}.actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:28px}.gap-top{margin-top:28px}.article-card{display:grid;gap:10px}.article-card span{color:#ffd166;font-weight:900;text-transform:uppercase;letter-spacing:.12em;font-size:.78rem}.legal h2{margin-top:34px}.legal p,.legal li{color:#c8d0dc;line-height:1.8}@media(max-width:720px){.actions{display:grid}}
+</style>

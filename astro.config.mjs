@@ -5,5 +5,15 @@ export default defineConfig({
   site: 'https://simplewayacademy.com.br',
   output: 'static',
   trailingSlash: 'never',
-  integrations: [sitemap()]
+  integrations: [sitemap()],
+  build: {
+    format: 'directory',
+    inlineStylesheets: 'auto'
+  },
+  vite: {
+    build: {
+      cssCodeSplit: true,
+      assetsInlineLimit: 2048
+    }
+  }
 });

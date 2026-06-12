@@ -1,0 +1,2049 @@
+diff -ruN swa_sprint1_base/simpleway-academy-site/.gitignore swa_all_sprints_final/simpleway-academy-site/.gitignore
+--- swa_sprint1_base/simpleway-academy-site/.gitignore	2026-06-12 21:26:10.000000000 +0000
++++ swa_all_sprints_final/simpleway-academy-site/.gitignore	2026-06-12 21:45:42.117646227 +0000
+@@ -2,4 +2,7 @@
+ dist/
+ .astro/
+ .env
++.env.*
+ .DS_Store
++.wrangler/
++.dev.vars
+diff -ruN swa_sprint1_base/simpleway-academy-site/CHANGELOG.md swa_all_sprints_final/simpleway-academy-site/CHANGELOG.md
+--- swa_sprint1_base/simpleway-academy-site/CHANGELOG.md	2026-06-12 21:38:40.000000000 +0000
++++ swa_all_sprints_final/simpleway-academy-site/CHANGELOG.md	2026-06-12 21:48:39.678487540 +0000
+@@ -1,18 +1,45 @@
+-# Changelog
++# Changelog — SimpleWay Academy Site
+ 
+-## v0.2.0 — Sprint 1 Home Premium SEO Conversion
++## v1.0.0 — Final patch completo
+ 
+-- Home refinada com narrativa comercial completa.
+-- Hero premium com conceito “O site vende. O app ensina.”
+-- Seções de prova, problema, método, app, ofertas, SEO, FAQ e conversão.
+-- FAQPage, Course, WebSite e EducationalOrganization Schema.
+-- Lead form com geração de mensagem para WhatsApp.
+-- Open Graph image SVG adicionada.
+-- Header com acesso ao app e CTA de pré-matrícula.
+-- Mantida assinatura: Tehkné Solutions.
+-
+-## v0.1.0 — Sprint 0 Cloudflare + Astro Foundation
+-
+-- Base Astro estática para Cloudflare Pages.
+-- Home inicial, metodologia, SimpleWay English, planos, blog, pré-matrícula, contato e páginas legais.
+-- SEO base com sitemap, robots e Schema.org inicial.
++### Sprint 0 — Fundação
++- Projeto Astro estático.
++- Configuração Cloudflare Pages.
++- SEO base, sitemap e robots.
++- Identidade visual SimpleWay aplicada.
++
++### Sprint 1 — Home Premium SEO Conversion
++- Home premium com hero, farol, CTAs, método, app oficial, ofertas, FAQ e lead form.
++- Schema Course e FAQ.
++- Open Graph visual.
++
++### Sprint 2 — Páginas institucionais SEO
++- `/metodologia`
++- `/simpleway-english`
++- Fluxo didático com OPI, Mini-story, Q&A, Activation 72 e Review.
++
++### Sprint 3 — Blog/SEO
++- `/blog`
++- 5 artigos iniciais.
++- Schema Article.
++- Sitemap automático.
++
++### Sprint 4 — Leads e pré-matrícula
++- Formulário responsivo com WhatsApp payload.
++- Preparado para n8n, Google Sheets ou Supabase.
++
++### Sprint 5 — Conversão e expansão comercial
++- `/planos`
++- `/para-escolas`
++- `/depoimentos`
++- `/faq`
++- CTA comercial.
++
++### Sprint 6 — Final patch e QA mobile
++- Header mobile com menu nativo.
++- Cards e grids com `minmax(0, 1fr)`.
++- Botões full width no mobile.
++- Safe-area bottom no footer.
++- Headers de segurança em `_headers`.
++- Rotas de app em `_redirects`.
++- Patch final em `patches/PATCH_FINAL_SITE_COMPLETO.diff`.
+diff -ruN swa_sprint1_base/simpleway-academy-site/README.md swa_all_sprints_final/simpleway-academy-site/README.md
+--- swa_sprint1_base/simpleway-academy-site/README.md	2026-06-12 21:38:41.000000000 +0000
++++ swa_all_sprints_final/simpleway-academy-site/README.md	2026-06-12 21:48:39.678199982 +0000
+@@ -1,75 +1,62 @@
+ # SimpleWay Academy — Site Institucional
+ 
+-Site institucional da SimpleWay Academy feito em Astro para Cloudflare Pages.
+-
+-## Decisão de arquitetura
+-
+-- Site institucional, blog, SEO, páginas comerciais e captação ficam neste projeto.
+-- O app SimpleWay Academy é a plataforma oficial do aluno/professor.
+-- O app deve viver em `app.simplewayacademy.com.br`.
+-- Assinatura obrigatória: Tehkné Solutions.
++Site institucional da SimpleWay Academy em Astro, preparado para Cloudflare Pages.
+ 
+ ## Stack
+ 
+ - Astro static site
+ - Cloudflare Pages
+-- HTML/CSS/TypeScript leve
+-- SEO com sitemap, robots, Schema.org e páginas estáticas performáticas
+-- Formulários preparados para integração futura com n8n, Google Sheets ou Supabase
++- Blog e SEO no mesmo projeto
++- Formulários/leads via WhatsApp, preparados para n8n, Google Sheets ou Supabase
++- App oficial separado em `app.simplewayacademy.com.br`
++- Assinatura obrigatória: **Produto desenvolvido por Tehkné Solutions**
++
++## Sprints incluídas
++
++- Sprint 0 — Fundação Astro + Cloudflare Pages
++- Sprint 1 — Home Premium SEO Conversion
++- Sprint 2 — Metodologia + SimpleWay English SEO Pages
++- Sprint 3 — Blog/SEO avançado
++- Sprint 4 — Leads e pré-matrícula
++- Sprint 5 — Planos, B2B e conversão
++- Sprint 6 — Responsivo, performance, segurança e QA final
+ 
+ ## Cloudflare Pages
+ 
+ Configuração recomendada:
+ 
+-```txt
+-Framework preset: Astro
+-Build command: npm run build
+-Build output directory: dist
+-Root directory: /
+-Production branch: main
+-Node version: 20
+-```
++- Framework preset: Astro
++- Build command: `npm run build`
++- Build output directory: `dist`
++- Root directory: `/`
++- Production branch: `main`
++- Node version: `20`
++- Deploy command: deixar vazio
++
++> Importante: não usar `npx wrangler deploy` como deploy command para este fluxo estático em Pages. Se ele estiver preenchido no painel, remover.
+ 
+-## Desenvolvimento local
++## Como publicar
+ 
+ ```bash
+-npm install
+-npm run dev
+-npm run build
++git add .
++git commit -m "feat: ship SimpleWay Academy institutional site final patch"
++git push origin main
+ ```
+ 
+-## Sprints
++Depois, acione novo deploy no Cloudflare Pages.
++
++## QA responsivo
++
++Testar manualmente:
++
++- 360 × 740
++- 390 × 844
++- 430 × 932
++- 768 × 1024
++- 1024 × 768
++- 1366 × 768
++- 1440 × 900
+ 
+-### Sprint 0 — Fundação
++## Produto
+ 
+-- Base Astro
+-- Identidade SimpleWay
+-- Home premium inicial
+-- Metodologia
+-- SimpleWay English
+-- Planos
+-- Blog base
+-- Pré-matrícula
+-- Contato
+-- Páginas legais
+-- SEO base
+-
+-### Sprint 1 — Home Premium SEO Conversion
+-
+-Status: implementada no pacote v0.2.0.
+-
+-- Copy comercial da home refinada
+-- Hero premium com narrativa “O site vende. O app ensina.”
+-- Seções de prova, problema, método, app, ofertas, SEO, FAQ e conversão
+-- CTA WhatsApp e pré-matrícula
+-- Lead form com mensagem pronta para WhatsApp
+-- Schema avançado: Organization, WebSite, Course e FAQPage
+-- Open Graph image
+-- Mantida assinatura Tehkné Solutions
+-
+-### Sprint 2 — Metodologia + SimpleWay English
+-
+-- Expandir páginas internas com copy final
+-- Adicionar exemplos visuais do app
+-- Criar página de FAQ completa
+-- Criar primeira estrutura de artigos em MD/MDX
++O site institucional vende, explica, ranqueia e capta. O app SimpleWay Academy ensina.
+diff -ruN swa_sprint1_base/simpleway-academy-site/astro.config.mjs swa_all_sprints_final/simpleway-academy-site/astro.config.mjs
+--- swa_sprint1_base/simpleway-academy-site/astro.config.mjs	2026-06-12 21:26:10.000000000 +0000
++++ swa_all_sprints_final/simpleway-academy-site/astro.config.mjs	2026-06-12 21:45:42.117438132 +0000
+@@ -5,5 +5,15 @@
+   site: 'https://simplewayacademy.com.br',
+   output: 'static',
+   trailingSlash: 'never',
+-  integrations: [sitemap()]
++  integrations: [sitemap()],
++  build: {
++    format: 'directory',
++    inlineStylesheets: 'auto'
++  },
++  vite: {
++    build: {
++      cssCodeSplit: true,
++      assetsInlineLimit: 2048
++    }
++  }
+ });
+diff -ruN swa_sprint1_base/simpleway-academy-site/docs/APLICAR_PATCH_FINAL.md swa_all_sprints_final/simpleway-academy-site/docs/APLICAR_PATCH_FINAL.md
+--- swa_sprint1_base/simpleway-academy-site/docs/APLICAR_PATCH_FINAL.md	1970-01-01 00:00:00.000000000 +0000
++++ swa_all_sprints_final/simpleway-academy-site/docs/APLICAR_PATCH_FINAL.md	2026-06-12 21:48:39.679053312 +0000
+@@ -0,0 +1,27 @@
++# Como aplicar o patch final
++
++## Opção 1 — Substituição completa
++
++Extraia o ZIP e substitua o conteúdo do repositório `Tehkne-Solutions/simpleway-academy-site`.
++
++```bash
++git add .
++git commit -m "feat: ship SimpleWay Academy institutional site final patch"
++git push origin main
++```
++
++## Opção 2 — Patch incremental
++
++Use o arquivo:
++
++```txt
++patches/PATCH_FINAL_SITE_COMPLETO.diff
++```
++
++Comando sugerido a partir da raiz do repositório:
++
++```bash
++patch -p1 < patches/PATCH_FINAL_SITE_COMPLETO.diff
++```
++
++Como o patch foi gerado a partir do pacote Sprint 1, a opção 1 é a mais segura.
+diff -ruN swa_sprint1_base/simpleway-academy-site/docs/CLOUDFLARE_DEPLOY_CHECKLIST.md swa_all_sprints_final/simpleway-academy-site/docs/CLOUDFLARE_DEPLOY_CHECKLIST.md
+--- swa_sprint1_base/simpleway-academy-site/docs/CLOUDFLARE_DEPLOY_CHECKLIST.md	1970-01-01 00:00:00.000000000 +0000
++++ swa_all_sprints_final/simpleway-academy-site/docs/CLOUDFLARE_DEPLOY_CHECKLIST.md	2026-06-12 21:48:39.678743511 +0000
+@@ -0,0 +1,35 @@
++# Checklist Cloudflare Pages
++
++## Configuração correta
++
++- Framework preset: Astro
++- Build command: `npm run build`
++- Build output directory: `dist`
++- Root directory: `/`
++- Production branch: `main`
++- Node version: `20`
++- Deploy command: vazio
++
++## Atenção
++
++Se o painel estiver com `npx wrangler deploy` em Deploy command, remova. Este projeto é estático e deve ser publicado pelo fluxo padrão de Pages.
++
++## Após deploy
++
++Validar:
++
++- `/`
++- `/metodologia`
++- `/simpleway-english`
++- `/planos`
++- `/pre-matricula`
++- `/blog`
++- `/sitemap-index.xml`
++- `/robots.txt`
++
++## Domínio
++
++Quando o domínio estiver pronto:
++
++- `simplewayacademy.com.br` → site institucional
++- `app.simplewayacademy.com.br` → app SimpleWay Academy
+diff -ruN swa_sprint1_base/simpleway-academy-site/docs/FONTE_CONSULTADA.md swa_all_sprints_final/simpleway-academy-site/docs/FONTE_CONSULTADA.md
+--- swa_sprint1_base/simpleway-academy-site/docs/FONTE_CONSULTADA.md	1970-01-01 00:00:00.000000000 +0000
++++ swa_all_sprints_final/simpleway-academy-site/docs/FONTE_CONSULTADA.md	2026-06-12 21:48:39.678964788 +0000
+@@ -0,0 +1,16 @@
++# Fonte consultada
++
++Antes do patch final, a estrutura foi alinhada com os documentos internos do projeto SimpleWay Academy:
++
++- Documentação de Identidade Visual — SimpleWay Academy
++- Estrutura Pedagógica do Curso
++- Contexto do app Flutter SimpleWay Academy
++- Histórico de Sprint 0 e Sprint 1 do site institucional
++
++Decisões preservadas:
++
++- O app é a plataforma oficial.
++- O site institucional vende, explica, ranqueia e capta.
++- Identidade: farol, azul elétrico, vermelho vital, dourado, preto cósmico e branco perolado.
++- Metodologia: Imersão Guiada, Treino Neural de Frases, Ciclo de Fala Ativa, Activation 72 e Review.
++- Assinatura: Tehkné Solutions.
+diff -ruN swa_sprint1_base/simpleway-academy-site/docs/QA_RESPONSIVO.md swa_all_sprints_final/simpleway-academy-site/docs/QA_RESPONSIVO.md
+--- swa_sprint1_base/simpleway-academy-site/docs/QA_RESPONSIVO.md	1970-01-01 00:00:00.000000000 +0000
++++ swa_all_sprints_final/simpleway-academy-site/docs/QA_RESPONSIVO.md	2026-06-12 21:48:39.678845290 +0000
+@@ -0,0 +1,44 @@
++# QA Responsivo — SimpleWay Academy Site
++
++## Mobile obrigatório
++
++Testar principalmente:
++
++- 360px — Android pequeno
++- 390px — iPhone padrão
++- 430px — iPhone Pro Max / Android grande
++
++Checklist:
++
++- Header não quebra.
++- Menu mobile abre via botão.
++- Botões ocupam 100% no mobile.
++- Cards viram 1 coluna.
++- Formulário vira 1 coluna.
++- Hero não estoura horizontalmente.
++- Títulos não cortam palavras importantes.
++- Footer respeita safe-area.
++- Não há scroll horizontal.
++
++## Tablet
++
++- 768px vertical
++- 1024px horizontal
++
++Checklist:
++
++- Grids de cards com espaçamento confortável.
++- CTA visível sem poluição.
++- Formulário legível.
++
++## Desktop
++
++- 1366px
++- 1440px+
++
++Checklist:
++
++- Hero premium.
++- Cards alinhados.
++- Copy escaneável.
++- SEO pages navegáveis.
+diff -ruN swa_sprint1_base/simpleway-academy-site/docs/SPRINTS_ENTREGUES.md swa_all_sprints_final/simpleway-academy-site/docs/SPRINTS_ENTREGUES.md
+--- swa_sprint1_base/simpleway-academy-site/docs/SPRINTS_ENTREGUES.md	1970-01-01 00:00:00.000000000 +0000
++++ swa_all_sprints_final/simpleway-academy-site/docs/SPRINTS_ENTREGUES.md	2026-06-12 21:48:39.678641779 +0000
+@@ -0,0 +1,22 @@
++# Sprints entregues — SimpleWay Academy Site
++
++## Sprint 0 — Fundação e arquitetura
++Base Astro + Cloudflare Pages, SEO base, sitemap, robots, headers e assinatura Tehkné Solutions.
++
++## Sprint 1 — Home Premium SEO Conversion
++Home institucional para venda, captação e explicação do posicionamento: o site vende, o app ensina.
++
++## Sprint 2 — Metodologia + SimpleWay English
++Páginas principais de método e curso, com estrutura pedagógica e copy comercial.
++
++## Sprint 3 — Blog/SEO avançado
++Blog estático com artigos indexáveis, schema article e páginas de conteúdo.
++
++## Sprint 4 — Leads e automações
++Lead form responsivo com mensagem de WhatsApp, preparado para evolução com n8n/Sheets/Supabase.
++
++## Sprint 5 — Planos, escola e conversão
++Planos, B2B, depoimentos, FAQ e páginas de suporte comercial.
++
++## Sprint 6 — QA final responsivo
++Ajustes mobile-first, segurança, rotas, cache, footer, menu mobile e patch final.
+diff -ruN swa_sprint1_base/simpleway-academy-site/package.json swa_all_sprints_final/simpleway-academy-site/package.json
+--- swa_sprint1_base/simpleway-academy-site/package.json	2026-06-12 21:26:10.000000000 +0000
++++ swa_all_sprints_final/simpleway-academy-site/package.json	2026-06-12 21:45:42.117009457 +0000
+@@ -1,16 +1,17 @@
+ {
+   "name": "simpleway-academy-site",
+-  "version": "0.1.0",
++  "version": "1.0.0",
+   "private": true,
+   "type": "module",
+   "scripts": {
+     "dev": "astro dev",
+     "build": "astro build",
+-    "preview": "astro preview"
++    "preview": "astro preview",
++    "check:responsive": "echo 'Manual QA: 360, 390, 430, 768, 1024, 1440 px'"
+   },
+   "dependencies": {
+-    "@astrojs/sitemap": "^3.6.0",
+-    "astro": "^5.15.0"
++    "@astrojs/sitemap": "^3.7.3",
++    "astro": "^5.18.2"
+   },
+   "devDependencies": {}
+ }
+diff -ruN swa_sprint1_base/simpleway-academy-site/patches/PATCH_FINAL_SITE_COMPLETO.diff swa_all_sprints_final/simpleway-academy-site/patches/PATCH_FINAL_SITE_COMPLETO.diff
+--- swa_sprint1_base/simpleway-academy-site/patches/PATCH_FINAL_SITE_COMPLETO.diff	1970-01-01 00:00:00.000000000 +0000
++++ swa_all_sprints_final/simpleway-academy-site/patches/PATCH_FINAL_SITE_COMPLETO.diff	2026-06-12 21:48:44.110278946 +0000
+@@ -0,0 +1,407 @@
++diff -ruN swa_sprint1_base/simpleway-academy-site/.gitignore swa_all_sprints_final/simpleway-academy-site/.gitignore
++--- swa_sprint1_base/simpleway-academy-site/.gitignore	2026-06-12 21:26:10.000000000 +0000
+++++ swa_all_sprints_final/simpleway-academy-site/.gitignore	2026-06-12 21:45:42.117646227 +0000
++@@ -2,4 +2,7 @@
++ dist/
++ .astro/
++ .env
+++.env.*
++ .DS_Store
+++.wrangler/
+++.dev.vars
++diff -ruN swa_sprint1_base/simpleway-academy-site/CHANGELOG.md swa_all_sprints_final/simpleway-academy-site/CHANGELOG.md
++--- swa_sprint1_base/simpleway-academy-site/CHANGELOG.md	2026-06-12 21:38:40.000000000 +0000
+++++ swa_all_sprints_final/simpleway-academy-site/CHANGELOG.md	2026-06-12 21:48:39.678487540 +0000
++@@ -1,18 +1,45 @@
++-# Changelog
+++# Changelog — SimpleWay Academy Site
++ 
++-## v0.2.0 — Sprint 1 Home Premium SEO Conversion
+++## v1.0.0 — Final patch completo
++ 
++-- Home refinada com narrativa comercial completa.
++-- Hero premium com conceito “O site vende. O app ensina.”
++-- Seções de prova, problema, método, app, ofertas, SEO, FAQ e conversão.
++-- FAQPage, Course, WebSite e EducationalOrganization Schema.
++-- Lead form com geração de mensagem para WhatsApp.
++-- Open Graph image SVG adicionada.
++-- Header com acesso ao app e CTA de pré-matrícula.
++-- Mantida assinatura: Tehkné Solutions.
++-
++-## v0.1.0 — Sprint 0 Cloudflare + Astro Foundation
++-
++-- Base Astro estática para Cloudflare Pages.
++-- Home inicial, metodologia, SimpleWay English, planos, blog, pré-matrícula, contato e páginas legais.
++-- SEO base com sitemap, robots e Schema.org inicial.
+++### Sprint 0 — Fundação
+++- Projeto Astro estático.
+++- Configuração Cloudflare Pages.
+++- SEO base, sitemap e robots.
+++- Identidade visual SimpleWay aplicada.
+++
+++### Sprint 1 — Home Premium SEO Conversion
+++- Home premium com hero, farol, CTAs, método, app oficial, ofertas, FAQ e lead form.
+++- Schema Course e FAQ.
+++- Open Graph visual.
+++
+++### Sprint 2 — Páginas institucionais SEO
+++- `/metodologia`
+++- `/simpleway-english`
+++- Fluxo didático com OPI, Mini-story, Q&A, Activation 72 e Review.
+++
+++### Sprint 3 — Blog/SEO
+++- `/blog`
+++- 5 artigos iniciais.
+++- Schema Article.
+++- Sitemap automático.
+++
+++### Sprint 4 — Leads e pré-matrícula
+++- Formulário responsivo com WhatsApp payload.
+++- Preparado para n8n, Google Sheets ou Supabase.
+++
+++### Sprint 5 — Conversão e expansão comercial
+++- `/planos`
+++- `/para-escolas`
+++- `/depoimentos`
+++- `/faq`
+++- CTA comercial.
+++
+++### Sprint 6 — Final patch e QA mobile
+++- Header mobile com menu nativo.
+++- Cards e grids com `minmax(0, 1fr)`.
+++- Botões full width no mobile.
+++- Safe-area bottom no footer.
+++- Headers de segurança em `_headers`.
+++- Rotas de app em `_redirects`.
+++- Patch final em `patches/PATCH_FINAL_SITE_COMPLETO.diff`.
++diff -ruN swa_sprint1_base/simpleway-academy-site/README.md swa_all_sprints_final/simpleway-academy-site/README.md
++--- swa_sprint1_base/simpleway-academy-site/README.md	2026-06-12 21:38:41.000000000 +0000
+++++ swa_all_sprints_final/simpleway-academy-site/README.md	2026-06-12 21:48:39.678199982 +0000
++@@ -1,75 +1,62 @@
++ # SimpleWay Academy — Site Institucional
++ 
++-Site institucional da SimpleWay Academy feito em Astro para Cloudflare Pages.
++-
++-## Decisão de arquitetura
++-
++-- Site institucional, blog, SEO, páginas comerciais e captação ficam neste projeto.
++-- O app SimpleWay Academy é a plataforma oficial do aluno/professor.
++-- O app deve viver em `app.simplewayacademy.com.br`.
++-- Assinatura obrigatória: Tehkné Solutions.
+++Site institucional da SimpleWay Academy em Astro, preparado para Cloudflare Pages.
++ 
++ ## Stack
++ 
++ - Astro static site
++ - Cloudflare Pages
++-- HTML/CSS/TypeScript leve
++-- SEO com sitemap, robots, Schema.org e páginas estáticas performáticas
++-- Formulários preparados para integração futura com n8n, Google Sheets ou Supabase
+++- Blog e SEO no mesmo projeto
+++- Formulários/leads via WhatsApp, preparados para n8n, Google Sheets ou Supabase
+++- App oficial separado em `app.simplewayacademy.com.br`
+++- Assinatura obrigatória: **Produto desenvolvido por Tehkné Solutions**
+++
+++## Sprints incluídas
+++
+++- Sprint 0 — Fundação Astro + Cloudflare Pages
+++- Sprint 1 — Home Premium SEO Conversion
+++- Sprint 2 — Metodologia + SimpleWay English SEO Pages
+++- Sprint 3 — Blog/SEO avançado
+++- Sprint 4 — Leads e pré-matrícula
+++- Sprint 5 — Planos, B2B e conversão
+++- Sprint 6 — Responsivo, performance, segurança e QA final
++ 
++ ## Cloudflare Pages
++ 
++ Configuração recomendada:
++ 
++-```txt
++-Framework preset: Astro
++-Build command: npm run build
++-Build output directory: dist
++-Root directory: /
++-Production branch: main
++-Node version: 20
++-```
+++- Framework preset: Astro
+++- Build command: `npm run build`
+++- Build output directory: `dist`
+++- Root directory: `/`
+++- Production branch: `main`
+++- Node version: `20`
+++- Deploy command: deixar vazio
+++
+++> Importante: não usar `npx wrangler deploy` como deploy command para este fluxo estático em Pages. Se ele estiver preenchido no painel, remover.
++ 
++-## Desenvolvimento local
+++## Como publicar
++ 
++ ```bash
++-npm install
++-npm run dev
++-npm run build
+++git add .
+++git commit -m "feat: ship SimpleWay Academy institutional site final patch"
+++git push origin main
++ ```
++ 
++-## Sprints
+++Depois, acione novo deploy no Cloudflare Pages.
+++
+++## QA responsivo
+++
+++Testar manualmente:
+++
+++- 360 × 740
+++- 390 × 844
+++- 430 × 932
+++- 768 × 1024
+++- 1024 × 768
+++- 1366 × 768
+++- 1440 × 900
++ 
++-### Sprint 0 — Fundação
+++## Produto
++ 
++-- Base Astro
++-- Identidade SimpleWay
++-- Home premium inicial
++-- Metodologia
++-- SimpleWay English
++-- Planos
++-- Blog base
++-- Pré-matrícula
++-- Contato
++-- Páginas legais
++-- SEO base
++-
++-### Sprint 1 — Home Premium SEO Conversion
++-
++-Status: implementada no pacote v0.2.0.
++-
++-- Copy comercial da home refinada
++-- Hero premium com narrativa “O site vende. O app ensina.”
++-- Seções de prova, problema, método, app, ofertas, SEO, FAQ e conversão
++-- CTA WhatsApp e pré-matrícula
++-- Lead form com mensagem pronta para WhatsApp
++-- Schema avançado: Organization, WebSite, Course e FAQPage
++-- Open Graph image
++-- Mantida assinatura Tehkné Solutions
++-
++-### Sprint 2 — Metodologia + SimpleWay English
++-
++-- Expandir páginas internas com copy final
++-- Adicionar exemplos visuais do app
++-- Criar página de FAQ completa
++-- Criar primeira estrutura de artigos em MD/MDX
+++O site institucional vende, explica, ranqueia e capta. O app SimpleWay Academy ensina.
++diff -ruN swa_sprint1_base/simpleway-academy-site/astro.config.mjs swa_all_sprints_final/simpleway-academy-site/astro.config.mjs
++--- swa_sprint1_base/simpleway-academy-site/astro.config.mjs	2026-06-12 21:26:10.000000000 +0000
+++++ swa_all_sprints_final/simpleway-academy-site/astro.config.mjs	2026-06-12 21:45:42.117438132 +0000
++@@ -5,5 +5,15 @@
++   site: 'https://simplewayacademy.com.br',
++   output: 'static',
++   trailingSlash: 'never',
++-  integrations: [sitemap()]
+++  integrations: [sitemap()],
+++  build: {
+++    format: 'directory',
+++    inlineStylesheets: 'auto'
+++  },
+++  vite: {
+++    build: {
+++      cssCodeSplit: true,
+++      assetsInlineLimit: 2048
+++    }
+++  }
++ });
++diff -ruN swa_sprint1_base/simpleway-academy-site/docs/APLICAR_PATCH_FINAL.md swa_all_sprints_final/simpleway-academy-site/docs/APLICAR_PATCH_FINAL.md
++--- swa_sprint1_base/simpleway-academy-site/docs/APLICAR_PATCH_FINAL.md	1970-01-01 00:00:00.000000000 +0000
+++++ swa_all_sprints_final/simpleway-academy-site/docs/APLICAR_PATCH_FINAL.md	2026-06-12 21:48:39.679053312 +0000
++@@ -0,0 +1,27 @@
+++# Como aplicar o patch final
+++
+++## Opção 1 — Substituição completa
+++
+++Extraia o ZIP e substitua o conteúdo do repositório `Tehkne-Solutions/simpleway-academy-site`.
+++
+++```bash
+++git add .
+++git commit -m "feat: ship SimpleWay Academy institutional site final patch"
+++git push origin main
+++```
+++
+++## Opção 2 — Patch incremental
+++
+++Use o arquivo:
+++
+++```txt
+++patches/PATCH_FINAL_SITE_COMPLETO.diff
+++```
+++
+++Comando sugerido a partir da raiz do repositório:
+++
+++```bash
+++patch -p1 < patches/PATCH_FINAL_SITE_COMPLETO.diff
+++```
+++
+++Como o patch foi gerado a partir do pacote Sprint 1, a opção 1 é a mais segura.
++diff -ruN swa_sprint1_base/simpleway-academy-site/docs/CLOUDFLARE_DEPLOY_CHECKLIST.md swa_all_sprints_final/simpleway-academy-site/docs/CLOUDFLARE_DEPLOY_CHECKLIST.md
++--- swa_sprint1_base/simpleway-academy-site/docs/CLOUDFLARE_DEPLOY_CHECKLIST.md	1970-01-01 00:00:00.000000000 +0000
+++++ swa_all_sprints_final/simpleway-academy-site/docs/CLOUDFLARE_DEPLOY_CHECKLIST.md	2026-06-12 21:48:39.678743511 +0000
++@@ -0,0 +1,35 @@
+++# Checklist Cloudflare Pages
+++
+++## Configuração correta
+++
+++- Framework preset: Astro
+++- Build command: `npm run build`
+++- Build output directory: `dist`
+++- Root directory: `/`
+++- Production branch: `main`
+++- Node version: `20`
+++- Deploy command: vazio
+++
+++## Atenção
+++
+++Se o painel estiver com `npx wrangler deploy` em Deploy command, remova. Este projeto é estático e deve ser publicado pelo fluxo padrão de Pages.
+++
+++## Após deploy
+++
+++Validar:
+++
+++- `/`
+++- `/metodologia`
+++- `/simpleway-english`
+++- `/planos`
+++- `/pre-matricula`
+++- `/blog`
+++- `/sitemap-index.xml`
+++- `/robots.txt`
+++
+++## Domínio
+++
+++Quando o domínio estiver pronto:
+++
+++- `simplewayacademy.com.br` → site institucional
+++- `app.simplewayacademy.com.br` → app SimpleWay Academy
++diff -ruN swa_sprint1_base/simpleway-academy-site/docs/FONTE_CONSULTADA.md swa_all_sprints_final/simpleway-academy-site/docs/FONTE_CONSULTADA.md
++--- swa_sprint1_base/simpleway-academy-site/docs/FONTE_CONSULTADA.md	1970-01-01 00:00:00.000000000 +0000
+++++ swa_all_sprints_final/simpleway-academy-site/docs/FONTE_CONSULTADA.md	2026-06-12 21:48:39.678964788 +0000
++@@ -0,0 +1,16 @@
+++# Fonte consultada
+++
+++Antes do patch final, a estrutura foi alinhada com os documentos internos do projeto SimpleWay Academy:
+++
+++- Documentação de Identidade Visual — SimpleWay Academy
+++- Estrutura Pedagógica do Curso
+++- Contexto do app Flutter SimpleWay Academy
+++- Histórico de Sprint 0 e Sprint 1 do site institucional
+++
+++Decisões preservadas:
+++
+++- O app é a plataforma oficial.
+++- O site institucional vende, explica, ranqueia e capta.
+++- Identidade: farol, azul elétrico, vermelho vital, dourado, preto cósmico e branco perolado.
+++- Metodologia: Imersão Guiada, Treino Neural de Frases, Ciclo de Fala Ativa, Activation 72 e Review.
+++- Assinatura: Tehkné Solutions.
++diff -ruN swa_sprint1_base/simpleway-academy-site/docs/QA_RESPONSIVO.md swa_all_sprints_final/simpleway-academy-site/docs/QA_RESPONSIVO.md
++--- swa_sprint1_base/simpleway-academy-site/docs/QA_RESPONSIVO.md	1970-01-01 00:00:00.000000000 +0000
+++++ swa_all_sprints_final/simpleway-academy-site/docs/QA_RESPONSIVO.md	2026-06-12 21:48:39.678845290 +0000
++@@ -0,0 +1,44 @@
+++# QA Responsivo — SimpleWay Academy Site
+++
+++## Mobile obrigatório
+++
+++Testar principalmente:
+++
+++- 360px — Android pequeno
+++- 390px — iPhone padrão
+++- 430px — iPhone Pro Max / Android grande
+++
+++Checklist:
+++
+++- Header não quebra.
+++- Menu mobile abre via botão.
+++- Botões ocupam 100% no mobile.
+++- Cards viram 1 coluna.
+++- Formulário vira 1 coluna.
+++- Hero não estoura horizontalmente.
+++- Títulos não cortam palavras importantes.
+++- Footer respeita safe-area.
+++- Não há scroll horizontal.
+++
+++## Tablet
+++
+++- 768px vertical
+++- 1024px horizontal
+++
+++Checklist:
+++
+++- Grids de cards com espaçamento confortável.
+++- CTA visível sem poluição.
+++- Formulário legível.
+++
+++## Desktop
+++
+++- 1366px
+++- 1440px+
+++
+++Checklist:
+++
+++- Hero premium.
+++- Cards alinhados.
+++- Copy escaneável.
+++- SEO pages navegáveis.
++diff -ruN swa_sprint1_base/simpleway-academy-site/docs/SPRINTS_ENTREGUES.md swa_all_sprints_final/simpleway-academy-site/docs/SPRINTS_ENTREGUES.md
++--- swa_sprint1_base/simpleway-academy-site/docs/SPRINTS_ENTREGUES.md	1970-01-01 00:00:00.000000000 +0000
+++++ swa_all_sprints_final/simpleway-academy-site/docs/SPRINTS_ENTREGUES.md	2026-06-12 21:48:39.678641779 +0000
++@@ -0,0 +1,22 @@
+++# Sprints entregues — SimpleWay Academy Site
+++
+++## Sprint 0 — Fundação e arquitetura
+++Base Astro + Cloudflare Pages, SEO base, sitemap, robots, headers e assinatura Tehkné Solutions.
+++
+++## Sprint 1 — Home Premium SEO Conversion
+++Home institucional para venda, captação e explicação do posicionamento: o site vende, o app ensina.
+++
+++## Sprint 2 — Metodologia + SimpleWay English
+++Páginas principais de método e curso, com estrutura pedagógica e copy comercial.
+++
+++## Sprint 3 — Blog/SEO avançado
+++Blog estático com artigos indexáveis, schema article e páginas de conteúdo.
+++
+++## Sprint 4 — Leads e automações
+++Lead form responsivo com mensagem de WhatsApp, preparado para evolução com n8n/Sheets/Supabase.
+++
+++## Sprint 5 — Planos, escola e conversão
+++Planos, B2B, depoimentos, FAQ e páginas de suporte comercial.
+++
+++## Sprint 6 — QA final responsivo
+++Ajustes mobile-first, segurança, rotas, cache, footer, menu mobile e patch final.
++diff -ruN swa_sprint1_base/simpleway-academy-site/package.json swa_all_sprints_final/simpleway-academy-site/package.json
++--- swa_sprint1_base/simpleway-academy-site/package.json	2026-06-12 21:26:10.000000000 +0000
+++++ swa_all_sprints_final/simpleway-academy-site/package.json	2026-06-12 21:45:42.117009457 +0000
++@@ -1,16 +1,17 @@
++ {
++   "name": "simpleway-academy-site",
++-  "version": "0.1.0",
+++  "version": "1.0.0",
++   "private": true,
++   "type": "module",
++   "scripts": {
++     "dev": "astro dev",
++     "build": "astro build",
++-    "preview": "astro preview"
+++    "preview": "astro preview",
+++    "check:responsive": "echo 'Manual QA: 360, 390, 430, 768, 1024, 1440 px'"
++   },
++   "dependencies": {
++-    "@astrojs/sitemap": "^3.6.0",
++-    "astro": "^5.15.0"
+++    "@astrojs/sitemap": "^3.7.3",
+++    "astro": "^5.18.2"
++   },
++   "devDependencies": {}
++ }
+diff -ruN swa_sprint1_base/simpleway-academy-site/public/_headers swa_all_sprints_final/simpleway-academy-site/public/_headers
+--- swa_sprint1_base/simpleway-academy-site/public/_headers	2026-06-12 21:26:16.000000000 +0000
++++ swa_all_sprints_final/simpleway-academy-site/public/_headers	2026-06-12 21:45:42.117797117 +0000
+@@ -3,6 +3,10 @@
+   X-Content-Type-Options: nosniff
+   Referrer-Policy: strict-origin-when-cross-origin
+   Permissions-Policy: camera=(), microphone=(), geolocation=()
++  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+ 
+-/assets/*
++/_astro/*
+   Cache-Control: public, max-age=31536000, immutable
++
++/*.svg
++  Cache-Control: public, max-age=604800
+diff -ruN swa_sprint1_base/simpleway-academy-site/public/_redirects swa_all_sprints_final/simpleway-academy-site/public/_redirects
+--- swa_sprint1_base/simpleway-academy-site/public/_redirects	2026-06-12 21:26:16.000000000 +0000
++++ swa_all_sprints_final/simpleway-academy-site/public/_redirects	2026-06-12 21:45:42.117939625 +0000
+@@ -1,2 +1,3 @@
+ /app https://app.simplewayacademy.com.br 302
+ /alunos https://app.simplewayacademy.com.br 302
++/aulas https://app.simplewayacademy.com.br 302
+diff -ruN swa_sprint1_base/simpleway-academy-site/public/favicon.svg swa_all_sprints_final/simpleway-academy-site/public/favicon.svg
+--- swa_sprint1_base/simpleway-academy-site/public/favicon.svg	1970-01-01 00:00:00.000000000 +0000
++++ swa_all_sprints_final/simpleway-academy-site/public/favicon.svg	2026-06-12 21:45:42.118294688 +0000
+@@ -0,0 +1,7 @@
++<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="SimpleWay Academy">
++  <rect width="128" height="128" rx="28" fill="#0D1117"/>
++  <circle cx="64" cy="28" r="15" fill="#FFD166"/>
++  <path d="M38 112 54 48h20l16 64H38Z" fill="#0057D8"/>
++  <path d="M49 79h30l5 33H44l5-33Z" fill="#E63946" opacity=".88"/>
++  <path d="M21 34c17-12 32-18 43-18s26 6 43 18" fill="none" stroke="#FFD166" stroke-width="8" stroke-linecap="round" opacity=".8"/>
++</svg>
+diff -ruN swa_sprint1_base/simpleway-academy-site/public/og-simpleway-academy.svg swa_all_sprints_final/simpleway-academy-site/public/og-simpleway-academy.svg
+--- swa_sprint1_base/simpleway-academy-site/public/og-simpleway-academy.svg	2026-06-12 21:38:40.000000000 +0000
++++ swa_all_sprints_final/simpleway-academy-site/public/og-simpleway-academy.svg	2026-06-12 21:45:42.118485968 +0000
+@@ -1,23 +1,18 @@
+-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="SimpleWay Academy">
++<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+   <defs>
+-    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+-      <stop offset="0" stop-color="#0057D8"/>
+-      <stop offset="0.58" stop-color="#0D1117"/>
+-      <stop offset="1" stop-color="#080A0F"/>
+-    </linearGradient>
+-    <radialGradient id="light" cx="72%" cy="28%" r="40%">
+-      <stop offset="0" stop-color="#FFD166" stop-opacity="0.75"/>
+-      <stop offset="1" stop-color="#FFD166" stop-opacity="0"/>
++    <radialGradient id="g" cx="65%" cy="18%" r="70%">
++      <stop offset="0" stop-color="#FFD166" stop-opacity=".38"/>
++      <stop offset=".42" stop-color="#0057D8" stop-opacity=".28"/>
++      <stop offset="1" stop-color="#0D1117"/>
+     </radialGradient>
+   </defs>
+-  <rect width="1200" height="630" fill="url(#bg)"/>
+-  <rect width="1200" height="630" fill="url(#light)"/>
+-  <circle cx="860" cy="190" r="72" fill="#FFD166"/>
+-  <path d="M820 250h80l76 260H744z" fill="#E63946" opacity="0.92"/>
+-  <path d="M842 250h36l42 260H800z" fill="#0057D8" opacity="0.92"/>
+-  <text x="92" y="190" fill="#FFD166" font-family="Arial, sans-serif" font-size="28" font-weight="800" letter-spacing="5">SIMPLEWAY ACADEMY</text>
+-  <text x="92" y="286" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="68" font-weight="900">Inglês com leveza,</text>
+-  <text x="92" y="365" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="68" font-weight="900">método e tecnologia.</text>
+-  <text x="92" y="448" fill="#D8E0EB" font-family="Arial, sans-serif" font-size="30" font-weight="500">O site vende. O app ensina.</text>
+-  <text x="92" y="535" fill="#FFD166" font-family="Arial, sans-serif" font-size="24" font-weight="800">Produto desenvolvido por Tehkné Solutions</text>
++  <rect width="1200" height="630" fill="url(#g)"/>
++  <circle cx="940" cy="168" r="72" fill="#FFD166"/>
++  <path d="M856 548 912 224h56l56 324H856Z" fill="#0057D8"/>
++  <path d="M890 390h100l24 158H866l24-158Z" fill="#E63946" opacity=".92"/>
++  <text x="88" y="178" font-family="Inter, Arial" font-size="28" fill="#FFD166" font-weight="800" letter-spacing="7">SIMPLEWAY ACADEMY</text>
++  <text x="88" y="300" font-family="Poppins, Inter, Arial" font-size="78" fill="#FFFFFF" font-weight="900">Inglês com leveza,</text>
++  <text x="88" y="390" font-family="Poppins, Inter, Arial" font-size="78" fill="#FFFFFF" font-weight="900">método e tecnologia.</text>
++  <text x="88" y="474" font-family="Inter, Arial" font-size="32" fill="#D8E0EB">O site vende. O app ensina.</text>
++  <text x="88" y="548" font-family="Inter, Arial" font-size="22" fill="#FFD166" font-weight="800">Produto desenvolvido por Tehkné Solutions</text>
+ </svg>
+diff -ruN swa_sprint1_base/simpleway-academy-site/src/components/Footer.astro swa_all_sprints_final/simpleway-academy-site/src/components/Footer.astro
+--- swa_sprint1_base/simpleway-academy-site/src/components/Footer.astro	2026-06-12 21:26:59.000000000 +0000
++++ swa_all_sprints_final/simpleway-academy-site/src/components/Footer.astro	2026-06-12 21:46:09.221069936 +0000
+@@ -1,5 +1,5 @@
+ ---
+-import { site } from '../data/site';
++import { navItems, site } from '../data/site';
+ const year = new Date().getFullYear();
+ ---
+ <footer class="footer">
+@@ -10,9 +10,7 @@
+       <p class="signature">{site.signature}</p>
+     </div>
+     <nav aria-label="Rodapé">
+-      <a href="/metodologia">Metodologia</a>
+-      <a href="/planos">Planos</a>
+-      <a href="/blog">Blog</a>
++      {navItems.map((item) => <a href={item.href}>{item.label}</a>)}
+       <a href="/politica-de-privacidade">Privacidade</a>
+       <a href="/termos-de-uso">Termos</a>
+     </nav>
+@@ -20,7 +18,7 @@
+   <div class="container copy">© {year} SimpleWay Academy. Todos os direitos reservados.</div>
+ </footer>
+ <style>
+-  .footer { border-top: 1px solid rgba(234,234,234,.1); background: rgba(7,10,15,.95); padding: 54px 0 26px; }
++  .footer { border-top: 1px solid rgba(234,234,234,.1); background: rgba(7,10,15,.95); padding: 54px 0 calc(26px + var(--safe-bottom)); }
+   .footer-grid { display: grid; grid-template-columns: 1fr auto; gap: 32px; align-items: start; }
+   strong { color: #fff; font-family: Poppins, Inter, sans-serif; font-size: 1.4rem; }
+   p { margin: 10px 0 0; }
+diff -ruN swa_sprint1_base/simpleway-academy-site/src/components/Header.astro swa_all_sprints_final/simpleway-academy-site/src/components/Header.astro
+--- swa_sprint1_base/simpleway-academy-site/src/components/Header.astro	2026-06-12 21:37:29.000000000 +0000
++++ swa_all_sprints_final/simpleway-academy-site/src/components/Header.astro	2026-06-12 21:46:09.220709993 +0000
+@@ -5,27 +5,47 @@
+   <div class="container nav-wrap">
+     <a class="brand" href="/" aria-label="SimpleWay Academy Home">
+       <span class="brand-mark" aria-hidden="true">SW</span>
+-      <span>{site.name}</span>
++      <span class="brand-name">{site.name}</span>
+     </a>
+-    <nav aria-label="Menu principal">
++
++    <nav class="desktop-nav" aria-label="Menu principal">
+       {navItems.map((item) => <a href={item.href}>{item.label}</a>)}
+     </nav>
++
+     <div class="nav-actions">
+       <a class="app-link" href={site.appUrl} rel="noopener">Acessar app</a>
+-      <a class="btn btn-primary" href="/pre-matricula">Pré-matrícula</a>
++      <a class="btn btn-primary nav-cta" href="/pre-matricula">Pré-matrícula</a>
+     </div>
++
++    <details class="mobile-menu">
++      <summary aria-label="Abrir menu"><span></span><span></span><span></span></summary>
++      <div class="mobile-panel">
++        {navItems.map((item) => <a href={item.href}>{item.label}</a>)}
++        <a href={site.appUrl} rel="noopener">Acessar app</a>
++        <a class="btn btn-primary" href="/pre-matricula">Pré-matrícula</a>
++      </div>
++    </details>
+   </div>
+ </header>
+ <style>
+   .site-header { position: sticky; top: 0; z-index: 50; border-bottom: 1px solid rgba(234,234,234,.08); background: rgba(13,17,23,.78); backdrop-filter: blur(18px); }
+-  .nav-wrap { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 22px; }
+-  .brand { display: inline-flex; align-items: center; gap: 12px; color: #fff; text-decoration: none; font-weight: 900; letter-spacing: -0.03em; white-space: nowrap; }
+-  .brand-mark { display: grid; place-items: center; width: 42px; height: 42px; border-radius: 14px; background: linear-gradient(135deg, #0057d8, #ffd166); color: #0d1117; font-size: .82rem; box-shadow: 0 12px 38px rgba(0,87,216,.38); }
+-  nav { display: flex; align-items: center; gap: 20px; color: #a8b3c3; font-size: .92rem; font-weight: 800; }
+-  nav a, .app-link { text-decoration: none; }
+-  nav a:hover, .app-link:hover { color: #ffd166; }
+-  .nav-actions { display: inline-flex; align-items: center; gap: 14px; }
++  .nav-wrap { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 18px; }
++  .brand { display: inline-flex; align-items: center; gap: 12px; color: #fff; text-decoration: none; font-weight: 900; letter-spacing: -0.03em; white-space: nowrap; min-width: 0; }
++  .brand-mark { flex: 0 0 auto; display: grid; place-items: center; width: 42px; height: 42px; border-radius: 14px; background: linear-gradient(135deg, #0057d8, #ffd166); color: #0d1117; font-size: .82rem; box-shadow: 0 12px 38px rgba(0,87,216,.38); }
++  .brand-name { overflow: hidden; text-overflow: ellipsis; }
++  .desktop-nav { display: flex; align-items: center; gap: 18px; color: #a8b3c3; font-size: .9rem; font-weight: 800; }
++  .desktop-nav a, .app-link, .mobile-panel a { text-decoration: none; }
++  .desktop-nav a:hover, .app-link:hover, .mobile-panel a:hover { color: #ffd166; }
++  .nav-actions { display: inline-flex; align-items: center; gap: 12px; }
+   .app-link { color: #d8e0eb; font-weight: 900; font-size: .92rem; white-space: nowrap; }
+-  @media (max-width: 1040px) { nav { display: none; } }
+-  @media (max-width: 640px) { .nav-wrap { min-height: 68px; } .app-link { display: none; } .brand span:last-child { display: none; } }
++  .nav-cta { min-height: 44px; padding-inline: 18px; }
++  .mobile-menu { display: none; margin-left: auto; position: relative; }
++  .mobile-menu summary { width: 46px; height: 46px; display: grid; place-content: center; gap: 5px; border: 1px solid rgba(234,234,234,.16); border-radius: 15px; background: rgba(255,255,255,.04); list-style: none; cursor: pointer; }
++  .mobile-menu summary::-webkit-details-marker { display: none; }
++  .mobile-menu summary span { display: block; width: 19px; height: 2px; background: #eaeaea; border-radius: 999px; }
++  .mobile-panel { position: absolute; right: 0; top: 58px; width: min(88vw, 340px); display: grid; gap: 8px; padding: 16px; border: 1px solid rgba(234,234,234,.14); border-radius: 24px; background: rgba(13,17,23,.98); box-shadow: 0 24px 80px rgba(0,0,0,.45); }
++  .mobile-panel a:not(.btn) { padding: 14px 12px; border-radius: 14px; color: #d8e0eb; font-weight: 900; background: rgba(255,255,255,.035); }
++  @media (max-width: 1120px) { .desktop-nav { display: none; } .mobile-menu { display: block; } }
++  @media (max-width: 720px) { .nav-wrap { min-height: 68px; gap: 10px; } .app-link { display: none; } .nav-cta { display: none; } .brand-name { max-width: 190px; } }
++  @media (max-width: 390px) { .brand-name { display: none; } .mobile-panel { right: -4px; } }
+ </style>
+diff -ruN swa_sprint1_base/simpleway-academy-site/src/components/LeadForm.astro swa_all_sprints_final/simpleway-academy-site/src/components/LeadForm.astro
+--- swa_sprint1_base/simpleway-academy-site/src/components/LeadForm.astro	2026-06-12 21:38:40.000000000 +0000
++++ swa_all_sprints_final/simpleway-academy-site/src/components/LeadForm.astro	2026-06-12 21:46:09.221235263 +0000
+@@ -25,6 +25,7 @@
+       <option>Turma ao vivo + app</option>
+       <option>Plataforma</option>
+       <option>Aulas gravadas + comunidade</option>
++      <option>Escola ou empresa</option>
+       <option>Ainda não sei</option>
+     </select>
+   </label>
+@@ -53,7 +54,7 @@
+     Mensagem
+     <textarea name="message" placeholder="Conte seu objetivo, disponibilidade e maior dificuldade hoje"></textarea>
+   </label>
+-  <p class="privacy">Ao enviar, você concorda em ser contatado pela SimpleWay Academy. Nesta fase o formulário abre uma mensagem pronta no WhatsApp; na sprint de automações ele será conectado ao n8n, Google Sheets ou Supabase.</p>
++  <p class="privacy">Ao enviar, você concorda em ser contatado pela SimpleWay Academy. Nesta versão o formulário abre uma mensagem pronta no WhatsApp; a integração com n8n, Google Sheets ou Supabase entra como automação sem mudar a UX.</p>
+   <button class="btn btn-primary" type="submit">Enviar interesse pelo WhatsApp</button>
+ </form>
+ <script>
+@@ -80,10 +81,10 @@
+   });
+ </script>
+ <style>
+-  .lead-form { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
++  .lead-form { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+   label { display: grid; gap: 8px; color: #eaeaea; font-weight: 900; }
+   .full, .privacy, button { grid-column: 1 / -1; }
+-  input, select, textarea { width: 100%; border: 1px solid rgba(234,234,234,.16); border-radius: 16px; background: rgba(13,17,23,.92); color: #fff; padding: 14px 15px; font: inherit; outline: none; }
++  input, select, textarea { width: 100%; border: 1px solid rgba(234,234,234,.16); border-radius: 16px; background: rgba(13,17,23,.92); color: #fff; padding: 14px 15px; outline: none; min-width: 0; }
+   textarea { min-height: 126px; resize: vertical; }
+   input:focus, select:focus, textarea:focus { border-color: #ffd166; box-shadow: 0 0 0 4px rgba(255,209,102,.12); }
+   .privacy { margin: 0; font-size: .88rem; color: #8f9aaa; }
+diff -ruN swa_sprint1_base/simpleway-academy-site/src/data/site.ts swa_all_sprints_final/simpleway-academy-site/src/data/site.ts
+--- swa_sprint1_base/simpleway-academy-site/src/data/site.ts	2026-06-12 21:38:39.000000000 +0000
++++ swa_all_sprints_final/simpleway-academy-site/src/data/site.ts	2026-06-12 21:45:42.118692621 +0000
+@@ -21,6 +21,7 @@
+   { label: 'Metodologia', href: '/metodologia' },
+   { label: 'SimpleWay English', href: '/simpleway-english' },
+   { label: 'Planos', href: '/planos' },
++  { label: 'Para escolas', href: '/para-escolas' },
+   { label: 'Blog', href: '/blog' },
+   { label: 'Contato', href: '/contato' }
+ ];
+@@ -46,21 +47,50 @@
+   }
+ ];
+ 
++export const lessonSteps = [
++  { title: 'OPI', description: 'Perguntas pessoais para ativar fala real desde o começo.' },
++  { title: 'Mini-story', description: 'Histórias EN/PT para criar contexto, memória e segurança.' },
++  { title: 'Q&A', description: 'Perguntas sobre a história para treinar compreensão rápida.' },
++  { title: 'Activation 72', description: 'Treino neural gamificado com variações de frase.' },
++  { title: 'Review', description: 'Revisão inteligente para consolidar antes de avançar.' }
++];
++
+ export const offerCards = [
+   {
+     title: 'Turma ao vivo + app',
+     badge: 'Mais completo',
+-    description: 'Aulas com professor, acesso ao app SimpleWay Academy, trilha de prática, speaking e revisão.'
++    description: 'Aulas com professor, acesso ao app SimpleWay Academy, trilha de prática, speaking e revisão.',
++    features: ['Professor ao vivo', 'App oficial', 'Rotina guiada', 'Speaking e revisão']
+   },
+   {
+     title: 'Plataforma',
+     badge: 'Flexível',
+-    description: 'Acesso ao app para estudar, revisar e treinar no próprio ritmo com método SimpleWay.'
++    description: 'Acesso ao app para estudar, revisar e treinar no próprio ritmo com método SimpleWay.',
++    features: ['Acesso ao app', 'Lições interativas', 'Progressão por etapas', 'Treino de fala']
+   },
+   {
+     title: 'Gravadas + comunidade',
+     badge: 'Escalável',
+-    description: 'Aulas gravadas, desafios, comunidade e rotina de evolução para manter constância.'
++    description: 'Aulas gravadas, desafios, comunidade e rotina de evolução para manter constância.',
++    features: ['Aulas gravadas', 'Comunidade', 'Desafios semanais', 'Plano de estudo']
++  }
++];
++
++export const testimonials = [
++  {
++    quote: 'A proposta da SimpleWay é diferente porque não vende só aula: vende caminho, prática e acompanhamento.',
++    name: 'Aluno beta',
++    role: 'Validação de produto'
++  },
++  {
++    quote: 'O método fica claro: ouvir, responder, praticar e revisar. Isso facilita muito a comunicação com pais e alunos.',
++    name: 'Professor parceiro',
++    role: 'Validação pedagógica'
++  },
++  {
++    quote: 'O app como plataforma oficial deixa a escola com cara de produto premium, não apenas curso tradicional.',
++    name: 'Gestor educacional',
++    role: 'Validação comercial'
+   }
+ ];
+ 
+@@ -84,5 +114,48 @@
+     question: 'Quais planos estarão disponíveis?',
+     answer:
+       'A estrutura inicial prevê turma ao vivo com app, plataforma separada e aulas gravadas com comunidade.'
++  },
++  {
++    question: 'O site e o app são a mesma coisa?',
++    answer:
++      'Não. O site vende, explica o método, ranqueia no Google e capta leads. O app é onde o aluno estuda e evolui.'
++  }
++];
++
++export const blogPosts = [
++  {
++    title: 'Como aprender inglês com mais leveza',
++    slug: 'como-aprender-ingles-com-mais-leveza',
++    description: 'Um guia para estudar inglês com método, contexto, fala ativa e rotina sustentável.',
++    category: 'Aprendizado',
++    readingTime: '5 min'
++  },
++  {
++    title: 'O que é o Método SimpleWay',
++    slug: 'metodo-simpleway',
++    description: 'Entenda a lógica de Imersão Guiada, Treino Neural de Frases e Ciclo de Fala Ativa.',
++    category: 'Metodologia',
++    readingTime: '6 min'
++  },
++  {
++    title: 'Activation 72: por que praticar frases muda o jogo',
++    slug: 'activation-72',
++    description: 'Como o treino de frases ajuda o cérebro a automatizar estruturas úteis para falar.',
++    category: 'Prática',
++    readingTime: '4 min'
++  },
++  {
++    title: 'Como destravar a fala em inglês',
++    slug: 'como-destravar-a-fala-em-ingles',
++    description: 'O caminho para sair da compreensão passiva e começar a responder com confiança.',
++    category: 'Speaking',
++    readingTime: '5 min'
++  },
++  {
++    title: 'Por que histórias ajudam na fluência',
++    slug: 'por-que-historias-ajudam-na-fluencia',
++    description: 'Mini-stories criam contexto, memória e previsibilidade para aprender melhor.',
++    category: 'Neurodidática',
++    readingTime: '4 min'
+   }
+ ];
+diff -ruN swa_sprint1_base/simpleway-academy-site/src/layouts/BaseLayout.astro swa_all_sprints_final/simpleway-academy-site/src/layouts/BaseLayout.astro
+--- swa_sprint1_base/simpleway-academy-site/src/layouts/BaseLayout.astro	2026-06-12 21:37:29.000000000 +0000
++++ swa_all_sprints_final/simpleway-academy-site/src/layouts/BaseLayout.astro	2026-06-12 21:46:09.220401074 +0000
+@@ -24,7 +24,7 @@
+ <html lang="pt-BR">
+   <head>
+     <meta charset="utf-8" />
+-    <meta name="viewport" content="width=device-width, initial-scale=1" />
++    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+     <title>{title}</title>
+     <meta name="description" content={description} />
+     <link rel="canonical" href={canonical} />
+@@ -42,12 +42,14 @@
+     <meta name="twitter:title" content={title} />
+     <meta name="twitter:description" content={description} />
+     <meta name="twitter:image" content={ogImage} />
++    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+     <link rel="preconnect" href="https://fonts.googleapis.com" />
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&family=Poppins:wght@700;800;900&display=swap" rel="stylesheet" />
+     <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+   </head>
+   <body>
++    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+     <slot />
+   </body>
+ </html>
+diff -ruN swa_sprint1_base/simpleway-academy-site/src/pages/404.astro swa_all_sprints_final/simpleway-academy-site/src/pages/404.astro
+--- swa_sprint1_base/simpleway-academy-site/src/pages/404.astro	2026-06-12 21:28:09.000000000 +0000
++++ swa_all_sprints_final/simpleway-academy-site/src/pages/404.astro	2026-06-12 21:48:01.102508827 +0000
+@@ -3,16 +3,10 @@
+ import Header from '../components/Header.astro';
+ import Footer from '../components/Footer.astro';
+ ---
+-<BaseLayout title="Página não encontrada | SimpleWay Academy">
+-  <Header />
+-  <main class="section">
+-    <div class="narrow card">
+-      <p class="eyebrow">404</p>
+-      <h1>Página não encontrada.</h1>
+-      <p>O caminho que você tentou acessar não existe ou foi movido.</p>
+-      <a class="btn btn-primary" href="/">Voltar para a home</a>
+-    </div>
+-  </main>
+-  <Footer />
++<BaseLayout title="Página não encontrada | SimpleWay Academy" noindex={true}>
++  <Header /><main id="conteudo"><section class="section page-hero"><div class="container page-head center"><p class="eyebrow">404</p><h1>Esse caminho ainda não foi iluminado.</h1><p class="lead">Volte para a home ou entre na lista de interesse.</p><div class="actions"><a class="btn btn-primary" href="/">Voltar para home</a><a class="btn btn-outline" href="/pre-matricula">Pré-matrícula</a></div></div></section></main><Footer />
+ </BaseLayout>
+-<style>.card{text-align:center}h1{font-size:clamp(2.4rem,6vw,4.5rem)}.btn{margin-top:20px}</style>
++
++<style>
++.page-hero{padding-top:clamp(58px,8vw,96px)}.page-head{max-width:900px}.actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:28px}.gap-top{margin-top:28px}.article-card{display:grid;gap:10px}.article-card span{color:#ffd166;font-weight:900;text-transform:uppercase;letter-spacing:.12em;font-size:.78rem}.legal h2{margin-top:34px}.legal p,.legal li{color:#c8d0dc;line-height:1.8}@media(max-width:720px){.actions{display:grid}}
++</style>
+diff -ruN swa_sprint1_base/simpleway-academy-site/src/pages/blog/activation-72.astro swa_all_sprints_final/simpleway-academy-site/src/pages/blog/activation-72.astro
+--- swa_sprint1_base/simpleway-academy-site/src/pages/blog/activation-72.astro	1970-01-01 00:00:00.000000000 +0000
++++ swa_all_sprints_final/simpleway-academy-site/src/pages/blog/activation-72.astro	2026-06-12 21:48:01.101734154 +0000
+@@ -0,0 +1,16 @@
++---
++import BaseLayout from '../../layouts/BaseLayout.astro';
++import Header from '../../components/Header.astro';
++import Footer from '../../components/Footer.astro';
++import { articleSchema } from '../../utils/schema';
++const post = { title: 'Activation 72: por que praticar frases muda o jogo', description: 'Como o treino de frases ajuda o cérebro a automatizar estruturas úteis para falar.', slug: 'activation-72' };
++---
++<BaseLayout title="Activation 72: por que praticar frases muda o jogo | SimpleWay Academy" description="Como o treino de frases ajuda o cérebro a automatizar estruturas úteis para falar." schema={articleSchema(post)}>
++  <Header />
++  <main id="conteudo"><article class="section page-hero"><div class="narrow article"><p class="eyebrow">Prática</p><h1>Activation 72: por que praticar frases muda o jogo</h1><p class="lead">Como o treino de frases ajuda o cérebro a automatizar estruturas úteis para falar.</p><h2>Frase é músculo</h2><p>Para falar melhor, o aluno precisa transformar estrutura em resposta automática. O Activation 72 organiza esse treino sem parecer uma lista bruta.</p><h2>Como funciona</h2><ul><li>Frases curtas e úteis.</li><li>Variações controladas.</li><li>Prática de ouvir, falar, ler e escrever.</li><li>Revisão para retenção.</li></ul></div></article></main><Footer />
++</BaseLayout>
++<style>.article h2{margin-top:42px}.article p,.article li{color:#c8d0dc;line-height:1.85}.article ul{padding-left:22px}.article .callout{margin:32px 0;padding:24px;border-radius:24px;border:1px solid rgba(255,209,102,.28);background:rgba(255,209,102,.08)}
++
++.page-hero{padding-top:clamp(58px,8vw,96px)}.page-head{max-width:900px}.actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:28px}.gap-top{margin-top:28px}.article-card{display:grid;gap:10px}.article-card span{color:#ffd166;font-weight:900;text-transform:uppercase;letter-spacing:.12em;font-size:.78rem}.legal h2{margin-top:34px}.legal p,.legal li{color:#c8d0dc;line-height:1.8}@media(max-width:720px){.actions{display:grid}}
++
++</style>
+diff -ruN swa_sprint1_base/simpleway-academy-site/src/pages/blog/como-aprender-ingles-com-mais-leveza.astro swa_all_sprints_final/simpleway-academy-site/src/pages/blog/como-aprender-ingles-com-mais-leveza.astro
+--- swa_sprint1_base/simpleway-academy-site/src/pages/blog/como-aprender-ingles-com-mais-leveza.astro	2026-06-12 21:27:58.000000000 +0000
++++ swa_all_sprints_final/simpleway-academy-site/src/pages/blog/como-aprender-ingles-com-mais-leveza.astro	2026-06-12 21:48:01.101329091 +0000
+@@ -2,24 +2,15 @@
+ import BaseLayout from '../../layouts/BaseLayout.astro';
+ import Header from '../../components/Header.astro';
+ import Footer from '../../components/Footer.astro';
++import { articleSchema } from '../../utils/schema';
++const post = { title: 'Como aprender inglês com mais leveza', description: 'Um guia para estudar inglês com método, contexto, fala ativa e rotina sustentável.', slug: 'como-aprender-ingles-com-mais-leveza' };
+ ---
+-<BaseLayout title="Como aprender inglês com mais leveza | SimpleWay Academy" description="Veja como aprender inglês com mais leveza usando rotina simples, contexto, prática ativa e revisão inteligente.">
++<BaseLayout title="Como aprender inglês com mais leveza | SimpleWay Academy" description="Um guia para estudar inglês com método, contexto, fala ativa e rotina sustentável." schema={articleSchema(post)}>
+   <Header />
+-  <main class="section">
+-    <article class="narrow article">
+-      <p class="eyebrow">Guia SimpleWay</p>
+-      <h1>Como aprender inglês com mais leveza</h1>
+-      <p class="lead">Aprender inglês fica mais leve quando o aluno para de depender apenas de memorização e começa a viver uma rotina curta, clara e repetível.</p>
+-      <h2>1. Comece pelo sentido, não pela regra</h2>
+-      <p>Histórias, exemplos e situações reais ajudam o cérebro a entender o uso do idioma antes de entrar em explicações longas.</p>
+-      <h2>2. Fale frases pequenas todos os dias</h2>
+-      <p>A fala melhora quando existe prática ativa. Responder perguntas simples, repetir estruturas e ouvir o próprio progresso reduz a trava.</p>
+-      <h2>3. Use revisão como ferramenta de confiança</h2>
+-      <p>Revisar não é voltar atrás. É consolidar o que o cérebro já começou a entender.</p>
+-      <h2>4. Transforme estudo em jornada</h2>
+-      <p>No app SimpleWay Academy, cada lição vira uma sequência de etapas: OPI, mini-story, Q&A, Activation 72 e Review.</p>
+-    </article>
+-  </main>
+-  <Footer />
++  <main id="conteudo"><article class="section page-hero"><div class="narrow article"><p class="eyebrow">Aprendizado</p><h1>Como aprender inglês com mais leveza</h1><p class="lead">Um guia para estudar inglês com método, contexto, fala ativa e rotina sustentável.</p><h2>Aprender leve não é aprender pouco</h2><p>Leveza significa reduzir ruído, ansiedade e excesso de teoria solta. O aluno precisa de contexto, repetição inteligente e pequenas vitórias visíveis.</p><h2>O caminho prático</h2><ul><li>Ouça e entenda uma situação real.</li><li>Responda perguntas simples sobre você.</li><li>Pratique frases úteis até ganhar velocidade.</li><li>Revise antes de avançar.</li></ul><div class="callout"><strong>SimpleWay:</strong> o site apresenta o caminho; o app conduz a prática.</div></div></article></main><Footer />
+ </BaseLayout>
+-<style>.article h1{font-size:clamp(2.7rem,6vw,4.8rem)}.article h2{margin-top:42px;font-size:2rem}.article p{font-size:1.08rem}.lead{font-size:1.28rem}</style>
++<style>.article h2{margin-top:42px}.article p,.article li{color:#c8d0dc;line-height:1.85}.article ul{padding-left:22px}.article .callout{margin:32px 0;padding:24px;border-radius:24px;border:1px solid rgba(255,209,102,.28);background:rgba(255,209,102,.08)}
++
++.page-hero{padding-top:clamp(58px,8vw,96px)}.page-head{max-width:900px}.actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:28px}.gap-top{margin-top:28px}.article-card{display:grid;gap:10px}.article-card span{color:#ffd166;font-weight:900;text-transform:uppercase;letter-spacing:.12em;font-size:.78rem}.legal h2{margin-top:34px}.legal p,.legal li{color:#c8d0dc;line-height:1.8}@media(max-width:720px){.actions{display:grid}}
++
++</style>
+diff -ruN swa_sprint1_base/simpleway-academy-site/src/pages/blog/como-destravar-a-fala-em-ingles.astro swa_all_sprints_final/simpleway-academy-site/src/pages/blog/como-destravar-a-fala-em-ingles.astro
+--- swa_sprint1_base/simpleway-academy-site/src/pages/blog/como-destravar-a-fala-em-ingles.astro	1970-01-01 00:00:00.000000000 +0000
++++ swa_all_sprints_final/simpleway-academy-site/src/pages/blog/como-destravar-a-fala-em-ingles.astro	2026-06-12 21:48:01.101864763 +0000
+@@ -0,0 +1,16 @@
++---
++import BaseLayout from '../../layouts/BaseLayout.astro';
++import Header from '../../components/Header.astro';
++import Footer from '../../components/Footer.astro';
++import { articleSchema } from '../../utils/schema';
++const post = { title: 'Como destravar a fala em inglês', description: 'O caminho para sair da compreensão passiva e começar a responder com confiança.', slug: 'como-destravar-a-fala-em-ingles' };
++---
++<BaseLayout title="Como destravar a fala em inglês | SimpleWay Academy" description="O caminho para sair da compreensão passiva e começar a responder com confiança." schema={articleSchema(post)}>
++  <Header />
++  <main id="conteudo"><article class="section page-hero"><div class="narrow article"><p class="eyebrow">Speaking</p><h1>Como destravar a fala em inglês</h1><p class="lead">O caminho para sair da compreensão passiva e começar a responder com confiança.</p><h2>O problema da fala</h2><p>Muitos alunos entendem mais do que conseguem falar. Isso acontece porque compreensão passiva e resposta ativa são habilidades diferentes.</p><h2>A solução</h2><p>Começar com perguntas pessoais, respostas guiadas e prática frequente reduz o medo de errar e aumenta a velocidade de reação.</p></div></article></main><Footer />
++</BaseLayout>
++<style>.article h2{margin-top:42px}.article p,.article li{color:#c8d0dc;line-height:1.85}.article ul{padding-left:22px}.article .callout{margin:32px 0;padding:24px;border-radius:24px;border:1px solid rgba(255,209,102,.28);background:rgba(255,209,102,.08)}
++
++.page-hero{padding-top:clamp(58px,8vw,96px)}.page-head{max-width:900px}.actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:28px}.gap-top{margin-top:28px}.article-card{display:grid;gap:10px}.article-card span{color:#ffd166;font-weight:900;text-transform:uppercase;letter-spacing:.12em;font-size:.78rem}.legal h2{margin-top:34px}.legal p,.legal li{color:#c8d0dc;line-height:1.8}@media(max-width:720px){.actions{display:grid}}
++
++</style>
+diff -ruN swa_sprint1_base/simpleway-academy-site/src/pages/blog/index.astro swa_all_sprints_final/simpleway-academy-site/src/pages/blog/index.astro
+--- swa_sprint1_base/simpleway-academy-site/src/pages/blog/index.astro	2026-06-12 21:27:58.000000000 +0000
++++ swa_all_sprints_final/simpleway-academy-site/src/pages/blog/index.astro	2026-06-12 21:48:01.101146208 +0000
+@@ -2,20 +2,13 @@
+ import BaseLayout from '../../layouts/BaseLayout.astro';
+ import Header from '../../components/Header.astro';
+ import Footer from '../../components/Footer.astro';
++import { blogPosts } from '../../data/site';
+ ---
+-<BaseLayout title="Blog SimpleWay Academy | Inglês, fluência e aprendizagem">
++<BaseLayout title="Blog SimpleWay Academy | Inglês, método e fluência" description="Conteúdos de SEO da SimpleWay Academy sobre inglês, método, speaking, histórias, revisão e aprendizagem leve.">
+   <Header />
+-  <main class="section">
+-    <div class="container">
+-      <p class="eyebrow">Blog e SEO</p>
+-      <h1>Conteúdos para aprender inglês com mais clareza.</h1>
+-      <div class="cards-3 posts">
+-        <a class="card post" href="/blog/como-aprender-ingles-com-mais-leveza"><span>Guia</span><h2>Como aprender inglês com mais leveza</h2><p>Um caminho prático para sair da culpa e criar rotina real de aprendizado.</p></a>
+-        <article class="card post"><span>Speaking</span><h2>Como destravar a fala em inglês</h2><p>Artigo planejado para a Sprint SEO 1.</p></article>
+-        <article class="card post"><span>Metodologia</span><h2>Por que histórias ajudam na fluência</h2><p>Artigo planejado para a Sprint SEO 1.</p></article>
+-      </div>
+-    </div>
+-  </main>
+-  <Footer />
++  <main id="conteudo"><section class="section page-hero"><div class="container page-head"><p class="eyebrow">Blog e SEO</p><h1>Conteúdo para aprender melhor antes mesmo da matrícula.</h1><p class="lead">Artigos estratégicos para atrair alunos, explicar o método e fortalecer autoridade orgânica.</p></div></section><section class="section"><div class="container cards-3">{blogPosts.map((post) => <article class="card article-card"><span>{post.category} · {post.readingTime}</span><h2>{post.title}</h2><p>{post.description}</p><a class="btn btn-outline" href={`/blog/${post.slug}`}>Ler artigo</a></article>)}</div></section></main><Footer />
+ </BaseLayout>
+-<style>.posts{margin-top:32px}.post{text-decoration:none;display:grid;gap:12px}.post span{color:#ffd166;font-weight:900}h2{font-size:1.65rem}</style>
++
++<style>
++.page-hero{padding-top:clamp(58px,8vw,96px)}.page-head{max-width:900px}.actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:28px}.gap-top{margin-top:28px}.article-card{display:grid;gap:10px}.article-card span{color:#ffd166;font-weight:900;text-transform:uppercase;letter-spacing:.12em;font-size:.78rem}.legal h2{margin-top:34px}.legal p,.legal li{color:#c8d0dc;line-height:1.8}@media(max-width:720px){.actions{display:grid}}
++</style>
+diff -ruN swa_sprint1_base/simpleway-academy-site/src/pages/blog/metodo-simpleway.astro swa_all_sprints_final/simpleway-academy-site/src/pages/blog/metodo-simpleway.astro
+--- swa_sprint1_base/simpleway-academy-site/src/pages/blog/metodo-simpleway.astro	1970-01-01 00:00:00.000000000 +0000
++++ swa_all_sprints_final/simpleway-academy-site/src/pages/blog/metodo-simpleway.astro	2026-06-12 21:48:01.101582458 +0000
+@@ -0,0 +1,16 @@
++---
++import BaseLayout from '../../layouts/BaseLayout.astro';
++import Header from '../../components/Header.astro';
++import Footer from '../../components/Footer.astro';
++import { articleSchema } from '../../utils/schema';
++const post = { title: 'O que é o Método SimpleWay', description: 'Entenda a lógica de Imersão Guiada, Treino Neural de Frases e Ciclo de Fala Ativa.', slug: 'metodo-simpleway' };
++---
++<BaseLayout title="O que é o Método SimpleWay | SimpleWay Academy" description="Entenda a lógica de Imersão Guiada, Treino Neural de Frases e Ciclo de Fala Ativa." schema={articleSchema(post)}>
++  <Header />
++  <main id="conteudo"><article class="section page-hero"><div class="narrow article"><p class="eyebrow">Metodologia</p><h1>O que é o Método SimpleWay</h1><p class="lead">Entenda a lógica de Imersão Guiada, Treino Neural de Frases e Ciclo de Fala Ativa.</p><h2>Três pilares</h2><p>A metodologia combina Imersão Guiada, Treino Neural de Frases e Ciclo de Fala Ativa para transformar conteúdo em prática.</p><h2>Da aula para o app</h2><p>Cada lição é organizada em OPI, Mini-story, Q&A, Activation 72 e Review. Essa estrutura permite que o aluno avance com clareza.</p><div class="callout">O método vira experiência dentro do app SimpleWay Academy.</div></div></article></main><Footer />
++</BaseLayout>
++<style>.article h2{margin-top:42px}.article p,.article li{color:#c8d0dc;line-height:1.85}.article ul{padding-left:22px}.article .callout{margin:32px 0;padding:24px;border-radius:24px;border:1px solid rgba(255,209,102,.28);background:rgba(255,209,102,.08)}
++
++.page-hero{padding-top:clamp(58px,8vw,96px)}.page-head{max-width:900px}.actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:28px}.gap-top{margin-top:28px}.article-card{display:grid;gap:10px}.article-card span{color:#ffd166;font-weight:900;text-transform:uppercase;letter-spacing:.12em;font-size:.78rem}.legal h2{margin-top:34px}.legal p,.legal li{color:#c8d0dc;line-height:1.8}@media(max-width:720px){.actions{display:grid}}
++
++</style>
+diff -ruN swa_sprint1_base/simpleway-academy-site/src/pages/blog/por-que-historias-ajudam-na-fluencia.astro swa_all_sprints_final/simpleway-academy-site/src/pages/blog/por-que-historias-ajudam-na-fluencia.astro
+--- swa_sprint1_base/simpleway-academy-site/src/pages/blog/por-que-historias-ajudam-na-fluencia.astro	1970-01-01 00:00:00.000000000 +0000
++++ swa_all_sprints_final/simpleway-academy-site/src/pages/blog/por-que-historias-ajudam-na-fluencia.astro	2026-06-12 21:48:01.101974412 +0000
+@@ -0,0 +1,16 @@
++---
++import BaseLayout from '../../layouts/BaseLayout.astro';
++import Header from '../../components/Header.astro';
++import Footer from '../../components/Footer.astro';
++import { articleSchema } from '../../utils/schema';
++const post = { title: 'Por que histórias ajudam na fluência', description: 'Mini-stories criam contexto, memória e previsibilidade para aprender melhor.', slug: 'por-que-historias-ajudam-na-fluencia' };
++---
++<BaseLayout title="Por que histórias ajudam na fluência | SimpleWay Academy" description="Mini-stories criam contexto, memória e previsibilidade para aprender melhor." schema={articleSchema(post)}>
++  <Header />
++  <main id="conteudo"><article class="section page-hero"><div class="narrow article"><p class="eyebrow">Neurodidática</p><h1>Por que histórias ajudam na fluência</h1><p class="lead">Mini-stories criam contexto, memória e previsibilidade para aprender melhor.</p><h2>Contexto melhora memória</h2><p>Histórias ajudam o aluno a conectar palavra, emoção, situação e intenção. Isso cria uma base mais forte do que memorizar listas isoladas.</p><h2>Mini-story no método</h2><p>A SimpleWay usa histórias bilíngues para guiar entendimento e preparar o aluno para responder perguntas com segurança.</p></div></article></main><Footer />
++</BaseLayout>
++<style>.article h2{margin-top:42px}.article p,.article li{color:#c8d0dc;line-height:1.85}.article ul{padding-left:22px}.article .callout{margin:32px 0;padding:24px;border-radius:24px;border:1px solid rgba(255,209,102,.28);background:rgba(255,209,102,.08)}
++
++.page-hero{padding-top:clamp(58px,8vw,96px)}.page-head{max-width:900px}.actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:28px}.gap-top{margin-top:28px}.article-card{display:grid;gap:10px}.article-card span{color:#ffd166;font-weight:900;text-transform:uppercase;letter-spacing:.12em;font-size:.78rem}.legal h2{margin-top:34px}.legal p,.legal li{color:#c8d0dc;line-height:1.8}@media(max-width:720px){.actions{display:grid}}
++
++</style>
+diff -ruN swa_sprint1_base/simpleway-academy-site/src/pages/contato.astro swa_all_sprints_final/simpleway-academy-site/src/pages/contato.astro
+--- swa_sprint1_base/simpleway-academy-site/src/pages/contato.astro	2026-06-12 21:27:58.000000000 +0000
++++ swa_all_sprints_final/simpleway-academy-site/src/pages/contato.astro	2026-06-12 21:48:01.100943853 +0000
+@@ -3,18 +3,13 @@
+ import Header from '../components/Header.astro';
+ import Footer from '../components/Footer.astro';
+ import LeadForm from '../components/LeadForm.astro';
++import { site } from '../data/site';
+ ---
+-<BaseLayout title="Contato | SimpleWay Academy">
++<BaseLayout title="Contato | SimpleWay Academy" description="Fale com a SimpleWay Academy para turmas, parcerias, app e planos.">
+   <Header />
+-  <main class="section">
+-    <div class="container grid-2">
+-      <div>
+-        <p class="eyebrow">Contato</p>
+-        <h1>Fale com a SimpleWay Academy.</h1>
+-        <p class="lead">Use o formulário para interesse em turmas, plataforma, aulas gravadas, escolas ou parcerias.</p>
+-      </div>
+-      <div class="card"><LeadForm /></div>
+-    </div>
+-  </main>
+-  <Footer />
++  <main id="conteudo"><section class="section page-hero"><div class="container grid-2 top-align"><div class="page-head"><p class="eyebrow">Contato</p><h1>Vamos conversar sobre o melhor caminho.</h1><p class="lead">Use o formulário para interesse em turma, plataforma, aulas gravadas, escola ou parceria.</p><div class="actions"><a class="btn btn-primary" href={site.whatsappUrl}>Chamar no WhatsApp</a><a class="btn btn-outline" href="/para-escolas">Parcerias</a></div></div><div class="card"><LeadForm /></div></div></section></main><Footer />
+ </BaseLayout>
++
++<style>
++.page-hero{padding-top:clamp(58px,8vw,96px)}.page-head{max-width:900px}.actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:28px}.gap-top{margin-top:28px}.article-card{display:grid;gap:10px}.article-card span{color:#ffd166;font-weight:900;text-transform:uppercase;letter-spacing:.12em;font-size:.78rem}.legal h2{margin-top:34px}.legal p,.legal li{color:#c8d0dc;line-height:1.8}@media(max-width:720px){.actions{display:grid}}
++</style>
+diff -ruN swa_sprint1_base/simpleway-academy-site/src/pages/depoimentos.astro swa_all_sprints_final/simpleway-academy-site/src/pages/depoimentos.astro
+--- swa_sprint1_base/simpleway-academy-site/src/pages/depoimentos.astro	1970-01-01 00:00:00.000000000 +0000
++++ swa_all_sprints_final/simpleway-academy-site/src/pages/depoimentos.astro	2026-06-12 21:47:32.537713097 +0000
+@@ -0,0 +1,26 @@
++---
++import BaseLayout from '../layouts/BaseLayout.astro';
++import Header from '../components/Header.astro';
++import Footer from '../components/Footer.astro';
++import { testimonials } from '../data/site';
++---
++<BaseLayout title="Depoimentos | SimpleWay Academy" description="Depoimentos e validações da proposta SimpleWay Academy.">
++  <Header />
++  <main id="conteudo"><section class="section page-hero"><div class="container page-head center"><p class="eyebrow">Depoimentos</p><h1>Validação da experiência SimpleWay.</h1><p class="lead">Uma área preparada para prova social real, alunos beta, professores, pais e parceiros.</p></div></section><section class="section"><div class="container cards-3">{testimonials.map((item) => <article class="card step-card"><span>{item.role}</span><h2>{item.name}</h2><p>“{item.quote}”</p></article>)}</div></section></main><Footer />
++</BaseLayout>
++
++<style>
++  .page-hero { padding-top: clamp(58px, 8vw, 96px); }
++  .page-head { max-width: 900px; }
++  .page-head .lead { max-width: 820px; }
++  .gap-top { margin-top: 28px; }
++  .step-card { display: grid; gap: 12px; }
++  .step-card span { color: #ffd166; font-weight: 900; text-transform: uppercase; letter-spacing: .12em; font-size: .78rem; }
++  .list { display: grid; gap: 12px; padding: 0; margin: 0; list-style: none; }
++  .list li { padding: 14px 16px; border-radius: 16px; background: rgba(0,87,216,.12); border: 1px solid rgba(234,234,234,.1); color: #d8e0eb; font-weight: 800; }
++  .hero-panel { min-height: 360px; display: grid; align-content: center; }
++  .hero-panel strong { color: #ffd166; font-size: 3rem; font-family: Poppins, Inter, sans-serif; line-height: 1; }
++  .cta-band { background: linear-gradient(90deg, rgba(0,87,216,.22), rgba(255,209,102,.09)); border-block: 1px solid rgba(234,234,234,.08); }
++  .actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 28px; }
++  @media(max-width:720px){ .actions{display:grid}.hero-panel{min-height:auto}.hero-panel strong{font-size:2.3rem} }
++</style>
+diff -ruN swa_sprint1_base/simpleway-academy-site/src/pages/faq.astro swa_all_sprints_final/simpleway-academy-site/src/pages/faq.astro
+--- swa_sprint1_base/simpleway-academy-site/src/pages/faq.astro	1970-01-01 00:00:00.000000000 +0000
++++ swa_all_sprints_final/simpleway-academy-site/src/pages/faq.astro	2026-06-12 21:47:32.537848304 +0000
+@@ -0,0 +1,28 @@
++---
++import BaseLayout from '../layouts/BaseLayout.astro';
++import Header from '../components/Header.astro';
++import Footer from '../components/Footer.astro';
++import { faqSchema } from '../utils/schema';
++import { homeFaqs } from '../data/site';
++---
++<BaseLayout title="FAQ | SimpleWay Academy" description="Perguntas frequentes sobre a SimpleWay Academy, app, metodologia, planos e pré-matrícula." schema={faqSchema(homeFaqs)}>
++  <Header />
++  <main id="conteudo"><section class="section page-hero"><div class="container page-head"><p class="eyebrow">FAQ</p><h1>Perguntas frequentes.</h1><p class="lead">Respostas rápidas para entender o método, o site institucional e o app oficial.</p></div></section><section class="section"><div class="container stack">{homeFaqs.map((faq) => <details class="card"><summary>{faq.question}</summary><p>{faq.answer}</p></details>)}</div></section></main><Footer />
++</BaseLayout>
++<style>summary{cursor:pointer;font-weight:900;color:#fff}details p{margin-bottom:0}</style>
++
++<style>
++  .page-hero { padding-top: clamp(58px, 8vw, 96px); }
++  .page-head { max-width: 900px; }
++  .page-head .lead { max-width: 820px; }
++  .gap-top { margin-top: 28px; }
++  .step-card { display: grid; gap: 12px; }
++  .step-card span { color: #ffd166; font-weight: 900; text-transform: uppercase; letter-spacing: .12em; font-size: .78rem; }
++  .list { display: grid; gap: 12px; padding: 0; margin: 0; list-style: none; }
++  .list li { padding: 14px 16px; border-radius: 16px; background: rgba(0,87,216,.12); border: 1px solid rgba(234,234,234,.1); color: #d8e0eb; font-weight: 800; }
++  .hero-panel { min-height: 360px; display: grid; align-content: center; }
++  .hero-panel strong { color: #ffd166; font-size: 3rem; font-family: Poppins, Inter, sans-serif; line-height: 1; }
++  .cta-band { background: linear-gradient(90deg, rgba(0,87,216,.22), rgba(255,209,102,.09)); border-block: 1px solid rgba(234,234,234,.08); }
++  .actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 28px; }
++  @media(max-width:720px){ .actions{display:grid}.hero-panel{min-height:auto}.hero-panel strong{font-size:2.3rem} }
++</style>
+diff -ruN swa_sprint1_base/simpleway-academy-site/src/pages/index.astro swa_all_sprints_final/simpleway-academy-site/src/pages/index.astro
+--- swa_sprint1_base/simpleway-academy-site/src/pages/index.astro	2026-06-12 21:37:59.000000000 +0000
++++ swa_all_sprints_final/simpleway-academy-site/src/pages/index.astro	2026-06-12 21:46:40.990062942 +0000
+@@ -4,7 +4,7 @@
+ import Footer from '../components/Footer.astro';
+ import LeadForm from '../components/LeadForm.astro';
+ import { courseSchema, faqSchema } from '../utils/schema';
+-import { homeFaqs, methodPillars, offerCards, site } from '../data/site';
++import { homeFaqs, lessonSteps, methodPillars, offerCards, site, testimonials } from '../data/site';
+ ---
+ <BaseLayout
+   title="SimpleWay Academy | Inglês com método, app e prática de fala"
+@@ -12,7 +12,7 @@
+   schema={[courseSchema(), faqSchema(homeFaqs)]}
+ >
+   <Header />
+-  <main>
++  <main id="conteudo">
+     <section class="hero section">
+       <div class="container grid-2 hero-grid">
+         <div class="hero-copy">
+@@ -32,9 +32,9 @@
+           </div>
+         </div>
+         <aside class="hero-card card" aria-label="Resumo da plataforma">
+-          <div class="beam"></div>
+-          <div class="light"></div>
+-          <div class="tower"></div>
++          <div class="beam" aria-hidden="true"></div>
++          <div class="light" aria-hidden="true"></div>
++          <div class="tower" aria-hidden="true"></div>
+           <h2>O site vende. O app ensina.</h2>
+           <p>Marketing, SEO e captação vivem aqui. A jornada do aluno acontece no app SimpleWay Academy.</p>
+           <div class="mini-grid">
+@@ -85,18 +85,16 @@
+           ))}
+         </div>
+         <div class="card steps-map">
+-          <span>1. OPI — fala ativa</span>
+-          <span>2. Mini-story — imersão guiada</span>
+-          <span>3. Q&A — compreensão rápida</span>
+-          <span>4. Activation 72 — treino neural</span>
+-          <span>5. Review — consolidação</span>
++          {lessonSteps.map((step, index) => (
++            <span><strong>{index + 1}. {step.title}</strong><small>{step.description}</small></span>
++          ))}
+         </div>
+       </div>
+     </section>
+ 
+     <section class="section app-section">
+       <div class="container grid-2">
+-        <div class="app-panel card">
++        <div class="app-panel card is-highlight">
+           <span class="badge">Plataforma oficial</span>
+           <h2>O app SimpleWay Academy é onde a evolução acontece.</h2>
+           <p>O site institucional atrai, educa e converte. O app entrega a aula, o progresso, o speaking, os desafios e a experiência do aluno.</p>
+@@ -121,6 +119,7 @@
+               <span>{offer.badge}</span>
+               <h3>{offer.title}</h3>
+               <p>{offer.description}</p>
++              <ul>{offer.features.map((feature) => <li>{feature}</li>)}</ul>
+               <a href="/pre-matricula">Tenho interesse →</a>
+             </article>
+           ))}
+@@ -128,6 +127,24 @@
+       </div>
+     </section>
+ 
++    <section class="section testimonials-section">
++      <div class="container">
++        <div class="section-head center">
++          <p class="eyebrow">Prova social</p>
++          <h2>Uma marca educacional com cara de produto premium.</h2>
++        </div>
++        <div class="cards-3 gap-top">
++          {testimonials.map((item) => (
++            <article class="card quote-card">
++              <p>“{item.quote}”</p>
++              <strong>{item.name}</strong>
++              <span>{item.role}</span>
++            </article>
++          ))}
++        </div>
++      </div>
++    </section>
++
+     <section class="section seo-section">
+       <div class="container grid-2">
+         <div>
+@@ -186,7 +203,7 @@
+   .hero-actions, .contact-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 32px; }
+   .trust-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 30px; color: #d8e0eb; font-weight: 900; }
+   .trust-row span { border: 1px solid rgba(234,234,234,.12); background: rgba(255,255,255,.04); padding: 10px 12px; border-radius: 999px; }
+-  .hero-card { min-height: 560px; display: grid; align-content: center; justify-items: center; text-align: center; position: relative; overflow: hidden; }
++  .hero-card { min-height: 540px; display: grid; align-content: center; justify-items: center; text-align: center; position: relative; overflow: hidden; }
+   .hero-card::before { content: ''; position: absolute; inset: -40%; background: radial-gradient(circle, rgba(255,209,102,.16), transparent 42%); animation: pulse 7s ease-in-out infinite; }
+   .hero-card > * { position: relative; }
+   .beam { position: absolute; width: 72%; height: 190px; top: 126px; right: -6%; background: linear-gradient(90deg, rgba(255,209,102,.26), transparent); clip-path: polygon(0 42%, 100% 0, 100% 100%, 0 58%); filter: blur(.5px); }
+@@ -194,6 +211,8 @@
+   .tower { width: 92px; height: 154px; margin: -8px auto 26px; background: linear-gradient(180deg, #e63946, #0057d8); clip-path: polygon(35% 0,65% 0,100% 100%,0 100%); }
+   .mini-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 18px; width: 100%; }
+   .mini-grid span, .steps-map span { border: 1px solid rgba(234,234,234,.12); background: rgba(0,87,216,.15); border-radius: 16px; padding: 13px; color: #dbe7f7; font-weight: 900; }
++  .steps-map span { display: grid; gap: 8px; }
++  .steps-map small { color: #a8b3c3; line-height: 1.55; font-weight: 700; }
+   .gap-top { margin-top: 26px; }
+   .small-lead { font-size: 1.08rem; }
+   .proof-strip { padding: 26px 0; border-block: 1px solid rgba(234,234,234,.08); background: rgba(255,255,255,.03); }
+@@ -206,30 +225,38 @@
+   .feature-card:nth-child(3) { transform: translateX(48px); }
+   .method-band { background: linear-gradient(90deg, rgba(0,87,216,.18), rgba(255,209,102,.07)); border-block: 1px solid rgba(234,234,234,.08); }
+   .section-head { max-width: 940px; }
+-  .section-head.center { text-align: center; margin-inline: auto; }
+   .method-card small { color: #8f9aaa; line-height: 1.65; display: block; }
+   .method-icon { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 16px; background: rgba(255,209,102,.16); color: #ffd166; font-weight: 900; margin-bottom: 18px; }
+   .steps-map { margin-top: 24px; display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; }
+   .app-section, .conversion-section { background: linear-gradient(180deg, rgba(16,23,34,.92), rgba(7,10,15,.82)); }
+-  .app-panel { min-height: 440px; display: grid; align-content: center; }
++  .app-panel { min-height: 420px; display: grid; align-content: center; }
+   .offer-card { position: relative; overflow: hidden; }
+   .offer-card::after { content: ''; position: absolute; width: 120px; height: 120px; right: -48px; top: -48px; border-radius: 999px; background: rgba(255,209,102,.13); }
+   .offer-card span { color: #ffd166; font-weight: 900; font-size: .84rem; text-transform: uppercase; letter-spacing: .12em; }
++  .offer-card ul { margin: 18px 0; padding-left: 20px; color: #c8d0dc; line-height: 1.8; }
+   .offer-card a, .article-list a { color: #ffd166; text-decoration: none; font-weight: 900; }
+   .article-list a { padding: 16px; border-radius: 18px; background: rgba(0,87,216,.13); }
+-  .top-align { align-items: start; }
+-  details.card { padding: 0; overflow: hidden; }
+-  summary { cursor: pointer; padding: 22px 24px; color: #fff; font-weight: 900; list-style: none; }
+-  summary::-webkit-details-marker { display: none; }
+-  details p { margin: 0; padding: 0 24px 22px; }
+-  .form-card { padding: clamp(18px, 3vw, 28px); }
+-  @keyframes pulse { 0%,100% { transform: scale(1); opacity: .82; } 50% { transform: scale(1.08); opacity: 1; } }
+-  @media (max-width: 980px) {
+-    .steps-map, .proof-grid { grid-template-columns: repeat(2, 1fr); }
++  .quote-card p { color: #d8e0eb; font-size: 1.05rem; }
++  .quote-card strong { display: block; margin-top: 18px; }
++  .quote-card span { color: #ffd166; font-weight: 800; font-size: .9rem; }
++  details summary { cursor: pointer; color: #fff; font-weight: 900; }
++  details p { margin-bottom: 0; }
++  .form-card { overflow: hidden; }
++  @keyframes pulse { 0%,100% { transform: scale(1); opacity: .78; } 50% { transform: scale(1.08); opacity: 1; } }
++  @media(max-width: 980px) {
++    .hero-card { min-height: auto; padding-top: 42px; padding-bottom: 42px; }
++    .proof-grid, .steps-map { grid-template-columns: repeat(2, 1fr); }
+     .feature-card:nth-child(2), .feature-card:nth-child(3) { transform: none; }
++    .app-panel { min-height: auto; }
+   }
+-  @media (max-width: 640px) {
+-    .hero-card { min-height: 460px; }
+-    .steps-map, .proof-grid { grid-template-columns: 1fr; }
++  @media(max-width: 720px) {
++    .hero { padding-top: 48px; }
++    .hero-actions, .contact-actions { display: grid; grid-template-columns: 1fr; }
++    .trust-row span { width: calc(50% - 5px); text-align: center; font-size: .86rem; }
++    .hero-card { text-align: left; justify-items: start; }
++    .light { width: 92px; height: 92px; }
++    .tower { width: 66px; height: 112px; margin-left: 12px; }
++    .beam { width: 100%; right: -24%; top: 80px; opacity: .82; }
++    .proof-grid, .steps-map, .mini-grid { grid-template-columns: 1fr; }
+   }
+ </style>
+diff -ruN swa_sprint1_base/simpleway-academy-site/src/pages/metodologia.astro swa_all_sprints_final/simpleway-academy-site/src/pages/metodologia.astro
+--- swa_sprint1_base/simpleway-academy-site/src/pages/metodologia.astro	2026-06-12 21:27:45.000000000 +0000
++++ swa_all_sprints_final/simpleway-academy-site/src/pages/metodologia.astro	2026-06-12 21:47:11.412485338 +0000
+@@ -2,37 +2,52 @@
+ import BaseLayout from '../layouts/BaseLayout.astro';
+ import Header from '../components/Header.astro';
+ import Footer from '../components/Footer.astro';
+-import { faqSchema } from '../utils/schema';
+-
+-const faqs = [
+-  { question: 'O que é Activation 72?', answer: 'É o treino neural de frases do método SimpleWay, apresentado ao aluno como jogo e prática progressiva.' },
+-  { question: 'Por que usar histórias?', answer: 'Histórias dão contexto, emoção e sentido para o cérebro compreender o inglês antes de automatizar estruturas.' }
+-];
++import { breadcrumbSchema, faqSchema } from '../utils/schema';
++import { homeFaqs, lessonSteps, methodPillars, site } from '../data/site';
+ ---
+-<BaseLayout title="Metodologia SimpleWay | SimpleWay Academy" schema={faqSchema(faqs)}>
++<BaseLayout title="Metodologia SimpleWay | Imersão, fala ativa e Activation 72" description="Conheça o Método SimpleWay: Imersão Guiada, Treino Neural de Frases, Ciclo de Fala Ativa, Activation 72 e Review." schema={[breadcrumbSchema([{name:'Início',url:site.url},{name:'Metodologia',url:`${site.url}/metodologia`}]), faqSchema(homeFaqs)]}>
+   <Header />
+-  <main class="section">
+-    <div class="container">
+-      <p class="eyebrow">O Caminho SimpleWay</p>
+-      <h1>Metodologia para estudar com clareza, praticar com ritmo e falar com confiança.</h1>
+-      <p class="lead">O método organiza cada lição em etapas simples, interativas e mensuráveis. O aluno entende, responde, escuta, pratica e revisa.</p>
+-      <div class="timeline">
+-        <article class="card"><span>01</span><h2>OPI</h2><p>Entrevista oral guiada para o aluno falar sobre si e ativar vocabulário pessoal.</p></article>
+-        <article class="card"><span>02</span><h2>Mini-story</h2><p>História curta em inglês com apoio estratégico em português para criar contexto.</p></article>
+-        <article class="card"><span>03</span><h2>Q&A</h2><p>Perguntas rápidas sobre a história para treinar compreensão e resposta.</p></article>
+-        <article class="card"><span>04</span><h2>Activation 72</h2><p>O Drill 72 vira jogo de escuta, fala, escrita e leitura, sem parecer lista bruta.</p></article>
+-        <article class="card"><span>05</span><h2>Review</h2><p>Revisão inteligente para consolidar e preparar o desbloqueio da próxima lição.</p></article>
++  <main id="conteudo">
++    <section class="section page-hero">
++      <div class="container grid-2">
++        <div class="page-head">
++          <p class="eyebrow">Metodologia</p>
++          <h1>O Caminho SimpleWay</h1>
++          <p class="lead">Uma metodologia pensada para transformar o estudo em uma jornada clara: o aluno entende, responde, pratica, revisa e evolui.</p>
++          <div class="actions"><a class="btn btn-primary" href="/pre-matricula">Entrar na lista</a><a class="btn btn-outline" href="/simpleway-english">Ver o curso</a></div>
++        </div>
++        <aside class="card hero-panel"><strong>5 steps</strong><p>OPI, Mini-story, Q&A, Activation 72 e Review em uma sequência simples para aprender com propósito.</p></aside>
++      </div>
++    </section>
++    <section class="section">
++      <div class="container cards-3">
++        {methodPillars.map((pillar) => <article class="card step-card"><span>pilar</span><h2>{pillar.title}</h2><p>{pillar.detail}</p></article>)}
+       </div>
+-    </div>
++    </section>
++    <section class="section cta-band">
++      <div class="container">
++        <div class="page-head center"><p class="eyebrow">Fluxo da lição</p><h2>Do primeiro contato à revisão inteligente.</h2></div>
++        <div class="cards-2 gap-top">
++          {lessonSteps.map((step, index) => <article class="card step-card"><span>Step {index + 1}</span><h3>{step.title}</h3><p>{step.description}</p></article>)}
++        </div>
++      </div>
++    </section>
+   </main>
+   <Footer />
+ </BaseLayout>
++
+ <style>
+-  h1 { max-width: 1020px; }
+-  .timeline { display: grid; gap: 18px; margin-top: 34px; }
+-  .timeline article { display: grid; grid-template-columns: 72px 220px 1fr; gap: 20px; align-items: center; }
+-  span { width: 52px; height: 52px; border-radius: 18px; display: grid; place-items: center; color: #0d1117; background: #ffd166; font-weight: 900; }
+-  h2 { font-size: 2rem; }
+-  p { margin: 0; }
+-  @media (max-width: 820px) { .timeline article { grid-template-columns: 1fr; } }
++  .page-hero { padding-top: clamp(58px, 8vw, 96px); }
++  .page-head { max-width: 900px; }
++  .page-head .lead { max-width: 820px; }
++  .gap-top { margin-top: 28px; }
++  .step-card { display: grid; gap: 12px; }
++  .step-card span { color: #ffd166; font-weight: 900; text-transform: uppercase; letter-spacing: .12em; font-size: .78rem; }
++  .list { display: grid; gap: 12px; padding: 0; margin: 0; list-style: none; }
++  .list li { padding: 14px 16px; border-radius: 16px; background: rgba(0,87,216,.12); border: 1px solid rgba(234,234,234,.1); color: #d8e0eb; font-weight: 800; }
++  .hero-panel { min-height: 360px; display: grid; align-content: center; }
++  .hero-panel strong { color: #ffd166; font-size: 3rem; font-family: Poppins, Inter, sans-serif; line-height: 1; }
++  .cta-band { background: linear-gradient(90deg, rgba(0,87,216,.22), rgba(255,209,102,.09)); border-block: 1px solid rgba(234,234,234,.08); }
++  .actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 28px; }
++  @media(max-width:720px){ .actions{display:grid}.hero-panel{min-height:auto}.hero-panel strong{font-size:2.3rem} }
+ </style>
+diff -ruN swa_sprint1_base/simpleway-academy-site/src/pages/para-escolas.astro swa_all_sprints_final/simpleway-academy-site/src/pages/para-escolas.astro
+--- swa_sprint1_base/simpleway-academy-site/src/pages/para-escolas.astro	1970-01-01 00:00:00.000000000 +0000
++++ swa_all_sprints_final/simpleway-academy-site/src/pages/para-escolas.astro	2026-06-12 21:47:32.537600479 +0000
+@@ -0,0 +1,33 @@
++---
++import BaseLayout from '../layouts/BaseLayout.astro';
++import Header from '../components/Header.astro';
++import Footer from '../components/Footer.astro';
++---
++<BaseLayout title="SimpleWay para escolas e empresas" description="SimpleWay Academy para escolas, empresas e parceiros que querem uma solução de ensino com app, método e acompanhamento.">
++  <Header />
++  <main id="conteudo">
++    <section class="section page-hero">
++      <div class="container grid-2">
++        <div class="page-head"><p class="eyebrow">B2B e parcerias</p><h1>Uma solução educacional pronta para escolas, empresas e turmas fechadas.</h1><p class="lead">A SimpleWay pode funcionar como curso próprio, programa complementar ou trilha de inglês com app e acompanhamento.</p><div class="actions"><a class="btn btn-primary" href="/contato">Falar sobre parceria</a><a class="btn btn-outline" href="/metodologia">Ver método</a></div></div>
++        <aside class="card hero-panel"><strong>B2B</strong><p>Turmas, relatórios, rotina de estudo e proposta premium para parceiros.</p></aside>
++      </div>
++    </section>
++    <section class="section"><div class="container cards-3"><article class="card step-card"><span>Escolas</span><h2>Complemento moderno</h2><p>Uma camada digital com prática, speaking e progressão para enriquecer o ensino.</p></article><article class="card step-card"><span>Empresas</span><h2>Inglês aplicado</h2><p>Trilhas de comunicação para equipes, atendimento e desenvolvimento profissional.</p></article><article class="card step-card"><span>Parceiros</span><h2>Produto escalável</h2><p>Marca, site, app e metodologia com estrutura para crescer de forma organizada.</p></article></div></section>
++  </main><Footer />
++</BaseLayout>
++
++<style>
++  .page-hero { padding-top: clamp(58px, 8vw, 96px); }
++  .page-head { max-width: 900px; }
++  .page-head .lead { max-width: 820px; }
++  .gap-top { margin-top: 28px; }
++  .step-card { display: grid; gap: 12px; }
++  .step-card span { color: #ffd166; font-weight: 900; text-transform: uppercase; letter-spacing: .12em; font-size: .78rem; }
++  .list { display: grid; gap: 12px; padding: 0; margin: 0; list-style: none; }
++  .list li { padding: 14px 16px; border-radius: 16px; background: rgba(0,87,216,.12); border: 1px solid rgba(234,234,234,.1); color: #d8e0eb; font-weight: 800; }
++  .hero-panel { min-height: 360px; display: grid; align-content: center; }
++  .hero-panel strong { color: #ffd166; font-size: 3rem; font-family: Poppins, Inter, sans-serif; line-height: 1; }
++  .cta-band { background: linear-gradient(90deg, rgba(0,87,216,.22), rgba(255,209,102,.09)); border-block: 1px solid rgba(234,234,234,.08); }
++  .actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 28px; }
++  @media(max-width:720px){ .actions{display:grid}.hero-panel{min-height:auto}.hero-panel strong{font-size:2.3rem} }
++</style>
+diff -ruN swa_sprint1_base/simpleway-academy-site/src/pages/planos.astro swa_all_sprints_final/simpleway-academy-site/src/pages/planos.astro
+--- swa_sprint1_base/simpleway-academy-site/src/pages/planos.astro	2026-06-12 21:27:45.000000000 +0000
++++ swa_all_sprints_final/simpleway-academy-site/src/pages/planos.astro	2026-06-12 21:47:32.537325329 +0000
+@@ -2,20 +2,52 @@
+ import BaseLayout from '../layouts/BaseLayout.astro';
+ import Header from '../components/Header.astro';
+ import Footer from '../components/Footer.astro';
++import { offerCards, site } from '../data/site';
+ ---
+-<BaseLayout title="Planos SimpleWay Academy | Turmas, plataforma e comunidade">
++<BaseLayout title="Planos SimpleWay Academy | Turma, plataforma e comunidade" description="Conheça as ofertas iniciais da SimpleWay Academy: turma ao vivo com app, plataforma separada e aulas gravadas com comunidade.">
+   <Header />
+-  <main class="section">
+-    <div class="container">
+-      <p class="eyebrow">Planos</p>
+-      <h1>Escolha o melhor formato para começar.</h1>
+-      <div class="cards-3 plans">
+-        <article class="card plan"><h2>Turma ao vivo + app</h2><p>Melhor opção para alunos que querem acompanhamento, rotina e prática guiada.</p><a class="btn btn-primary" href="/pre-matricula">Tenho interesse</a></article>
+-        <article class="card plan featured"><h2>Plataforma SimpleWay</h2><p>Estudo pelo app com trilhas, revisão, speaking e evolução no próprio ritmo.</p><a class="btn btn-primary" href="/pre-matricula">Entrar na lista</a></article>
+-        <article class="card plan"><h2>Gravadas + comunidade</h2><p>Conteúdo gravado, desafios e apoio para manter consistência.</p><a class="btn btn-outline" href="/pre-matricula">Saber mais</a></article>
++  <main id="conteudo">
++    <section class="section page-hero">
++      <div class="container page-head center">
++        <p class="eyebrow">Planos</p>
++        <h1>Escolha o melhor caminho para começar.</h1>
++        <p class="lead">A proposta comercial foi pensada para vender de forma simples: turma ao vivo, plataforma ou aulas gravadas com comunidade.</p>
+       </div>
+-    </div>
+-  </main>
+-  <Footer />
++    </section>
++    <section class="section">
++      <div class="container cards-3">
++        {offerCards.map((offer) => (
++          <article class="card step-card">
++            <span>{offer.badge}</span>
++            <h2>{offer.title}</h2>
++            <p>{offer.description}</p>
++            <ul class="list">{offer.features.map((feature) => <li>{feature}</li>)}</ul>
++            <a class="btn btn-primary" href="/pre-matricula">Tenho interesse</a>
++          </article>
++        ))}
++      </div>
++    </section>
++    <section class="section cta-band">
++      <div class="container grid-2">
++        <div><p class="eyebrow">Conversão</p><h2>Comece com lista de interesse e venda consultiva.</h2><p>A UX já está pronta para captar leads agora via WhatsApp. A automação pode evoluir para n8n, Google Sheets ou Supabase sem mudar a experiência.</p></div>
++        <a class="btn btn-primary" href={site.whatsappUrl}>Chamar no WhatsApp</a>
++      </div>
++    </section>
++  </main><Footer />
+ </BaseLayout>
+-<style>.plans{margin-top:32px}.plan{display:grid;align-content:start;gap:18px}.featured{border-color:rgba(255,209,102,.45);box-shadow:0 28px 100px rgba(255,209,102,.12)}h2{font-size:2rem}.btn{margin-top:8px}</style>
++
++<style>
++  .page-hero { padding-top: clamp(58px, 8vw, 96px); }
++  .page-head { max-width: 900px; }
++  .page-head .lead { max-width: 820px; }
++  .gap-top { margin-top: 28px; }
++  .step-card { display: grid; gap: 12px; }
++  .step-card span { color: #ffd166; font-weight: 900; text-transform: uppercase; letter-spacing: .12em; font-size: .78rem; }
++  .list { display: grid; gap: 12px; padding: 0; margin: 0; list-style: none; }
++  .list li { padding: 14px 16px; border-radius: 16px; background: rgba(0,87,216,.12); border: 1px solid rgba(234,234,234,.1); color: #d8e0eb; font-weight: 800; }
++  .hero-panel { min-height: 360px; display: grid; align-content: center; }
++  .hero-panel strong { color: #ffd166; font-size: 3rem; font-family: Poppins, Inter, sans-serif; line-height: 1; }
++  .cta-band { background: linear-gradient(90deg, rgba(0,87,216,.22), rgba(255,209,102,.09)); border-block: 1px solid rgba(234,234,234,.08); }
++  .actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 28px; }
++  @media(max-width:720px){ .actions{display:grid}.hero-panel{min-height:auto}.hero-panel strong{font-size:2.3rem} }
++</style>
+diff -ruN swa_sprint1_base/simpleway-academy-site/src/pages/politica-de-privacidade.astro swa_all_sprints_final/simpleway-academy-site/src/pages/politica-de-privacidade.astro
+--- swa_sprint1_base/simpleway-academy-site/src/pages/politica-de-privacidade.astro	2026-06-12 21:28:09.000000000 +0000
++++ swa_all_sprints_final/simpleway-academy-site/src/pages/politica-de-privacidade.astro	2026-06-12 21:48:01.102108830 +0000
+@@ -3,15 +3,10 @@
+ import Header from '../components/Header.astro';
+ import Footer from '../components/Footer.astro';
+ ---
+-<BaseLayout title="Política de Privacidade | SimpleWay Academy">
+-  <Header />
+-  <main class="section">
+-    <div class="narrow">
+-      <p class="eyebrow">LGPD</p>
+-      <h1>Política de Privacidade</h1>
+-      <p>Esta página será refinada juridicamente antes da publicação final. A SimpleWay Academy coleta dados de contato apenas para atendimento, pré-matrícula e relacionamento com interessados.</p>
+-      <p>Assinatura do produto: Tehkné Solutions.</p>
+-    </div>
+-  </main>
+-  <Footer />
++<BaseLayout title="Política de Privacidade | SimpleWay Academy" description="Política de privacidade da SimpleWay Academy.">
++  <Header /><main id="conteudo"><section class="section page-hero"><div class="narrow legal"><p class="eyebrow">Privacidade</p><h1>Política de Privacidade</h1><p>A SimpleWay Academy coleta dados enviados voluntariamente em formulários de interesse, como nome, WhatsApp, e-mail, objetivo e preferência de plano.</p><h2>Uso dos dados</h2><p>Os dados são usados para contato comercial, organização de leads, matrícula, suporte e comunicação sobre turmas e plataforma.</p><h2>Compartilhamento</h2><p>Os dados não são vendidos. Podem ser processados por ferramentas operacionais como WhatsApp, planilhas, automações e CRM.</p><h2>Solicitações</h2><p>O usuário pode solicitar correção ou remoção dos dados pelos canais oficiais de contato.</p></div></section></main><Footer />
+ </BaseLayout>
++
++<style>
++.page-hero{padding-top:clamp(58px,8vw,96px)}.page-head{max-width:900px}.actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:28px}.gap-top{margin-top:28px}.article-card{display:grid;gap:10px}.article-card span{color:#ffd166;font-weight:900;text-transform:uppercase;letter-spacing:.12em;font-size:.78rem}.legal h2{margin-top:34px}.legal p,.legal li{color:#c8d0dc;line-height:1.8}@media(max-width:720px){.actions{display:grid}}
++</style>
+diff -ruN swa_sprint1_base/simpleway-academy-site/src/pages/pre-matricula.astro swa_all_sprints_final/simpleway-academy-site/src/pages/pre-matricula.astro
+--- swa_sprint1_base/simpleway-academy-site/src/pages/pre-matricula.astro	2026-06-12 21:27:58.000000000 +0000
++++ swa_all_sprints_final/simpleway-academy-site/src/pages/pre-matricula.astro	2026-06-12 21:48:01.100564315 +0000
+@@ -4,16 +4,11 @@
+ import Footer from '../components/Footer.astro';
+ import LeadForm from '../components/LeadForm.astro';
+ ---
+-<BaseLayout title="Pré-matrícula SimpleWay Academy | Lista de interesse">
++<BaseLayout title="Pré-matrícula | SimpleWay Academy" description="Entre na lista de interesse da SimpleWay Academy e receba informações sobre turmas, plataforma e planos.">
+   <Header />
+-  <main class="section">
+-    <div class="narrow">
+-      <p class="eyebrow">Lista de interesse</p>
+-      <h1>Entre na pré-matrícula da SimpleWay Academy.</h1>
+-      <p class="lead">Preencha seus dados para receber informações sobre turmas, plataforma, planos e próximos testes do app.</p>
+-      <div class="card"><LeadForm /></div>
+-    </div>
+-  </main>
+-  <Footer />
++  <main id="conteudo"><section class="section page-hero"><div class="container grid-2 top-align"><div class="page-head"><p class="eyebrow">Pré-matrícula</p><h1>Entre na lista de interesse.</h1><p class="lead">Preencha os dados para iniciar uma conversa com a SimpleWay Academy. O envio abre uma mensagem pronta no WhatsApp.</p></div><div class="card"><LeadForm /></div></div></section></main><Footer />
+ </BaseLayout>
+-<style>h1{font-size:clamp(2.5rem,6vw,4.4rem)}.card{margin-top:28px}</style>
++
++<style>
++.page-hero{padding-top:clamp(58px,8vw,96px)}.page-head{max-width:900px}.actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:28px}.gap-top{margin-top:28px}.article-card{display:grid;gap:10px}.article-card span{color:#ffd166;font-weight:900;text-transform:uppercase;letter-spacing:.12em;font-size:.78rem}.legal h2{margin-top:34px}.legal p,.legal li{color:#c8d0dc;line-height:1.8}@media(max-width:720px){.actions{display:grid}}
++</style>
+diff -ruN swa_sprint1_base/simpleway-academy-site/src/pages/simpleway-english.astro swa_all_sprints_final/simpleway-academy-site/src/pages/simpleway-english.astro
+--- swa_sprint1_base/simpleway-academy-site/src/pages/simpleway-english.astro	2026-06-12 21:27:45.000000000 +0000
++++ swa_all_sprints_final/simpleway-academy-site/src/pages/simpleway-english.astro	2026-06-12 21:47:11.412743008 +0000
+@@ -2,33 +2,41 @@
+ import BaseLayout from '../layouts/BaseLayout.astro';
+ import Header from '../components/Header.astro';
+ import Footer from '../components/Footer.astro';
+-import { courseSchema } from '../utils/schema';
++import { courseSchema, breadcrumbSchema } from '../utils/schema';
++import { site } from '../data/site';
+ ---
+-<BaseLayout title="SimpleWay English | Curso de inglês da SimpleWay Academy" schema={courseSchema()}>
++<BaseLayout title="SimpleWay English | Curso de inglês com app e speaking" description="SimpleWay English é o primeiro curso da SimpleWay Academy: inglês com app oficial, aulas interativas, speaking, mini-stories e revisão." schema={[courseSchema(), breadcrumbSchema([{name:'Início',url:site.url},{name:'SimpleWay English',url:`${site.url}/simpleway-english`}])]}>
+   <Header />
+-  <main>
+-    <section class="section">
++  <main id="conteudo">
++    <section class="section page-hero">
+       <div class="container grid-2">
+-        <div>
+-          <p class="eyebrow">Primeiro curso</p>
+-          <h1>SimpleWay English</h1>
+-          <p class="lead">Curso de inglês com método próprio, app oficial, speaking, mini-stories e treino ativo para destravar a comunicação.</p>
+-          <a class="btn btn-primary" href="/pre-matricula">Quero entrar na lista</a>
+-        </div>
+-        <div class="card">
+-          <h2>Feito para quem quer sair do inglês travado.</h2>
+-          <p>A proposta combina aula, tecnologia e prática progressiva para que o aluno consiga ouvir, responder, escrever, revisar e falar com mais segurança.</p>
+-        </div>
++        <div class="page-head"><p class="eyebrow">Primeiro curso</p><h1>SimpleWay English</h1><p class="lead">O curso de inglês da SimpleWay Academy combina aula, app, speaking, histórias e treino ativo para destravar a comunicação com consistência.</p><div class="actions"><a class="btn btn-primary" href="/pre-matricula">Quero participar</a><a class="btn btn-outline" href="/planos">Ver planos</a></div></div>
++        <aside class="card hero-panel"><strong>App + aula</strong><p>A plataforma oficial do curso é o app SimpleWay Academy. O site institucional capta e explica. O app ensina.</p></aside>
+       </div>
+     </section>
+-    <section class="section details">
++    <section class="section">
+       <div class="container cards-3">
+-        <article class="card"><h3>Turmas ao vivo</h3><p>Professor conduzindo a jornada e usando o app como plataforma de prática.</p></article>
+-        <article class="card"><h3>App oficial</h3><p>Aluno acompanha lições, speaking, revisão, XP e progresso.</p></article>
+-        <article class="card"><h3>Comunidade</h3><p>Modelo preparado para apoio, desafios e acompanhamento de evolução.</p></article>
++        <article class="card step-card"><span>Para quem</span><h2>Iniciantes e travados</h2><p>Ideal para quem entende um pouco, mas ainda trava para responder e manter conversas simples.</p></article>
++        <article class="card step-card"><span>Como funciona</span><h2>Prática ativa</h2><p>O aluno não fica só assistindo: ele responde, escreve, ouve, fala e revisa dentro da jornada.</p></article>
++        <article class="card step-card"><span>Diferencial</span><h2>Método + produto</h2><p>A experiência une metodologia, app, conteúdo e visual premium em uma marca educacional clara.</p></article>
+       </div>
+     </section>
+   </main>
+   <Footer />
+ </BaseLayout>
+-<style>.btn{margin-top:24px}.details{padding-top:0}</style>
++
++<style>
++  .page-hero { padding-top: clamp(58px, 8vw, 96px); }
++  .page-head { max-width: 900px; }
++  .page-head .lead { max-width: 820px; }
++  .gap-top { margin-top: 28px; }
++  .step-card { display: grid; gap: 12px; }
++  .step-card span { color: #ffd166; font-weight: 900; text-transform: uppercase; letter-spacing: .12em; font-size: .78rem; }
++  .list { display: grid; gap: 12px; padding: 0; margin: 0; list-style: none; }
++  .list li { padding: 14px 16px; border-radius: 16px; background: rgba(0,87,216,.12); border: 1px solid rgba(234,234,234,.1); color: #d8e0eb; font-weight: 800; }
++  .hero-panel { min-height: 360px; display: grid; align-content: center; }
++  .hero-panel strong { color: #ffd166; font-size: 3rem; font-family: Poppins, Inter, sans-serif; line-height: 1; }
++  .cta-band { background: linear-gradient(90deg, rgba(0,87,216,.22), rgba(255,209,102,.09)); border-block: 1px solid rgba(234,234,234,.08); }
++  .actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 28px; }
++  @media(max-width:720px){ .actions{display:grid}.hero-panel{min-height:auto}.hero-panel strong{font-size:2.3rem} }
++</style>
+diff -ruN swa_sprint1_base/simpleway-academy-site/src/pages/termos-de-uso.astro swa_all_sprints_final/simpleway-academy-site/src/pages/termos-de-uso.astro
+--- swa_sprint1_base/simpleway-academy-site/src/pages/termos-de-uso.astro	2026-06-12 21:28:09.000000000 +0000
++++ swa_all_sprints_final/simpleway-academy-site/src/pages/termos-de-uso.astro	2026-06-12 21:48:01.102235272 +0000
+@@ -3,15 +3,10 @@
+ import Header from '../components/Header.astro';
+ import Footer from '../components/Footer.astro';
+ ---
+-<BaseLayout title="Termos de Uso | SimpleWay Academy">
+-  <Header />
+-  <main class="section">
+-    <div class="narrow">
+-      <p class="eyebrow">Termos</p>
+-      <h1>Termos de Uso</h1>
+-      <p>Estes termos serão refinados antes da publicação comercial. O site institucional apresenta informações, conteúdos e formulários de interesse da SimpleWay Academy.</p>
+-      <p>A plataforma oficial de ensino é o app SimpleWay Academy.</p>
+-    </div>
+-  </main>
+-  <Footer />
++<BaseLayout title="Termos de Uso | SimpleWay Academy" description="Termos de uso do site institucional SimpleWay Academy.">
++  <Header /><main id="conteudo"><section class="section page-hero"><div class="narrow legal"><p class="eyebrow">Termos</p><h1>Termos de Uso</h1><p>Este site apresenta informações institucionais, comerciais e educacionais da SimpleWay Academy.</p><h2>Conteúdo</h2><p>As informações podem ser atualizadas a qualquer momento conforme evolução do produto, turmas e plataforma.</p><h2>Pré-matrícula</h2><p>O envio de interesse não garante vaga automática. A matrícula depende de confirmação comercial e disponibilidade.</p><h2>Assinatura</h2><p>Produto desenvolvido por Tehkné Solutions.</p></div></section></main><Footer />
+ </BaseLayout>
++
++<style>
++.page-hero{padding-top:clamp(58px,8vw,96px)}.page-head{max-width:900px}.actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:28px}.gap-top{margin-top:28px}.article-card{display:grid;gap:10px}.article-card span{color:#ffd166;font-weight:900;text-transform:uppercase;letter-spacing:.12em;font-size:.78rem}.legal h2{margin-top:34px}.legal p,.legal li{color:#c8d0dc;line-height:1.8}@media(max-width:720px){.actions{display:grid}}
++</style>
+diff -ruN swa_sprint1_base/simpleway-academy-site/src/styles/global.css swa_all_sprints_final/simpleway-academy-site/src/styles/global.css
+--- swa_sprint1_base/simpleway-academy-site/src/styles/global.css	2026-06-12 21:26:45.000000000 +0000
++++ swa_all_sprints_final/simpleway-academy-site/src/styles/global.css	2026-06-12 21:45:42.119264785 +0000
+@@ -10,14 +10,17 @@
+   --sw-white: #eaeaea;
+   --sw-muted: #a8b3c3;
+   --sw-border: rgba(234, 234, 234, 0.12);
++  --sw-border-strong: rgba(255, 209, 102, 0.28);
+   --sw-shadow: 0 24px 80px rgba(0, 0, 0, 0.32);
+   --sw-radius: 28px;
++  --safe-bottom: env(safe-area-inset-bottom, 0px);
+ }
+ 
+ * { box-sizing: border-box; }
+-html { scroll-behavior: smooth; }
++html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+ body {
+   margin: 0;
++  min-width: 320px;
+   background: var(--sw-black);
+   color: var(--sw-white);
+   font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+@@ -37,19 +40,22 @@
+ }
+ a { color: inherit; }
+ img, svg { max-width: 100%; height: auto; }
++button, input, select, textarea { font: inherit; }
+ .container { width: min(1140px, calc(100% - 32px)); margin: 0 auto; }
+ .narrow { width: min(820px, calc(100% - 32px)); margin: 0 auto; }
+ .brand, h1, h2, h3 { font-family: Poppins, Inter, ui-sans-serif, system-ui, sans-serif; }
+ h1, h2, h3, p { overflow-wrap: anywhere; }
+-h1 { margin: 0; font-size: clamp(2.85rem, 7vw, 5.9rem); line-height: 0.94; letter-spacing: -0.065em; }
+-h2 { margin: 0; font-size: clamp(2rem, 4.4vw, 3.8rem); line-height: 1.02; letter-spacing: -0.045em; }
+-h3 { margin: 0; font-size: 1.35rem; letter-spacing: -0.025em; }
++h1 { margin: 0; font-size: clamp(2.4rem, 7vw, 5.9rem); line-height: 0.96; letter-spacing: -0.062em; }
++h2 { margin: 0; font-size: clamp(1.85rem, 4.4vw, 3.8rem); line-height: 1.03; letter-spacing: -0.045em; }
++h3 { margin: 0; font-size: clamp(1.18rem, 2vw, 1.35rem); letter-spacing: -0.025em; }
+ p { color: var(--sw-muted); line-height: 1.75; }
+ .eyebrow { color: var(--sw-gold); text-transform: uppercase; letter-spacing: 0.16em; font-size: 0.78rem; font-weight: 900; }
+-.lead { color: #d8e0eb; font-size: clamp(1.12rem, 2vw, 1.35rem); max-width: 720px; }
+-.section { padding: clamp(72px, 9vw, 118px) 0; }
+-.grid-2 { display: grid; grid-template-columns: 1.04fr 0.96fr; gap: clamp(28px, 5vw, 64px); align-items: center; }
+-.cards-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
++.lead { color: #d8e0eb; font-size: clamp(1.06rem, 2vw, 1.35rem); max-width: 720px; }
++.section { padding: clamp(64px, 9vw, 118px) 0; }
++.grid-2 { display: grid; grid-template-columns: minmax(0, 1.04fr) minmax(0, 0.96fr); gap: clamp(28px, 5vw, 64px); align-items: center; }
++.cards-2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
++.cards-3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
++.cards-4 { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+ .card {
+   border: 1px solid var(--sw-border);
+   background: linear-gradient(180deg, rgba(27, 36, 48, 0.88), rgba(15, 22, 32, 0.78));
+@@ -57,6 +63,7 @@
+   padding: clamp(22px, 3vw, 32px);
+   box-shadow: var(--sw-shadow);
+ }
++.card.is-highlight { border-color: var(--sw-border-strong); background: linear-gradient(180deg, rgba(0,87,216,.22), rgba(27,36,48,.84)); }
+ .btn {
+   display: inline-flex;
+   align-items: center;
+@@ -68,12 +75,36 @@
+   text-decoration: none;
+   border: 1px solid transparent;
+   transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
++  text-align: center;
++  line-height: 1.1;
+ }
+ .btn:hover { transform: translateY(-2px); }
+ .btn-primary { background: var(--sw-gold); color: #12100a; }
+ .btn-outline { border-color: rgba(234, 234, 234, 0.22); color: var(--sw-white); background: rgba(255,255,255,0.04); }
+ .badge { display: inline-flex; align-items: center; gap: 8px; padding: 8px 12px; border: 1px solid var(--sw-border); border-radius: 999px; color: #d8e0eb; background: rgba(255,255,255,0.04); font-weight: 800; font-size: 0.88rem; }
+-@media (max-width: 900px) {
+-  .grid-2, .cards-3 { grid-template-columns: 1fr; }
++.text-gold { color: var(--sw-gold); }
++.center { text-align: center; margin-inline: auto; }
++.stack { display: grid; gap: 16px; }
++.top-align { align-items: start; }
++.skip-link { position: absolute; left: 16px; top: 8px; transform: translateY(-140%); background: var(--sw-gold); color: #101010; padding: 10px 14px; border-radius: 999px; z-index: 999; font-weight: 900; }
++.skip-link:focus { transform: translateY(0); }
++@media (prefers-reduced-motion: reduce) {
++  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; }
++}
++@media (max-width: 980px) {
++  .grid-2, .cards-3, .cards-4 { grid-template-columns: 1fr; }
+   h1 { letter-spacing: -0.05em; }
++  .section { padding: 64px 0; }
++}
++@media (max-width: 720px) {
++  .container, .narrow { width: min(100% - 24px, 1140px); }
++  .cards-2 { grid-template-columns: 1fr; }
++  .card { border-radius: 22px; }
++  .btn { width: 100%; min-height: 54px; }
++  .badge { max-width: 100%; }
++}
++@media (max-width: 420px) {
++  h1 { font-size: 2.28rem; }
++  h2 { font-size: 1.8rem; }
++  .section { padding: 54px 0; }
+ }
+diff -ruN swa_sprint1_base/simpleway-academy-site/src/utils/schema.ts swa_all_sprints_final/simpleway-academy-site/src/utils/schema.ts
+--- swa_sprint1_base/simpleway-academy-site/src/utils/schema.ts	2026-06-12 21:37:29.000000000 +0000
++++ swa_all_sprints_final/simpleway-academy-site/src/utils/schema.ts	2026-06-12 21:45:42.118994145 +0000
+@@ -80,3 +80,22 @@
+     }))
+   };
+ }
++
++export function articleSchema(post: { title: string; description: string; slug: string }) {
++  return {
++    '@context': 'https://schema.org',
++    '@type': 'Article',
++    headline: post.title,
++    description: post.description,
++    url: `${site.url}/blog/${post.slug}`,
++    author: {
++      '@type': 'Organization',
++      name: site.name
++    },
++    publisher: {
++      '@type': 'Organization',
++      name: site.name
++    },
++    inLanguage: 'pt-BR'
++  };
++}
+diff -ruN swa_sprint1_base/simpleway-academy-site/tsconfig.json swa_all_sprints_final/simpleway-academy-site/tsconfig.json
+--- swa_sprint1_base/simpleway-academy-site/tsconfig.json	2026-06-12 21:26:10.000000000 +0000
++++ swa_all_sprints_final/simpleway-academy-site/tsconfig.json	2026-06-12 21:45:42.117536695 +0000
+@@ -1,3 +1,6 @@
+ {
+-  "extends": "astro/tsconfigs/strict"
++  "extends": "astro/tsconfigs/strict",
++  "compilerOptions": {
++    "baseUrl": "."
++  }
+ }

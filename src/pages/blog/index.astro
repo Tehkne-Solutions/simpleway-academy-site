@@ -2,20 +2,13 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
+import { blogPosts } from '../../data/site';
 ---
-<BaseLayout title="Blog SimpleWay Academy | Inglês, fluência e aprendizagem">
+<BaseLayout title="Blog SimpleWay Academy | Inglês, método e fluência" description="Conteúdos de SEO da SimpleWay Academy sobre inglês, método, speaking, histórias, revisão e aprendizagem leve.">
   <Header />
-  <main class="section">
-    <div class="container">
-      <p class="eyebrow">Blog e SEO</p>
-      <h1>Conteúdos para aprender inglês com mais clareza.</h1>
-      <div class="cards-3 posts">
-        <a class="card post" href="/blog/como-aprender-ingles-com-mais-leveza"><span>Guia</span><h2>Como aprender inglês com mais leveza</h2><p>Um caminho prático para sair da culpa e criar rotina real de aprendizado.</p></a>
-        <article class="card post"><span>Speaking</span><h2>Como destravar a fala em inglês</h2><p>Artigo planejado para a Sprint SEO 1.</p></article>
-        <article class="card post"><span>Metodologia</span><h2>Por que histórias ajudam na fluência</h2><p>Artigo planejado para a Sprint SEO 1.</p></article>
-      </div>
-    </div>
-  </main>
-  <Footer />
+  <main id="conteudo"><section class="section page-hero"><div class="container page-head"><p class="eyebrow">Blog e SEO</p><h1>Conteúdo para aprender melhor antes mesmo da matrícula.</h1><p class="lead">Artigos estratégicos para atrair alunos, explicar o método e fortalecer autoridade orgânica.</p></div></section><section class="section"><div class="container cards-3">{blogPosts.map((post) => <article class="card article-card"><span>{post.category} · {post.readingTime}</span><h2>{post.title}</h2><p>{post.description}</p><a class="btn btn-outline" href={`/blog/${post.slug}`}>Ler artigo</a></article>)}</div></section></main><Footer />
 </BaseLayout>
-<style>.posts{margin-top:32px}.post{text-decoration:none;display:grid;gap:12px}.post span{color:#ffd166;font-weight:900}h2{font-size:1.65rem}</style>
+
+<style>
+.page-hero{padding-top:clamp(58px,8vw,96px)}.page-head{max-width:900px}.actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:28px}.gap-top{margin-top:28px}.article-card{display:grid;gap:10px}.article-card span{color:#ffd166;font-weight:900;text-transform:uppercase;letter-spacing:.12em;font-size:.78rem}.legal h2{margin-top:34px}.legal p,.legal li{color:#c8d0dc;line-height:1.8}@media(max-width:720px){.actions{display:grid}}
+</style>
