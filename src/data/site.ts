@@ -10,6 +10,7 @@ export const site = {
   whatsappDisplay: '+55 19 99893-0846',
   email: 'contato@simplewayacademy.com.br',
   author: 'Tehkné Solutions',
+  deployMarker: 'FORCE-LIGHT-V3-ROOT-2026-06-12',
   logos: {
     mark: '/brand/simpleway-logomark.png',
     full: '/brand/simpleway-logo-full.png',
