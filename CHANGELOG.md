@@ -28,3 +28,14 @@
 - Auditoria aplicada em home, metodologia, SimpleWay English, caminhos, públicos e posts do blog.
 - Build validado com sucesso.
 
+
+
+## V9.11 — Real Photo Recovery + Static Security Hardening
+
+- Corrige regressão visual em que imagens reais não carregavam.
+- Remove dependência de `source.unsplash.com`.
+- Usa endpoints de fotos reais contextuais e fallback de foto real, sem trocar conteúdo visual por SVG/ícones.
+- Mantém imagens coerentes com título, página e contexto.
+- Adiciona headers de segurança estilo hardening CDN.
+- Adiciona honeypot e proteção básica anti-spam nos formulários WhatsApp.
+- Documenta recomendações Cloudflare equivalentes a uma postura Wordfence para site estático.
