@@ -19,3 +19,11 @@ Assinatura: Tehkné Solutions.
 - Removed public meta build marker from HTML files.
 - Removed visible/internal SEO wording from public blog slug.
 - Preserved contact conversion machine and editorial blog structure.
+
+## V9.2 — Front Copy Cleanup
+
+- Removido o card genérico “Experiência SimpleWay” das páginas institucionais.
+- Removido o título repetido “Por que esta página importa?” e seu parágrafo explicativo.
+- Mantida a profundidade das páginas sem expor copy de bastidor ou estrutura de briefing.
+- Build validado após limpeza.
+
