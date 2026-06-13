@@ -26,3 +26,7 @@ Pacote revisado para não expor marcadores técnicos no front público.
 
 O pacote remove blocos genéricos que estavam aparecendo em múltiplas páginas, especialmente “Experiência SimpleWay” e “Por que esta página importa?”. Esses textos passam a ficar fora do front público para manter o site com linguagem mais editorial, comercial e natural.
 
+
+
+### V9.3 visual corrections
+This patch removes confusing cycle metrics, cleans up the hero, moves the lesson journey out of the image overlay, rebuilds the method section as alternating image/text rows, and reinforces official SimpleWay colors across CTAs and components.

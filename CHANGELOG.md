@@ -27,3 +27,13 @@ Assinatura: Tehkné Solutions.
 - Mantida a profundidade das páginas sem expor copy de bastidor ou estrutura de briefing.
 - Build validado após limpeza.
 
+
+
+## V9.3 — Hero, Method Flow and CTA color cleanup
+- Removed numeric course/cycle metrics from all public CTA blocks.
+- Replaced duplicated hero labels with a single conversion eyebrow.
+- Removed the floating lesson card overlay from the hero image.
+- Added a horizontal method rail below the hero.
+- Rebuilt the Método SimpleWay section as alternating visual rows with one image per phase.
+- Recolored CTA gradients using official logo colors only: blue, gold and red.
+- Reinforced premium/colorful school positioning and responsive behavior.
