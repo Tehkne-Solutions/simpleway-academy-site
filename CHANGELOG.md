@@ -1,3 +1,10 @@
+# V9.9.1 — Mobile Form + Footer Pattern Fix
+
+- Corrige overflow/corte horizontal do formulário no mobile.
+- Corrige grid do footer em tablet/mobile.
+- Mantém paleta SimpleWay: azul, vermelho e dourado.
+- Não altera conteúdo, imagens ou estrutura pedagógica.
+
 # Changelog — SimpleWay Academy Site
 
 ## V9.8 — Visual Vocabulary + Photo Relevance + Deep Page Content
