@@ -24,3 +24,11 @@ Site institucional estático da SimpleWay Academy preparado para Cloudflare Work
 - Removed public link/page for the editorial mock.
 - Replaced pastel-dominant hero treatments with stronger SimpleWay brand color blocks.
 - Kept the Lego/modular visual language with blue, gold and red accents.
+
+
+### V9.9.3
+Patch root-only para melhorar a experiência mobile da seção Método SimpleWay e remover copy de bastidor.
+
+
+### V9.9.4
+Patch editorial para remover conteúdo com aparência de placeholder e alinhar posts/página do curso à fonte pedagógica SimpleWay.

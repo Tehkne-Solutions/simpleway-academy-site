@@ -1,3 +1,15 @@
+
+## V9.9.4 — Editorial Source Cleanup
+
+- Reescritos os 12 posts do blog para remover trechos com cara de placeholder, briefing interno ou alucinação editorial.
+- Removidas frases como “Ponto de aplicação”, “aplicado ao contexto”, “produto, marca e método” e repetições artificiais.
+- Ajustada a página SimpleWay English com texto mais natural e fundamentado na metodologia.
+- Substituídas imagens repetidas na sequência do método da página SimpleWay English por fotos contextuais.
+- Mantidas as correções mobile de hero, método, formulário e footer das versões V9.9.1, V9.9.2 e V9.9.3.
+- Atualizados título/descrição do post de conteúdo educacional para remover linguagem artificial.
+- Atualizados sumários laterais dos posts para refletir os novos subtítulos reais.
+- Build validado localmente.
+
 # Changelog
 
 ## V9.9.2 — Mobile App Hero + Readability Fix
@@ -37,3 +49,11 @@
 - Removed public link/page for the editorial mock.
 - Replaced pastel-dominant hero treatments with stronger SimpleWay brand color blocks.
 - Kept the Lego/modular visual language with blue, gold and red accents.
+
+
+## V9.9.3 — Mobile Method App Experience Fix
+- Corrige a seção Método SimpleWay no mobile.
+- Remove copy pública com tom de bastidor.
+- Reduz escala dos títulos e subtítulos no celular.
+- Adiciona mini sequência com cara de app na home mobile.
+- Mantém V9.9.1 e V9.9.2.
