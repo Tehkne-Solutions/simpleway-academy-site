@@ -19,3 +19,12 @@
 - Removed public link/page for the editorial mock.
 - Replaced pastel-dominant hero treatments with stronger SimpleWay brand color blocks.
 - Kept the Lego/modular visual language with blue, gold and red accents.
+
+## V9.10 — Photo Audit + Contextual Image Map
+
+- Revisão global das imagens do site.
+- Substituição de imagens repetidas por URLs únicas e contextuais.
+- Alinhamento semântico entre imagem, título e descrição da seção.
+- Auditoria aplicada em home, metodologia, SimpleWay English, caminhos, públicos e posts do blog.
+- Build validado com sucesso.
+

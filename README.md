@@ -24,3 +24,14 @@ Site institucional estático da SimpleWay Academy preparado para Cloudflare Work
 - Removed public link/page for the editorial mock.
 - Replaced pastel-dominant hero treatments with stronger SimpleWay brand color blocks.
 - Kept the Lego/modular visual language with blue, gold and red accents.
+
+## V9.10 — Auditoria visual de imagens
+
+Pacote com revisão global das imagens públicas, evitando repetição de fotos e conectando cada imagem ao assunto da seção.
+
+Validação esperada:
+
+```bash
+npm run build
+```
+
