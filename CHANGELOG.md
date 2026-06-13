@@ -28,3 +28,10 @@
 - Logo oficial, favicon e footer com marca.
 - Forms para WhatsApp +55 19 99893-0846.
 - Build estático com `node scripts/build.mjs`.
+
+
+## V7 Redirects Fix
+
+- Removed invalid `/* /404.html 404` from `_redirects` because Cloudflare Workers Assets accepts only 200/301/302/303/307/308 in `_redirects`.
+- Added safe `tsconfig.json` not depending on Astro.
+- Marker: `SWA_WORKER_DEPLOY_FIX_V7_REDIRECTS_OK`.

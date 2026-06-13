@@ -49,3 +49,10 @@ Cloudflare Workers & Pages deve usar:
 - Output directory: `dist`
 
 Produto desenvolvido por Tehkné Solutions.
+
+
+## V7 Redirects Fix
+
+- Removed invalid `/* /404.html 404` from `_redirects` because Cloudflare Workers Assets accepts only 200/301/302/303/307/308 in `_redirects`.
+- Added safe `tsconfig.json` not depending on Astro.
+- Marker: `SWA_WORKER_DEPLOY_FIX_V7_REDIRECTS_OK`.
