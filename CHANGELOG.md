@@ -1,15 +1,21 @@
-# Changelog
+# Changelog — SimpleWay Academy Site
 
-## v8.0.0 — Premium Content SEO Expansion
+## V9 — Front Clean + Rich Method + Editorial Blog + Sales Contact Machine
 
-- Corrigido header com logo menor, logomark oficial e texto lateral.
-- Header sticky com blur e sombra em scroll.
-- Melhoradas quebras de títulos com spans `.line`.
-- Conteúdo expandido em páginas institucionais.
-- Blog ampliado para 12 posts com +3.000 palavras cada.
-- Adicionada single de post premium com TOC, reading progress e CTA.
-- Adicionada camada `/admin-conteudo/` para curadoria editorial futura.
-- Reforçado SEO técnico e interlinkagem interna.
-- Mantida estrutura Worker deploy sem redirects 404 inválidos.
+- Removidos textos internos/versão/SEO/contagem de palavras do front público.
+- Home corrigida com hero limpo e Método SimpleWay em mosaico visual com 4 imagens.
+- Blog index e cards refeitos com metadados editoriais: leitura estimada e categoria.
+- Singles de blog recebem imagem contextual por subtítulo e removem placeholders repetidos.
+- Página /contato virou página de venda consultiva com intenção, pré-diagnóstico e WhatsApp para +55 19 99893-0846.
+- CSS reforçado para mobile, hover, cards, animações e responsividade.
+- Build marker atualizado para V9.
 
-Marker: `SWA_WORKER_DEPLOY_FIX_V8_CONTENT_SEO_PREMIUM`
+Assinatura: Tehkné Solutions.
+
+
+## V9.1 — QA front cleanup
+
+- Removed public technical build marker from footer.
+- Removed public meta build marker from HTML files.
+- Removed visible/internal SEO wording from public blog slug.
+- Preserved contact conversion machine and editorial blog structure.

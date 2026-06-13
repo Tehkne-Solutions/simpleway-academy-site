@@ -7,3 +7,41 @@ const io='IntersectionObserver' in window ? new IntersectionObserver(entries=>en
 const glow=$('[data-cursor-glow]'); if(glow) addEventListener('pointermove',e=>{glow.style.left=e.clientX+'px';glow.style.top=e.clientY+'px';},{passive:true});
 $$('[data-whatsapp-form]').forEach(form=>form.addEventListener('submit',ev=>{ev.preventDefault(); const data=new FormData(form); const parts=[]; for(const [k,v] of data.entries()) if(String(v).trim()) parts.push(`${k}: ${v}`); const msg='Olá! Vim pelo site da SimpleWay Academy e quero saber mais.\n\n'+parts.join('\n'); const phone=form.dataset.phone||'5519998930846'; location.href=`https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;}));
 const admin=$('[data-admin-form]'); if(admin){ const preview=$('[data-admin-preview]'); const render=()=>{ const d=new FormData(admin); const title=d.get('titulo')||'Título do conteúdo'; const type=d.get('tipo')||'post'; const intent=d.get('intencao')||'educar e converter'; const kws=d.get('keywords')||'simpleway, inglês, metodologia'; preview.innerHTML=`<h3>${title}</h3><p><b>Tipo:</b> ${type}</p><p><b>Intenção:</b> ${intent}</p><p><b>Keywords:</b> ${kws}</p><p>Brief pronto para curadoria editorial. Em produção, este painel pode alimentar CMS, GitHub Content API, Google Sheets, Supabase ou n8n.</p>`; }; admin.addEventListener('input',render); render(); $('[data-export-json]')?.addEventListener('click',()=>{const obj=Object.fromEntries(new FormData(admin).entries()); const blob=new Blob([JSON.stringify(obj,null,2)],{type:'application/json'}); const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='simpleway-content-brief.json'; a.click();});}
+
+
+// V9 contact intent + WhatsApp diagnostic form
+const intentWrap = document.querySelector('[data-intents]');
+const contactForm = document.querySelector('[data-contact-form]');
+if (intentWrap && contactForm) {
+  intentWrap.addEventListener('click', (event) => {
+    const card = event.target.closest('.intent-card');
+    if (!card) return;
+    intentWrap.querySelectorAll('.intent-card').forEach((item) => item.classList.remove('active'));
+    card.classList.add('active');
+    const intent = card.getAttribute('data-intent') || 'Quero aprender inglês';
+    contactForm.querySelector('[name="intent"]').value = intent;
+  });
+}
+if (contactForm) {
+  contactForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const data = new FormData(contactForm);
+    const lines = [
+      'Olá, SimpleWay Academy! Quero receber minha orientação.',
+      '',
+      `Intenção: ${data.get('intent') || ''}`,
+      `Nome: ${data.get('nome') || ''}`,
+      `WhatsApp: ${data.get('whatsapp') || ''}`,
+      `E-mail: ${data.get('email') || ''}`,
+      `Perfil: ${data.get('perfil') || ''}`,
+      `Nível atual: ${data.get('nivel') || ''}`,
+      `Maior dificuldade: ${data.get('dificuldade') || ''}`,
+      `Objetivo: ${data.get('objetivo') || ''}`,
+      `Preferência: ${data.get('preferencia') || ''}`,
+      `Melhor horário: ${data.get('horario') || ''}`,
+      `Mensagem: ${data.get('mensagem') || ''}`
+    ];
+    const url = `https://wa.me/5519998930846?text=${encodeURIComponent(lines.join('\n'))}`;
+    window.open(url, '_blank', 'noopener');
+  });
+}
