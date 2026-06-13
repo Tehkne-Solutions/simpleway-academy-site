@@ -37,3 +37,16 @@ This patch removes confusing cycle metrics, cleans up the hero, moves the lesson
 A página `/simpleway-english/` foi reposicionada como página principal do curso, com conteúdo profundo, copy comercial, explicação do método, app oficial, primeiro ciclo, públicos-alvo, formatos de entrada e CTA para WhatsApp.
 
 Assinatura: Tehkné Solutions.
+
+
+## V9.5
+Atualização com visual Lego/block system, hub de públicos e caminhos de lesson sets por perfil.
+
+
+## V9.6 — Arquitetura de Caminhos
+
+Hub principal: `/caminhos/` — Caminhos SimpleWay.
+
+Página específica: `/para-escolas/` — SimpleWay para escolas, professores e coordenação.
+
+O menu agora separa a visão geral dos caminhos das páginas por público, mantendo a lógica modular do método.

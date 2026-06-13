@@ -1,3 +1,13 @@
+
+## V9.6 — Caminhos SimpleWay Hub
+
+- Renomeia o hub geral de públicos para `/caminhos/`.
+- Menu principal agora usa “Caminhos” em vez de “Públicos” ou “Para escolas”.
+- `/para-escolas/` deixa de ser hub e vira página específica para escolas, professores e coordenação.
+- Dropdown e menu mobile recebem link dedicado para Escolas.
+- Breadcrumbs e footer atualizados para a nova arquitetura.
+- Mantém páginas específicas de crianças, adolescentes, jovens, adultos, empresas tech e agências.
+
 # Changelog — SimpleWay Academy Site
 
 ## V9 — Front Clean + Rich Method + Editorial Blog + Sales Contact Machine
@@ -50,3 +60,12 @@ Assinatura: Tehkné Solutions.
 
 Assinatura: Tehkné Solutions.
 
+
+
+## V9.5 — Lego UX + Audience Hub
+- Form sections sem degradê roxo/azul conflitante.
+- Novo sistema visual de blocos conectáveis inspirado nas cores do logo.
+- Header com dropdown de públicos.
+- Hub de públicos em /para-escolas/.
+- Novas páginas: /criancas/, /adolescentes/, /jovens/, /adultos/, /empresas-tech/, /agencias-marketing/.
+- Pré-matrícula reformada para perfil e orientação, sem linguagem interna de conversão no front.
