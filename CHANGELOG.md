@@ -1,3 +1,14 @@
+# Changelog
+
+## V9.9.2 — Mobile App Hero + Readability Fix
+
+- Reforça a home mobile com aparência de app.
+- Adiciona preview mobile do app SimpleWay no hero.
+- Recria o overlay da jornada do app sobre a imagem real.
+- Melhora contraste e legibilidade do subtítulo no mobile.
+- Mantém V9.9.1 com correções de formulário e footer mobile.
+- Mantém identidade SimpleWay: azul, dourado e vermelho.
+
 # V9.9.1 — Mobile Form + Footer Pattern Fix
 
 - Corrige overflow/corte horizontal do formulário no mobile.
