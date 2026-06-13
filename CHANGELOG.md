@@ -1,37 +1,15 @@
 # Changelog
 
-## v5.1.0 — Worker Deploy Fix V6 Node 22
+## v8.0.0 — Premium Content SEO Expansion
 
-- Pinado `wrangler` em `4.86.0` sem caret para evitar instalação automática do `4.100.0`.
-- Adicionado `.node-version` com `22`.
-- Adicionado `engines.node >=22.0.0`.
-- Mantido build estático `node scripts/build.mjs`.
-- Mantido deploy Worker via `wrangler deploy`.
-- Marcador de validação: `SWA_WORKER_DEPLOY_FIX_V6_NODE22`.
+- Corrigido header com logo menor, logomark oficial e texto lateral.
+- Header sticky com blur e sombra em scroll.
+- Melhoradas quebras de títulos com spans `.line`.
+- Conteúdo expandido em páginas institucionais.
+- Blog ampliado para 12 posts com +3.000 palavras cada.
+- Adicionada single de post premium com TOC, reading progress e CTA.
+- Adicionada camada `/admin-conteudo/` para curadoria editorial futura.
+- Reforçado SEO técnico e interlinkagem interna.
+- Mantida estrutura Worker deploy sem redirects 404 inválidos.
 
-# CHANGELOG
-
-## v5.0.0 — Worker Deploy Fix
-
-- Adicionado `wrangler.jsonc`.
-- Adicionado script `npm run deploy`.
-- Adicionado marcador `SWA_WORKER_DEPLOY_FIX_V5`.
-- Corrigido fluxo para Cloudflare Workers & Pages publicar assets novos em `dist`.
-- Mantida home light premium e remoção de OPI no front.
-
-# Changelog
-
-## [4.0.0] - Force Light Premium V4
-- Remove dependência de Astro para eliminar build antigo/stale.
-- Home light premium nova com marcador visível.
-- OPI removido do front, substituído por Fala Inicial / APF.
-- Logo oficial, favicon e footer com marca.
-- Forms para WhatsApp +55 19 99893-0846.
-- Build estático com `node scripts/build.mjs`.
-
-
-## V7 Redirects Fix
-
-- Removed invalid `/* /404.html 404` from `_redirects` because Cloudflare Workers Assets accepts only 200/301/302/303/307/308 in `_redirects`.
-- Added safe `tsconfig.json` not depending on Astro.
-- Marker: `SWA_WORKER_DEPLOY_FIX_V7_REDIRECTS_OK`.
+Marker: `SWA_WORKER_DEPLOY_FIX_V8_CONTENT_SEO_PREMIUM`
