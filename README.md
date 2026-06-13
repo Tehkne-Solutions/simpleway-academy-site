@@ -30,3 +30,10 @@ O pacote remove blocos genéricos que estavam aparecendo em múltiplas páginas,
 
 ### V9.3 visual corrections
 This patch removes confusing cycle metrics, cleans up the hero, moves the lesson journey out of the image overlay, rebuilds the method section as alternating image/text rows, and reinforces official SimpleWay colors across CTAs and components.
+
+
+## V9.4 — SimpleWay English Deep Course Page
+
+A página `/simpleway-english/` foi reposicionada como página principal do curso, com conteúdo profundo, copy comercial, explicação do método, app oficial, primeiro ciclo, públicos-alvo, formatos de entrada e CTA para WhatsApp.
+
+Assinatura: Tehkné Solutions.

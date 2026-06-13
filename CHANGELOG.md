@@ -37,3 +37,16 @@ Assinatura: Tehkné Solutions.
 - Rebuilt the Método SimpleWay section as alternating visual rows with one image per phase.
 - Recolored CTA gradients using official logo colors only: blue, gold and red.
 - Reinforced premium/colorful school positioning and responsive behavior.
+
+## V9.4 — SimpleWay English Deep Course Page
+
+- Reformada a página `/simpleway-english/` para ter função clara: página principal do curso, venda consultiva e explicação profunda da experiência.
+- Substituída copy rasa por conteúdo real baseado na Fonte do projeto: app como apostila digital viva, método SimpleWay, prática oral, histórias guiadas, revisão e acompanhamento.
+- Adicionadas seções novas: proposta do curso, fluxo da aula, app oficial, primeiro ciclo, públicos indicados, resultados por habilidade, formatos de entrada, FAQ e CTA.
+- Removidos blocos genéricos e métricas que faziam parecer que o curso era curto.
+- Mantido visual light premium com azul, dourado e vermelho da marca.
+- Adicionadas imagens contextuais, cards, linhas alternadas, mock visual do app, FAQ e form para WhatsApp.
+- Build validado localmente.
+
+Assinatura: Tehkné Solutions.
+
