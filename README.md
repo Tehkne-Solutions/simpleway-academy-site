@@ -32,3 +32,7 @@ Patch root-only para melhorar a experiência mobile da seção Método SimpleWay
 
 ### V9.9.4
 Patch editorial para remover conteúdo com aparência de placeholder e alinhar posts/página do curso à fonte pedagógica SimpleWay.
+
+### V9.9.5 — Blog Hero Copy Cleanup
+
+Patch root-only baseado na V9.9.4. Corrige a hero do blog para eliminar copy com aparência de placeholder/IA e deixar o posicionamento mais natural, humano e alinhado ao funil da SimpleWay Academy.

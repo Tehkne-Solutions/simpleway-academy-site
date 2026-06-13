@@ -57,3 +57,12 @@
 - Reduz escala dos títulos e subtítulos no celular.
 - Adiciona mini sequência com cara de app na home mobile.
 - Mantém V9.9.1 e V9.9.2.
+
+## V9.9.5 — Blog Hero Copy Cleanup
+
+- Reescrita da hero do `/blog/` para remover aparência de placeholder/briefing de IA.
+- Removidas expressões públicas como “colorido, profundo”, “busca orgânica”, “interlinkagem interna” e “educar, posicionar e converter”.
+- Nova copy mais humana: guias para estudar inglês com método, prática e leveza.
+- Adicionados chips de navegação rápida por intenção: fala, rotina, app/método e escolas.
+- Atualizadas meta description e OG description do blog.
+- Build validado com 31 páginas.
