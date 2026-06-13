@@ -1,12 +1,14 @@
-# Changelog
+# CHANGELOG — V9.9.8
 
-## V9.9.7 — SimpleWay English Course Conversion
+## SimpleWay English Storyworld Premium
 
-- Reconstruída a página `/simpleway-english/` como página comercial e pedagógica do curso.
-- Nova explicação de como cada lição funciona: Fala Inicial, História Guiada, Perguntas, Desafio de Estruturas e Revisão Inteligente.
-- Nova seção de ciclos com lógica 6 + 1: seis lições progressivas + checkpoint.
-- Adicionada visão de arquitetura completa: 10 ciclos planejados, 70 lições estruturadas e fechamento/formatura.
-- Refeito bloco do primeiro ciclo sem parecer que o curso inteiro é curto.
-- Novos componentes visuais: mock do app, cycle map, path board, cards de fundação, objeções e CTA.
-- Mantidas as correções anteriores: planos premium, blog hero, mobile hero, form e footer.
-- Build validado com sucesso.
+- Reformulada a página /simpleway-english/ com camada VIP de copy, layout e conversão.
+- Substituído trecho fraco sobre “mostrar estrutura” por copy de mapa/experiência sem spoilers.
+- Adicionada seção “Mini-stories progressivas” com personagens, episódios e mundo narrativo.
+- Adicionada seção de lição em 5 movimentos com visual mais premium.
+- Reforçada arquitetura 6 + 1 dos ciclos e visão de 10 ciclos / 70 lições / +2 encontros.
+- Adicionada em /metodologia seção sobre storytelling, design de personagens, design de mundos, neurociência e linguística.
+- Adicionado sistema CSS para títulos tricolores e componentes premium.
+- Build local validado.
+
+Assinatura: Tehkné Solutions.

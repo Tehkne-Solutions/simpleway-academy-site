@@ -1,17 +1,12 @@
-# SimpleWay Academy Site — V9.9.7
+# SimpleWay Academy Site — V9.9.8
 
-Pacote root-only para Cloudflare Pages/Workers.
+Patch root-only para Cloudflare Pages/Workers.
 
-Esta versão aprofunda a página `/simpleway-english/`, transformando-a em uma página de venda e explicação do curso com foco em conversão, clareza pedagógica e identidade visual SimpleWay.
+## Destaques
+- /simpleway-english com copy premium e foco em conversão.
+- Nova camada visual para mini-stories progressivas, personagens, mundos e storytelling.
+- Heroes e títulos com uso integrado das 3 cores SimpleWay: azul, dourado e vermelho.
+- /metodologia reforçada com seção de storytelling, game design e neurodidática.
+- Mantém /planos da V9.9.6 e correções mobile anteriores.
 
-## Build
-
-```bash
-npm run build
-```
-
-## Deploy
-
-```bash
-npm run deploy
-```
+Assinatura: Tehkné Solutions.
