@@ -9,7 +9,6 @@ $$('[data-whatsapp-form]').forEach(form=>form.addEventListener('submit',ev=>{ev.
 const admin=$('[data-admin-form]'); if(admin){ const preview=$('[data-admin-preview]'); const render=()=>{ const d=new FormData(admin); const title=d.get('titulo')||'Título do conteúdo'; const type=d.get('tipo')||'post'; const intent=d.get('intencao')||'educar e converter'; const kws=d.get('keywords')||'simpleway, inglês, metodologia'; preview.innerHTML=`<h3>${title}</h3><p><b>Tipo:</b> ${type}</p><p><b>Intenção:</b> ${intent}</p><p><b>Keywords:</b> ${kws}</p><p>Brief pronto para curadoria editorial. Em produção, este painel pode alimentar CMS, GitHub Content API, Google Sheets, Supabase ou n8n.</p>`; }; admin.addEventListener('input',render); render(); $('[data-export-json]')?.addEventListener('click',()=>{const obj=Object.fromEntries(new FormData(admin).entries()); const blob=new Blob([JSON.stringify(obj,null,2)],{type:'application/json'}); const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='simpleway-content-brief.json'; a.click();});}
 
 
-// V9 contact intent + WhatsApp diagnostic form
 const intentWrap = document.querySelector('[data-intents]');
 const contactForm = document.querySelector('[data-contact-form]');
 if (intentWrap && contactForm) {

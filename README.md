@@ -50,3 +50,10 @@ Hub principal: `/caminhos/` — Caminhos SimpleWay.
 Página específica: `/para-escolas/` — SimpleWay para escolas, professores e coordenação.
 
 O menu agora separa a visão geral dos caminhos das páginas por público, mantendo a lógica modular do método.
+
+
+## V9.7 — Página Metodologia Profunda
+
+A página `/metodologia/` foi reconstruída como uma página estratégica do método: hero próprio, blocos visuais, sequência completa do caminho SimpleWay, app como apostila viva, ecossistema modular e CTA consultivo.
+
+Assinatura: Tehkné Solutions.

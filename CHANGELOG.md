@@ -69,3 +69,12 @@ Assinatura: Tehkné Solutions.
 - Hub de públicos em /para-escolas/.
 - Novas páginas: /criancas/, /adolescentes/, /jovens/, /adultos/, /empresas-tech/, /agencias-marketing/.
 - Pré-matrícula reformada para perfil e orientação, sem linguagem interna de conversão no front.
+
+
+## V9.7 — Deep Methodology Page
+
+- Reconstruída `/metodologia/` com copy profunda e comercial.
+- Adicionado hero visual, blocos Lego, etapas alternadas com imagens e ecossistema SimpleWay.
+- Aplicada a arquitetura SimpleWay como narrativa de marca, sem expor árvore técnica crua.
+- Mantido foco em app oficial, turmas, caminhos, comunidade e expansão futura.
+- Build validado localmente.
