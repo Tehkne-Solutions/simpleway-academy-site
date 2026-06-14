@@ -107,3 +107,15 @@ Assinatura: Tehkné Solutions.
 - Card principal do mega-menu virou link clicável para /caminhos/.
 - Todos os cards do painel mantêm link próprio e ganharam hover premium.
 - Mantém V9.10.1 Wide Layout + Beacon Header.
+
+
+## V9.10.7 — Official App Sales Page
+
+- Criada página oficial `/app/` para substituir o acesso direto que poderia cair em rota externa/404.
+- CTAs “Acessar app” agora levam para a página oficial do app no site.
+- Página apresenta a plataforma de forma vendável: apostila viva, mini-stories, speaking, Activation 72, revisão, XP e progresso.
+- Adicionadas prévias visuais em CSS da experiência do app, sem depender de screenshots reais.
+- Adicionado formulário de lista de espera/testes com envio para WhatsApp.
+- Footer atualizado com link “App oficial”.
+- Redirect `/acessar-app/` para `/app/`.
+- Build validado com sitemap incluindo `/app/`.
