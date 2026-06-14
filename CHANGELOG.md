@@ -34,3 +34,13 @@
 - Build local validado.
 
 Assinatura: Tehkné Solutions.
+
+
+## V9.10.2 — Caminhos Mega Menu Clickable Hover Bridge
+
+- Corrigido bug do mega-menu Caminhos sumir ao mover o cursor do item para o painel.
+- Adicionada ponte invisível de hover entre o trigger e o painel.
+- Painel agora permanece aberto com hover, focus e pequena tolerância de saída.
+- Card principal do mega-menu virou link clicável para /caminhos/.
+- Todos os cards do painel mantêm link próprio e ganharam hover premium.
+- Mantém V9.10.1 Wide Layout + Beacon Header.

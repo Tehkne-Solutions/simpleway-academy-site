@@ -20,3 +20,8 @@ Pacote root-only com correções de contato, header, títulos tricolores, botão
 ## V9.10.1
 
 Patch de largura global e header: 80% em desktop amplo, container adaptativo em 1360px, menu sem quebra de linha e navegação Beacon mais equilibrada.
+
+
+### V9.10.2
+
+Patch de navegação: mega-menu Caminhos clicável, com hover bridge, link do hub e efeitos premium em cada item.

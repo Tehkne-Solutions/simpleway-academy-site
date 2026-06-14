@@ -101,3 +101,37 @@ if (contactForm) {
     });
   }
 })();
+
+
+// V9.10.2 — Caminhos Mega Menu hover intent and clickable panel support
+(function(){
+  document.querySelectorAll('.beacon-mega').forEach((mega) => {
+    let closeTimer;
+    const open = () => {
+      clearTimeout(closeTimer);
+      mega.classList.add('is-open');
+    };
+    const close = () => {
+      clearTimeout(closeTimer);
+      closeTimer = setTimeout(() => mega.classList.remove('is-open'), 220);
+    };
+    mega.addEventListener('pointerenter', open);
+    mega.addEventListener('pointerleave', close);
+    mega.addEventListener('focusin', open);
+    mega.addEventListener('focusout', close);
+    const trigger = mega.querySelector('.nav-dropdown-trigger');
+    if (trigger) {
+      trigger.addEventListener('click', (event) => {
+        if (window.matchMedia('(pointer: coarse)').matches) {
+          event.preventDefault();
+          mega.classList.toggle('is-open');
+        }
+      });
+    }
+  });
+  document.addEventListener('click', (event) => {
+    document.querySelectorAll('.beacon-mega.is-open').forEach((mega) => {
+      if (!mega.contains(event.target)) mega.classList.remove('is-open');
+    });
+  });
+})();
