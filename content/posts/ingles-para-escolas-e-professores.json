@@ -3,7 +3,7 @@
   "title": "SimpleWay para escolas e professores: como padronizar lições sem engessar a aula",
   "description": "Como escolas podem usar método, app, trilhas e acompanhamento para organizar inglês com consistência e liberdade pedagógica.",
   "category": "Escolas e professores",
-  "image": "https://images.unsplash.com/photo-1488190211105-8b0e65b80b4e?auto=format&fit=crop&w=1300&q=82",
+  "image": "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=1400&q=82",
   "readLabel": "Guia completo",
   "tags": [
     "inglês para escolas com plataforma",
@@ -11,5 +11,6 @@
     "SimpleWay English",
     "Metodologia SimpleWay"
   ],
-  "body": "Artigo profissional completo gerado em HTML estático em site/blog/ingles-para-escolas-e-professores/index.html"
+  "body": "Artigo profissional completo gerado em HTML estático em site/blog/ingles-para-escolas-e-professores/index.html",
+  "imageAlt": "professor usando método SimpleWay em sala"
 }

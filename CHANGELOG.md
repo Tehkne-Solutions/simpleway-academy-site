@@ -1,4 +1,13 @@
 
+## V9.10.6 — Blog Image Uniqueness Fix
+
+- Corrigidas imagens repetidas nos posts do blog.
+- Cada artigo recebeu uma sequência própria de imagens contextuais.
+- Hero images dos cards do blog revisadas.
+- JSON-LD Article image e metadados de post atualizados.
+- Adicionado `docs/BLOG_IMAGE_AUDIT_V9_10_6.md`.
+
+
 ## V9.10.5 — Professional Blog SEO Expansion
 - Reescritos os 12 posts do blog como guias profissionais longos.
 - Cada artigo agora tem mais de 2.500 palavras aproximadas no HTML público.

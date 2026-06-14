@@ -3,7 +3,7 @@
   "title": "Histórias Guiadas: como mini-stories ajudam o cérebro a entender antes de decorar",
   "description": "Um artigo completo sobre mini-stories, personagens, repetição contextual e storytelling aplicado ao aprendizado de inglês.",
   "category": "Metodologia",
-  "image": "https://images.unsplash.com/photo-1529070538774-1843cb3265df?auto=format&fit=crop&w=1300&q=82",
+  "image": "https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1400&q=82",
   "readLabel": "Guia completo",
   "tags": [
     "mini stories para aprender inglês",
@@ -11,5 +11,6 @@
     "SimpleWay English",
     "Metodologia SimpleWay"
   ],
-  "body": "Artigo profissional completo gerado em HTML estático em site/blog/historias-guiadas-fluencia/index.html"
+  "body": "Artigo profissional completo gerado em HTML estático em site/blog/historias-guiadas-fluencia/index.html",
+  "imageAlt": "mini-story progressiva no aprendizado de inglês"
 }

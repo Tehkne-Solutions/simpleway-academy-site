@@ -3,7 +3,7 @@
   "title": "Desafio das 72 Frases: o treino neural que transforma repetição em jogo",
   "description": "Conheça a lógica por trás do treino de frases da SimpleWay: prática ativa, variação, velocidade e domínio progressivo.",
   "category": "Prática ativa",
-  "image": "https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1300&q=82",
+  "image": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1400&q=82",
   "readLabel": "Guia completo",
   "tags": [
     "treino de frases em inglês",
@@ -11,5 +11,6 @@
     "SimpleWay English",
     "Metodologia SimpleWay"
   ],
-  "body": "Artigo profissional completo gerado em HTML estático em site/blog/activation-72-desafio-frases/index.html"
+  "body": "Artigo profissional completo gerado em HTML estático em site/blog/activation-72-desafio-frases/index.html",
+  "imageAlt": "desafio de frases no app SimpleWay"
 }

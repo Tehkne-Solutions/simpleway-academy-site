@@ -3,7 +3,7 @@
   "title": "Inglês para adultos ocupados: rotina simples para estudar mesmo com pouco tempo",
   "description": "Um guia para adultos que trabalham, cuidam da família e querem voltar ao inglês com método, leveza e continuidade.",
   "category": "Adultos ocupados",
-  "image": "https://images.unsplash.com/photo-1596495578065-6e0763fa1178?auto=format&fit=crop&w=1300&q=82",
+  "image": "https://images.unsplash.com/photo-1531545514256-b1400bc00f31?auto=format&fit=crop&w=1400&q=82",
   "readLabel": "Guia completo",
   "tags": [
     "inglês para adultos ocupados",
@@ -11,5 +11,6 @@
     "SimpleWay English",
     "Metodologia SimpleWay"
   ],
-  "body": "Artigo profissional completo gerado em HTML estático em site/blog/ingles-para-adultos-ocupados/index.html"
+  "body": "Artigo profissional completo gerado em HTML estático em site/blog/ingles-para-adultos-ocupados/index.html",
+  "imageAlt": "adulto estudando inglês em rotina corrida"
 }
