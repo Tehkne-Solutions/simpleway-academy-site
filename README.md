@@ -38,3 +38,19 @@ SEO slugs para Caminhos, nova página Igrejas, página Promotor SimpleWay Academ
 - Adiciona prévia principal em SimpleWay English, metodologia, planos, home, caminhos, pré-matrícula e Promotor.
 - Mantém o conteúdo completo protegido dentro do curso/app.
 - Inclui interação de revelar resposta e botão de áudio via SpeechSynthesis quando disponível.
+
+
+## V9.10.5
+Blog expandido com artigos profissionais longos, links internos e SEO técnico on-page.
+
+
+## V9.10.5
+Blog expandido com artigos profissionais longos, links internos e SEO técnico on-page.
+
+
+## V9.10.5
+Blog expandido com artigos profissionais longos, links internos e SEO técnico on-page.
+
+
+## V9.10.5
+Blog expandido com artigos profissionais longos, links internos e SEO técnico on-page.

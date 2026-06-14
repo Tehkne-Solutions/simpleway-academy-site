@@ -1,3 +1,35 @@
+
+## V9.10.5 — Professional Blog SEO Expansion
+- Reescritos os 12 posts do blog como guias profissionais longos.
+- Cada artigo agora tem mais de 2.500 palavras aproximadas no HTML público.
+- Adicionados links internos estratégicos para metodologia, planos, SimpleWay English, caminhos e pré-matrícula.
+- Atualizados títulos, descrições, categorias, chips públicos, Article JSON-LD, FAQ schema e página de índice do blog.
+- Mantidas as páginas e melhorias da V9.10.4.
+
+
+## V9.10.5 — Professional Blog SEO Expansion
+- Reescritos os 12 posts do blog como guias profissionais longos.
+- Cada artigo agora tem mais de 2.500 palavras aproximadas no HTML público.
+- Adicionados links internos estratégicos para metodologia, planos, SimpleWay English, caminhos e pré-matrícula.
+- Atualizados títulos, descrições, categorias, chips públicos, Article JSON-LD, FAQ schema e página de índice do blog.
+- Mantidas as páginas e melhorias da V9.10.4.
+
+
+## V9.10.5 — Professional Blog SEO Expansion
+- Reescritos os 12 posts do blog como guias profissionais longos.
+- Cada artigo agora tem mais de 2.500 palavras aproximadas no HTML público.
+- Adicionados links internos estratégicos para metodologia, planos, SimpleWay English, caminhos e pré-matrícula.
+- Atualizados títulos, descrições, categorias, chips públicos, Article JSON-LD, FAQ schema e página de índice do blog.
+- Mantidas as páginas e melhorias da V9.10.4.
+
+
+## V9.10.5 — Professional Blog SEO Expansion
+- Reescritos os 12 posts do blog como guias profissionais longos.
+- Cada artigo agora tem mais de 2.500 palavras aproximadas no HTML público.
+- Adicionados links internos estratégicos para metodologia, planos, SimpleWay English, caminhos e pré-matrícula.
+- Atualizados títulos, descrições, categorias, chips públicos, Article JSON-LD, FAQ schema e página de índice do blog.
+- Mantidas as páginas e melhorias da V9.10.4.
+
 # V9.10.4 — App Peek + StoryWorld Previews por Caminho
 
 - Novo componente App Peek para demonstrar a experiência do app sem entregar o conteúdo completo do curso.
