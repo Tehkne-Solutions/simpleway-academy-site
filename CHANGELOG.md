@@ -1,3 +1,15 @@
+# V9.10.4 — App Peek + StoryWorld Previews por Caminho
+
+- Novo componente App Peek para demonstrar a experiência do app sem entregar o conteúdo completo do curso.
+- Prévia curta na Home e prévia principal em SimpleWay English.
+- Prévia metodológica em /metodologia/ explicando mini-stories, personagens, memória e fala ativa.
+- Prévia de valor em /planos/ e antes da conversão em /pre-matricula/.
+- Prévias específicas por caminho: crianças, adolescentes, jovens, adultos, escolas, empresas, igrejas e agências de marketing.
+- /caminhos/ ganhou hub de microlições por público.
+- /promotor-simpleway-academy/ ganhou demonstração comercial para facilitar a venda por indicação.
+- Interações: revelar resposta Q&A e ouvir exemplo com Web Speech API quando disponível.
+- Mantém V9.10.3: SEO de slugs, Caminhos, Igrejas e Promotor SimpleWay Academy.
+
 
 ## V9.10.3 — SEO Slugs + Caminhos Expandidos + Promotor SimpleWay
 

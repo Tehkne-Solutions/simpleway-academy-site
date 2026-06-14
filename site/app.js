@@ -156,3 +156,34 @@ if (contactForm) {
     document.querySelectorAll('[data-nav-link="promotor"]').forEach(el => el.classList.add('is-active'));
   }
 })();
+
+
+// V9.10.4 — App Peek interactions
+(function(){
+  document.querySelectorAll('[data-peek-reveal]').forEach((button)=>{
+    button.addEventListener('click',()=>{
+      const box = button.closest('.app-peek-phone');
+      const answer = box && box.querySelector('.peek-answer');
+      if(!answer) return;
+      const hidden = answer.hasAttribute('hidden');
+      if(hidden){ answer.removeAttribute('hidden'); button.textContent='Ocultar'; }
+      else { answer.setAttribute('hidden',''); button.textContent='Ver resposta'; }
+    });
+  });
+  document.querySelectorAll('[data-speak]').forEach((button)=>{
+    button.addEventListener('click',()=>{
+      const text = button.getAttribute('data-speak') || '';
+      if(!('speechSynthesis' in window) || !text.trim()){
+        button.textContent='Áudio indisponível';
+        setTimeout(()=>button.textContent='Ouvir exemplo',1600);
+        return;
+      }
+      window.speechSynthesis.cancel();
+      const utter = new SpeechSynthesisUtterance(text);
+      utter.lang = 'en-US'; utter.rate = .86; utter.pitch = 1;
+      button.classList.add('is-speaking'); button.textContent='Tocando...';
+      utter.onend = utter.onerror = () => { button.classList.remove('is-speaking'); button.textContent='Ouvir exemplo'; };
+      window.speechSynthesis.speak(utter);
+    });
+  });
+})();

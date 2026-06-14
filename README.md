@@ -27,5 +27,14 @@ Patch de largura global e header: 80% em desktop amplo, container adaptativo em 
 Patch de navegação: mega-menu Caminhos clicável, com hover bridge, link do hub e efeitos premium em cada item.
 
 
-### V9.10.3
+### V9.10.4
 SEO slugs para Caminhos, nova página Igrejas, página Promotor SimpleWay Academy, redirects 301 e seções comerciais para grupos/turmas.
+
+
+## V9.10.4 — App Peek + StoryWorld Previews por Caminho
+
+- Adiciona prévias do app com mini-story, Q&A, Activation e CTA.
+- Cria variações por caminho: crianças, adolescentes, jovens, adultos, escolas, empresas, igrejas e agências.
+- Adiciona prévia principal em SimpleWay English, metodologia, planos, home, caminhos, pré-matrícula e Promotor.
+- Mantém o conteúdo completo protegido dentro do curso/app.
+- Inclui interação de revelar resposta e botão de áudio via SpeechSynthesis quando disponível.
