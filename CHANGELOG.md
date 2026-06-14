@@ -1,3 +1,13 @@
+# V9.10.9 — App Live Demo Power Simulator
+
+- /app/ agora mostra interação real simulada no Step 1, sem resposta pronta.
+- Step 4 Activation 72 agora permite clicar nas palavras para montar frase.
+- Adicionados modos de treino: PT → EN, EN → PT, EN → EN OPI e trecho de mini-story.
+- Feedback, XP simulado, resposta livre, escolha correta e áudio seguem o padrão visual do site.
+- Títulos da página /app/ receberam espaçamento mais legível.
+- Seção “Para aluno, professor e escola” estabilizada com linhas premium, imagens e texto maior.
+- Botão do formulário de lista de testes padronizado.
+
 # Changelog
 
 ## V9.10.8 — App Experience Simulator + Roles Layout Fix

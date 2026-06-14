@@ -1,3 +1,7 @@
+# SimpleWay Academy Site — V9.10.9
+
+Pacote com página `/app/` atualizada com simulador interativo de microlição: APF, Mini-story, Q&A, Activation 72 com montagem por palavras, drills PT→EN / EN→PT / EN→EN e revisão com XP simulado.
+
 # SimpleWay Academy Site — V9.9.8
 
 Patch root-only para Cloudflare Pages/Workers.

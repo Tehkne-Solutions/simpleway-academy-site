@@ -188,17 +188,22 @@ if (contactForm) {
   });
 })();
 
-// V9.10.8 — App page simulated lesson interactions
+// V9.10.9 — App page live simulator interactions
 (function(){
+  const norm = (value) => String(value || '').trim().toLowerCase().replace(/[.!?]/g,'').replace(/\s+/g,' ');
+  const setFeedback = (el, text, good=false) => {
+    if(!el) return;
+    el.textContent = text;
+    el.classList.toggle('is-good', good);
+    el.classList.toggle('is-warn', !good);
+  };
   document.querySelectorAll('[data-app-simulator]').forEach((sim)=>{
     const railButtons = Array.from(sim.querySelectorAll('[data-app-step]'));
     const panels = Array.from(sim.querySelectorAll('[data-app-panel]'));
     const status = sim.querySelector('[data-sim-status]');
     const progress = sim.querySelector('[data-sim-progress]');
     const order = ['apf','story','qa','activation','review'];
-    const labels = {
-      apf:'Step 1 de 5', story:'Step 2 de 5', qa:'Step 3 de 5', activation:'Step 4 de 5', review:'Step 5 de 5'
-    };
+    const labels = { apf:'Step 1 de 5', story:'Step 2 de 5', qa:'Step 3 de 5', activation:'Step 4 de 5', review:'Step 5 de 5' };
     function activate(id){
       railButtons.forEach(btn=>btn.classList.toggle('active', btn.dataset.appStep === id));
       panels.forEach(panel=>panel.classList.toggle('active', panel.dataset.appPanel === id));
@@ -207,24 +212,70 @@ if (contactForm) {
       if(progress) progress.style.width = ((idx + 1) * 20) + '%';
     }
     railButtons.forEach(btn=>btn.addEventListener('click',()=>activate(btn.dataset.appStep)));
-    sim.querySelectorAll('[data-sim-action="check"]').forEach(btn=>btn.addEventListener('click',()=>{
-      const fb = sim.querySelector('[data-sim-feedback]');
-      if(fb){ fb.textContent = 'Ótimo! Estrutura correta, resposta natural e pronta para speaking.'; fb.classList.add('is-good'); }
+
+    // Step 1 — user writes or simulates speaking.
+    const apfInput = sim.querySelector('[data-apf-input]');
+    sim.querySelectorAll('[data-sim-action="speak-apf"]').forEach(btn=>btn.addEventListener('click',()=>{
+      if(apfInput) apfInput.value = 'My name is Miguel.';
+      setFeedback(sim.querySelector('[data-sim-feedback]'), 'Fala simulada capturada. Agora toque em verificar para ver a correção.', false);
+      apfInput?.focus();
     }));
+    sim.querySelectorAll('[data-sim-action="check-apf"]').forEach(btn=>btn.addEventListener('click',()=>{
+      const value = norm(apfInput?.value);
+      const good = /^(my name is|i am|i'm)\s+[a-záéíóúãõç]+/.test(value);
+      setFeedback(sim.querySelector('[data-sim-feedback]'), good ? 'Ótimo! Estrutura correta, resposta natural e pronta para speaking. +10 XP' : 'Tente responder em frase completa. Ex.: My name is Miguel.', good);
+    }));
+
+    // Step 2 — reveal more mini-story.
+    sim.querySelectorAll('[data-sim-action="reveal-story"]').forEach(btn=>btn.addEventListener('click',()=>{
+      const hidden = Array.from(sim.querySelectorAll('[data-story-extra]')).filter(el=>el.hasAttribute('hidden'));
+      if(hidden.length){ hidden.slice(0,2).forEach(el=>el.removeAttribute('hidden')); btn.textContent = 'Contexto revelado'; }
+      else { btn.textContent = 'Contexto já revelado'; }
+    }));
+
+    // Step 3 — choices and free answer.
     sim.querySelectorAll('[data-sim-choice]').forEach(btn=>btn.addEventListener('click',()=>{
       const fb = sim.querySelector('[data-choice-feedback]');
-      if(!fb) return;
-      if(btn.dataset.simChoice === 'right'){
-        fb.textContent = 'Correto. Você entendeu a história e respondeu em terceira pessoa.';
-        fb.classList.add('is-good');
-      } else {
-        fb.textContent = 'Quase. A pergunta é sobre onde ele mora. Tente a opção que usa “lives”.';
-        fb.classList.remove('is-good');
-      }
+      if(btn.dataset.simChoice === 'right') setFeedback(fb, 'Correto. Você entendeu a história e respondeu em terceira pessoa. +10 XP', true);
+      else setFeedback(fb, 'Quase. A pergunta é sobre o apelido de Michael. Procure a resposta com “Mike”.', false);
     }));
-    sim.querySelectorAll('[data-sim-action="xp"]').forEach(btn=>btn.addEventListener('click',()=>{
-      const fb = sim.querySelector('[data-xp-feedback]');
-      if(fb){ fb.textContent = '+15 XP simulado. Frase correta, estrutura clara e avanço liberado para revisão.'; fb.classList.add('is-good'); }
+    sim.querySelectorAll('[data-sim-action="check-qa-text"]').forEach(btn=>btn.addEventListener('click',()=>{
+      const input = norm(sim.querySelector('[data-qa-input]')?.value);
+      const good = input.includes('calls him mike') || input.includes('call him mike') || input === 'mike';
+      setFeedback(sim.querySelector('[data-choice-feedback]'), good ? 'Boa! Resposta aceita. O app reconhece variações naturais, não só um gabarito literal. +12 XP' : 'A resposta esperada fala que todos chamam Michael de Mike.', good);
+    }));
+
+    // Step 4 — drill mode tabs.
+    const drillTabs = Array.from(sim.querySelectorAll('[data-drill-mode]'));
+    const drillPanels = Array.from(sim.querySelectorAll('[data-drill-panel]'));
+    drillTabs.forEach(tab=>tab.addEventListener('click',()=>{
+      const mode = tab.dataset.drillMode;
+      drillTabs.forEach(item=>item.classList.toggle('active', item === tab));
+      drillPanels.forEach(panel=>panel.classList.toggle('active', panel.dataset.drillPanel === mode));
+      setFeedback(sim.querySelector('[data-xp-feedback]'), 'Modo de treino alterado. Agora interaja com o desafio.', false);
+    }));
+
+    const built = sim.querySelector('[data-built-sentence]');
+    const wordBankButtons = Array.from(sim.querySelectorAll('[data-word]'));
+    function currentSentence(){ return Array.from(sim.querySelectorAll('[data-word].is-used')).map(btn=>btn.dataset.word).join(' '); }
+    function syncBuilt(){ if(built) built.textContent = currentSentence() || 'Toque nas palavras para montar a frase.'; }
+    wordBankButtons.forEach(btn=>btn.addEventListener('click',()=>{ btn.classList.toggle('is-used'); syncBuilt(); }));
+    sim.querySelectorAll('[data-sim-action="reset-sentence"]').forEach(btn=>btn.addEventListener('click',()=>{ wordBankButtons.forEach(word=>word.classList.remove('is-used')); syncBuilt(); setFeedback(sim.querySelector('[data-xp-feedback]'), 'Frase limpa. Monte novamente.', false); }));
+    sim.querySelectorAll('[data-sim-action="check-sentence"]').forEach(btn=>btn.addEventListener('click',()=>{
+      const sentence = currentSentence();
+      const good = sentence === 'I work in Campinas';
+      setFeedback(sim.querySelector('[data-xp-feedback]'), good ? '+15 XP. PT → EN correto: I work in Campinas.' : 'A ordem ideal é: I + work + in + Campinas.', good);
+    }));
+    sim.querySelectorAll('[data-translation-choice]').forEach(btn=>btn.addEventListener('click',()=>{
+      setFeedback(sim.querySelector('[data-xp-feedback]'), btn.dataset.translationChoice === 'right' ? 'Correto. EN → PT também entra no treino para garantir compreensão. +10 XP' : 'Quase. “Live” aqui é morar, não trabalhar.', btn.dataset.translationChoice === 'right');
+    }));
+    sim.querySelectorAll('[data-sim-action="check-enen"]').forEach(btn=>btn.addEventListener('click',()=>{
+      const value = norm(sim.querySelector('[data-en-en-input]')?.value);
+      const good = value.startsWith('i live in ') || value.startsWith('i live at ');
+      setFeedback(sim.querySelector('[data-xp-feedback]'), good ? 'Boa resposta OPI. O app aceita cidade, bairro ou contexto pessoal. +12 XP' : 'Responda com uma frase pessoal. Ex.: I live in Campinas.', good);
+    }));
+    sim.querySelectorAll('[data-gap-choice]').forEach(btn=>btn.addEventListener('click',()=>{
+      setFeedback(sim.querySelector('[data-xp-feedback]'), btn.dataset.gapChoice === 'right' ? 'Correto. Terceira pessoa: Mike lives. +10 XP' : 'Quase. Com “Mike/he/she”, usamos “lives”.', btn.dataset.gapChoice === 'right');
     }));
   });
 })();

@@ -845,3 +845,62 @@ img, svg, video, canvas { max-width: 100%; height: auto; }
   .app-role-row h3{font-size:2rem;}
   .app-role-row p{font-size:1rem;}
 }
+
+/* V9.10.9 — App simulator live interaction + stronger app page polish */
+.app-page .app-title,
+.app-page .section-title,
+.app-page .sim-panel h3,
+.app-page h1,
+.app-page h2{
+  letter-spacing:-.032em;
+  word-spacing:.075em;
+  line-height:1.02;
+  overflow-wrap:normal;
+}
+.app-page .sim-panel h3{font-size:clamp(1.75rem,3.4vw,3rem);}
+.app-simulator-shell-pro{align-items:start;}
+.app-simulator-phone-live{min-height:620px;}
+.sim-live-field{display:grid;gap:8px;background:#f8fbff;border:1px solid rgba(0,87,216,.12);border-radius:20px;padding:14px;}
+.sim-live-field span{font-size:.78rem;text-transform:uppercase;letter-spacing:.13em;color:#697a91;font-weight:1000;}
+.sim-live-field input{width:100%;box-sizing:border-box;border:1px solid rgba(0,87,216,.16);background:#fff;border-radius:16px;padding:15px 16px;font:800 1rem/1.2 Inter,system-ui;color:#172033;outline:none;transition:border-color .2s,box-shadow .2s;}
+.sim-live-field input:focus{border-color:var(--blue);box-shadow:0 0 0 4px rgba(0,87,216,.10);}
+.sim-action-row{display:flex;flex-wrap:wrap;gap:10px;align-items:center;}
+.sim-action-row .btn{min-height:46px;}
+.sim-feedback.is-warn{color:#805500;background:#fff8e6;border:1px solid rgba(255,209,102,.5);border-radius:16px;padding:12px;}
+.sim-power-note{display:grid;gap:5px;background:linear-gradient(135deg,#f7fbff,#fff);border:1px solid rgba(0,87,216,.12);border-radius:18px;padding:14px;color:#53647c;font-weight:800;}
+.sim-power-note b{color:#0057D8;font-family:Poppins;}
+.live-story-lines [hidden]{display:none!important;}
+.drill-mode-tabs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;background:#f4f8ff;border:1px solid rgba(0,87,216,.11);border-radius:20px;padding:8px;}
+.drill-mode-tabs button{border:0;background:transparent;border-radius:14px;padding:12px 10px;font-weight:1000;color:#53647c;cursor:pointer;transition:.2s;}
+.drill-mode-tabs button:hover,.drill-mode-tabs button.active{background:#fff;color:var(--blue);box-shadow:0 12px 28px rgba(0,87,216,.10);}
+.drill-mode-panel{display:none;gap:12px;}
+.drill-mode-panel.active{display:grid;}
+.sentence-build{min-height:54px;display:flex;align-items:center;background:linear-gradient(135deg,#fff7df,#eef5ff);border:1px dashed rgba(0,87,216,.26);border-radius:18px;padding:14px 16px;font-weight:1000;color:#172033;}
+.word-bank-live button.is-used{background:var(--blue);color:#fff;border-color:var(--blue);transform:translateY(-1px);box-shadow:0 12px 24px rgba(0,87,216,.22);}
+.sim-xp-card{display:grid;gap:5px;background:#0D1117;color:#fff;border-radius:22px;padding:18px;border:1px solid rgba(255,209,102,.28);}
+.sim-xp-card strong{font-family:Poppins;color:#FFD166;font-size:1.25rem;}
+.sim-xp-card span{color:#d8e0ee;font-weight:760;line-height:1.55;}
+.app-role-row{grid-template-columns:minmax(360px,440px) minmax(0,1fr);gap:34px;}
+.app-role-row.reverse{grid-template-columns:minmax(0,1fr) minmax(360px,440px);}
+.app-role-row>div:last-child{padding:18px 24px 18px 0;}
+.app-role-row.reverse>div:last-child{padding:18px 0 18px 24px;}
+.app-role-row .icon{font-size:2rem;background:linear-gradient(135deg,#eef5ff,#fff7df);border:1px solid rgba(0,87,216,.13);border-radius:18px;width:58px;height:58px;display:grid;place-items:center;}
+.app-role-row h3{font-size:clamp(2rem,2.55vw,3.1rem);word-spacing:.08em;}
+.app-role-row p{font-size:1.14rem;line-height:1.75;}
+.app-waitlist .lead-form .app-form-submit{background:linear-gradient(90deg,var(--blue),#1877ff);color:#fff;border:0;font-family:Poppins;letter-spacing:-.02em;}
+.app-waitlist .lead-form .app-form-submit:hover{transform:translateY(-2px);}
+@media(max-width:1080px){
+  .app-simulator-phone-live{min-height:auto;}
+  .app-role-row,.app-role-row.reverse{grid-template-columns:1fr;}
+  .app-role-row.reverse .app-role-image{order:0;}
+  .app-role-row>div:last-child,.app-role-row.reverse>div:last-child{padding:8px;}
+}
+@media(max-width:720px){
+  .app-page .app-title,.app-page .section-title,.app-page h1,.app-page h2{letter-spacing:-.02em;word-spacing:.04em;line-height:1.06;}
+  .drill-mode-tabs{grid-template-columns:1fr 1fr;}
+  .sim-action-row{display:grid;grid-template-columns:1fr;}
+  .sim-action-row .btn{width:100%;justify-content:center;}
+  .sim-panel{min-height:auto;}
+  .app-role-row h3{font-size:1.9rem;}
+  .app-role-row p{font-size:1.02rem;}
+}
