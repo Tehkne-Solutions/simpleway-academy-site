@@ -1,6 +1,6 @@
 {
   "name": "simpleway-academy-site",
-  "version": "9.10.7",
+  "version": "9.10.8",
   "private": true,
   "type": "module",
   "scripts": {

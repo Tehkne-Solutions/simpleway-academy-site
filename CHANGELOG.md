@@ -1,3 +1,13 @@
+# Changelog
+
+## V9.10.8 — App Experience Simulator + Roles Layout Fix
+
+- Corrigido espaçamento/legibilidade dos títulos da página `/app/`.
+- Criada trilha simulada do app com 5 steps: Fala Inicial, Mini-story, Q&A, Activation 72 e Revisão.
+- Adicionadas interações simuladas de correção, resposta, áudio via speech synthesis e XP.
+- Reformulada a seção “Para aluno, professor e escola” em linhas premium com imagens e texto legível.
+- Padronizado botão do formulário da lista de testes.
+- Mantida a rota `/app/`, SEO e CTA de lista de espera.
 
 ## V9.10.6 — Blog Image Uniqueness Fix
 

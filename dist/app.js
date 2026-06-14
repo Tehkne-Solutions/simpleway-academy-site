@@ -187,3 +187,44 @@ if (contactForm) {
     });
   });
 })();
+
+// V9.10.8 — App page simulated lesson interactions
+(function(){
+  document.querySelectorAll('[data-app-simulator]').forEach((sim)=>{
+    const railButtons = Array.from(sim.querySelectorAll('[data-app-step]'));
+    const panels = Array.from(sim.querySelectorAll('[data-app-panel]'));
+    const status = sim.querySelector('[data-sim-status]');
+    const progress = sim.querySelector('[data-sim-progress]');
+    const order = ['apf','story','qa','activation','review'];
+    const labels = {
+      apf:'Step 1 de 5', story:'Step 2 de 5', qa:'Step 3 de 5', activation:'Step 4 de 5', review:'Step 5 de 5'
+    };
+    function activate(id){
+      railButtons.forEach(btn=>btn.classList.toggle('active', btn.dataset.appStep === id));
+      panels.forEach(panel=>panel.classList.toggle('active', panel.dataset.appPanel === id));
+      const idx = order.indexOf(id);
+      if(status) status.textContent = labels[id] || 'Step';
+      if(progress) progress.style.width = ((idx + 1) * 20) + '%';
+    }
+    railButtons.forEach(btn=>btn.addEventListener('click',()=>activate(btn.dataset.appStep)));
+    sim.querySelectorAll('[data-sim-action="check"]').forEach(btn=>btn.addEventListener('click',()=>{
+      const fb = sim.querySelector('[data-sim-feedback]');
+      if(fb){ fb.textContent = 'Ótimo! Estrutura correta, resposta natural e pronta para speaking.'; fb.classList.add('is-good'); }
+    }));
+    sim.querySelectorAll('[data-sim-choice]').forEach(btn=>btn.addEventListener('click',()=>{
+      const fb = sim.querySelector('[data-choice-feedback]');
+      if(!fb) return;
+      if(btn.dataset.simChoice === 'right'){
+        fb.textContent = 'Correto. Você entendeu a história e respondeu em terceira pessoa.';
+        fb.classList.add('is-good');
+      } else {
+        fb.textContent = 'Quase. A pergunta é sobre onde ele mora. Tente a opção que usa “lives”.';
+        fb.classList.remove('is-good');
+      }
+    }));
+    sim.querySelectorAll('[data-sim-action="xp"]').forEach(btn=>btn.addEventListener('click',()=>{
+      const fb = sim.querySelector('[data-xp-feedback]');
+      if(fb){ fb.textContent = '+15 XP simulado. Frase correta, estrutura clara e avanço liberado para revisão.'; fb.classList.add('is-good'); }
+    }));
+  });
+})();
