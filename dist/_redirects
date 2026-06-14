@@ -1,2 +1,14 @@
 /app https://app.simplewayacademy.com.br 302
 /alunos https://app.simplewayacademy.com.br 302
+
+# V9.10.3 — SEO slug migrations
+/criancas/ /ingles-para-criancas/ 301
+/adolescentes/ /ingles-para-adolescentes/ 301
+/jovens/ /ingles-para-jovens/ 301
+/adultos/ /ingles-para-adultos/ 301
+/para-escolas/ /ingles-para-escolas/ 301
+/empresas-tech/ /ingles-para-empresas/ 301
+/agencias-marketing/ /ingles-para-agencias-de-marketing/ 301
+/afiliados/ /promotor-simpleway-academy/ 301
+/promotores/ /promotor-simpleway-academy/ 301
+/blog/conteudo-educacional-busca-organica/ /blog/conteudo-educacional-para-aprender-ingles/ 301

@@ -135,3 +135,24 @@ if (contactForm) {
     });
   });
 })();
+
+// V9.10.3 — SEO Caminhos active state support
+(function(){
+  const path = location.pathname;
+  const caminhoSlugs = [
+    '/ingles-para-criancas/',
+    '/ingles-para-adolescentes/',
+    '/ingles-para-jovens/',
+    '/ingles-para-adultos/',
+    '/ingles-para-escolas/',
+    '/ingles-para-empresas/',
+    '/ingles-para-igrejas/',
+    '/ingles-para-agencias-de-marketing/'
+  ];
+  if (caminhoSlugs.some(slug => path.startsWith(slug))) {
+    document.querySelectorAll('[data-nav-link="caminhos"]').forEach(el => el.classList.add('is-active'));
+  }
+  if (path.startsWith('/promotor-simpleway-academy/')) {
+    document.querySelectorAll('[data-nav-link="promotor"]').forEach(el => el.classList.add('is-active'));
+  }
+})();

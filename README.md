@@ -25,3 +25,7 @@ Patch de largura global e header: 80% em desktop amplo, container adaptativo em 
 ### V9.10.2
 
 Patch de navegação: mega-menu Caminhos clicável, com hover bridge, link do hub e efeitos premium em cada item.
+
+
+### V9.10.3
+SEO slugs para Caminhos, nova página Igrejas, página Promotor SimpleWay Academy, redirects 301 e seções comerciais para grupos/turmas.

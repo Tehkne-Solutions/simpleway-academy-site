@@ -36,7 +36,7 @@ function walk(dir) {
       walk(current);
     } else if (file.endsWith('.html')) {
       let url = current.replace(dist, '').replace(/\\/g, '/');
-      if (url.endsWith('/index.html')) url = url.slice(0, -10) + '/';
+      if (url.endsWith('/index.html')) url = url.replace(/\/index\.html$/, '/');
       if (url === '/index.html') url = '/';
       if (url === '/404.html') continue;
       pages.push('https://simplewayacademy.com.br' + url);

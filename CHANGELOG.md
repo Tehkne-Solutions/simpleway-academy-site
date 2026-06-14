@@ -1,4 +1,14 @@
 
+## V9.10.3 — SEO Slugs + Caminhos Expandidos + Promotor SimpleWay
+
+- Slugs dos caminhos migrados para URLs mais fortes para SEO.
+- Criadas páginas: inglês para crianças, adolescentes, jovens, adultos, escolas, empresas, igrejas e agências de marketing.
+- Criado o caminho Igrejas com lições bíblicas para ensinar e edificar.
+- Criada página Promotor SimpleWay Academy com candidatura, CPF, avaliação antifraude, link único e comissão por indicação válida.
+- Adicionadas seções de descontos progressivos, turmas fechadas e aulas no local para escolas, empresas e igrejas.
+- Atualizados header, mega-menu Caminhos, mobile drawer, footer, redirects e sitemap.
+
+
 ## V9.10.1 — Wide Layout + Beacon Header Balance
 
 - Ajusta largura global em desktop amplo para 80% com limite seguro.
