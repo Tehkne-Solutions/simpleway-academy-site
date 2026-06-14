@@ -17,10 +17,6 @@ Assinatura: Tehkné Solutions.
 Pacote root-only com correções de contato, header, títulos tricolores, botão WhatsApp contextual, botão voltar ao topo e camada de privacidade/cookies.
 
 
-## V9.10 — Beacon Header + Premium Navigation System
+## V9.10.1
 
-- Header exclusiva SimpleWay com logo maior, glass leve e linha tricolor.
-- Menu desktop em pills premium, com hover e estado ativo.
-- Mega-menu Caminhos com cards por público.
-- Drawer mobile com cara de app, seções e CTAs.
-- Mantém V9.9.9: contato, cookies, flutuantes, planos e SimpleWay English.
+Patch de largura global e header: 80% em desktop amplo, container adaptativo em 1360px, menu sem quebra de linha e navegação Beacon mais equilibrada.

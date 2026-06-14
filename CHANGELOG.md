@@ -1,4 +1,13 @@
 
+## V9.10.1 — Wide Layout + Beacon Header Balance
+
+- Ajusta largura global em desktop amplo para 80% com limite seguro.
+- Usa 92–96% em telas médias para não apertar o menu em 1360px.
+- Evita quebra de linha em itens do menu desktop.
+- Rebalanceia logo, menu, CTAs e espaçamento da Beacon Header.
+- Mantém V9.10, V9.9.9, /planos, /simpleway-english e ações flutuantes.
+
+
 ## V9.9.9 — Contact UX + Floating Actions + Privacy Layer
 
 - Corrigida a seção lateral do formulário em `/contato/` com layout premium, cards de orientação e visual mais organizado.
@@ -25,14 +34,3 @@
 - Build local validado.
 
 Assinatura: Tehkné Solutions.
-
-
-## V9.10 — Beacon Header + Premium Navigation System
-
-- Rebuild visual da header e navegação.
-- Logo maior e mais presente.
-- Sticky header reforçada.
-- Menu desktop com navegação em pills e active state.
-- Mega-menu Caminhos com descrição e ícones.
-- Menu mobile convertido em drawer de app.
-- Build validado localmente.

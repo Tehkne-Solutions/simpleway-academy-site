@@ -403,3 +403,116 @@ img, svg, video, canvas { max-width: 100%; height: auto; }
 @media(max-width:1040px){.beacon-menu{display:none!important}.beacon-toggle{display:block!important}.beacon-nav{height:78px!important}.beacon-brand{min-width:0!important}.beacon-brand-copy em{display:none}.beacon-actions .app-access{display:none!important}}
 @media(max-width:720px){.beacon-topline{height:5px}.beacon-nav{height:70px!important}.beacon-brand{padding:5px!important;border-radius:18px!important;background:transparent!important;border:0!important}.beacon-mark-shell{width:46px;height:46px;border-radius:17px}.beacon-brand .brand-mark{width:36px!important;height:39px!important}.beacon-brand-copy strong{font-size:18px!important}.beacon-brand-copy small{font-size:12px!important}.beacon-actions .pre-matricula{height:42px!important;max-width:none!important;padding:10px 14px!important;font-size:12px!important}.beacon-toggle{width:42px!important;height:42px!important;border-radius:16px!important}.beacon-mobile-menu.is-open{top:82px;left:10px;right:10px;border-radius:26px}.mobile-drawer-actions{grid-template-columns:1fr}.mobile-drawer-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:390px){.beacon-brand-copy{display:none!important}.beacon-actions .pre-matricula{padding:9px 12px!important}.beacon-mobile-menu.is-open{top:78px}}
+
+/* V9.10.1 — Wide Layout + Beacon Header Balance
+   Ajusta o padrão de largura do site para telas desktop amplas e evita menu apertado
+   em notebooks/1360px. A largura vira 80% em desktop grande e usa 92–96% em telas
+   médias para preservar respiro sem quebrar a navegação. */
+@media (min-width: 1600px){
+  .container{
+    width:80%;
+    max-width:1680px;
+  }
+  .hero h1{max-width:880px}
+  .page-title{max-width:980px}
+  .section-title{max-width:900px}
+}
+
+@media (min-width: 1181px) and (max-width: 1599px){
+  .container{
+    width:min(92vw, 1320px);
+  }
+  .site-header .container.beacon-nav{
+    width:min(94vw, 1400px);
+  }
+}
+
+@media (min-width: 1041px){
+  .beacon-nav{
+    gap:26px!important;
+  }
+  .beacon-menu{
+    flex:1 1 auto;
+    justify-content:center;
+    gap:10px!important;
+    min-width:0;
+  }
+  .beacon-menu>a,
+  .beacon-menu .nav-dropdown-trigger{
+    white-space:nowrap!important;
+    line-height:1!important;
+    padding:14px 18px!important;
+  }
+  .beacon-brand{
+    flex:0 0 auto;
+    min-width:260px!important;
+  }
+  .beacon-actions{
+    flex:0 0 auto;
+  }
+}
+
+@media (min-width: 1181px) and (max-width: 1380px){
+  .site-header .container.beacon-nav{
+    width:96vw;
+  }
+  .beacon-nav{
+    gap:16px!important;
+  }
+  .beacon-brand{
+    min-width:238px!important;
+    padding-right:8px!important;
+  }
+  .beacon-brand-copy strong{font-size:22px!important}
+  .beacon-brand-copy small{font-size:14px!important}
+  .beacon-brand-copy em{font-size:9px!important}
+  .beacon-menu{
+    gap:5px!important;
+    padding:6px!important;
+  }
+  .beacon-menu>a,
+  .beacon-menu .nav-dropdown-trigger{
+    font-size:13px!important;
+    padding:12px 11px!important;
+  }
+  .beacon-actions{
+    gap:8px!important;
+  }
+  .beacon-actions .btn{
+    font-size:13px!important;
+    padding:13px 15px!important;
+  }
+}
+
+@media (min-width: 1041px) and (max-width: 1180px){
+  .site-header .container.beacon-nav{
+    width:96vw;
+  }
+  .beacon-nav{
+    gap:14px!important;
+  }
+  .beacon-brand{
+    min-width:224px!important;
+  }
+  .beacon-brand-copy strong{font-size:20px!important}
+  .beacon-brand-copy small{font-size:13px!important}
+  .beacon-brand-copy em{display:none!important}
+  .beacon-menu{
+    gap:4px!important;
+    padding:5px!important;
+  }
+  .beacon-menu>a,
+  .beacon-menu .nav-dropdown-trigger{
+    font-size:12.5px!important;
+    padding:11px 9px!important;
+  }
+  .beacon-actions .app-access{
+    display:none!important;
+  }
+}
+
+@media (max-width: 1040px){
+  .site-header .container.beacon-nav{
+    width:min(100% - 28px, 980px);
+  }
+}
