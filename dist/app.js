@@ -44,3 +44,38 @@ if (contactForm) {
     window.open(url, '_blank', 'noopener');
   });
 }
+
+
+// V9.9.9 — Floating WhatsApp, ToTop and Privacy/Cookie UX
+(function(){
+  const pageWa = document.querySelector('[data-page-whatsapp]');
+  const buildWhatsAppUrl = () => {
+    const title = (document.querySelector('h1')?.innerText || document.title || 'SimpleWay Academy').replace(/\s+/g,' ').trim();
+    const url = location.href;
+    const msg = `Olá, SimpleWay Academy! Vim pela página "${title}" (${url}) e quero receber orientação sobre o melhor caminho para começar.`;
+    return `https://wa.me/5519998930846?text=${encodeURIComponent(msg)}`;
+  };
+  if(pageWa){ pageWa.href = buildWhatsAppUrl(); pageWa.addEventListener('click',()=>{ pageWa.href = buildWhatsAppUrl(); }); }
+  const topBtn = document.querySelector('[data-to-top]');
+  if(topBtn){
+    const updateTop = () => topBtn.classList.toggle('is-visible', window.scrollY > 420);
+    topBtn.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+    addEventListener('scroll', updateTop, {passive:true}); updateTop();
+  }
+  const panel = document.querySelector('[data-privacy-panel]');
+  const banner = document.querySelector('[data-cookie-banner]');
+  const openPrivacy = () => { if(panel){ panel.classList.add('is-open'); panel.setAttribute('aria-hidden','false'); } };
+  const closePrivacy = () => { if(panel){ panel.classList.remove('is-open'); panel.setAttribute('aria-hidden','true'); } };
+  const setConsent = (value) => { try{ localStorage.setItem('swa_cookie_consent', value); }catch(e){}; if(banner) banner.classList.remove('is-visible'); closePrivacy(); };
+  const getConsent = () => { try{return localStorage.getItem('swa_cookie_consent')}catch(e){return null} };
+  if(banner && !getConsent()) setTimeout(()=>banner.classList.add('is-visible'), 900);
+  document.querySelectorAll('[data-privacy-open],[data-cookie-settings]').forEach(el=>el.addEventListener('click', openPrivacy));
+  document.querySelectorAll('[data-privacy-close]').forEach(el=>el.addEventListener('click', closePrivacy));
+  document.querySelectorAll('[data-cookie-accept]').forEach(el=>el.addEventListener('click',()=>setConsent('accepted')));
+  document.querySelectorAll('[data-cookie-decline]').forEach(el=>el.addEventListener('click',()=>setConsent('declined')));
+  document.querySelectorAll('[data-cookie-save]').forEach(el=>el.addEventListener('click',()=>{
+    const analytics = document.querySelector('[data-cookie-analytics]')?.checked;
+    setConsent(analytics ? 'custom_analytics' : 'custom_essential');
+  }));
+  addEventListener('keydown',e=>{ if(e.key==='Escape') closePrivacy(); });
+})();

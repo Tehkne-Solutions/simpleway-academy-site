@@ -1,3 +1,16 @@
+
+## V9.9.9 — Contact UX + Floating Actions + Privacy Layer
+
+- Corrigida a seção lateral do formulário em `/contato/` com layout premium, cards de orientação e visual mais organizado.
+- Reforçado o uso de títulos com as três cores da marca nos heroes.
+- Header mantido sticky e logo ampliado para melhorar presença de marca.
+- Adicionado botão flutuante de WhatsApp com mensagem personalizada usando a página atual.
+- Adicionado botão voltar ao topo acima do WhatsApp.
+- Adicionado botão flutuante de privacidade/cookies com cadeado no canto esquerdo.
+- Adicionada tarja de consentimento de cookies com preferências, aceitar e recusar.
+- Corrigidos placeholders de formulários.
+- Build validado localmente.
+
 # CHANGELOG — V9.9.8
 
 ## SimpleWay English Storyworld Premium

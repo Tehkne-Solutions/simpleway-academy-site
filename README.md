@@ -10,3 +10,8 @@ Patch root-only para Cloudflare Pages/Workers.
 - Mantém /planos da V9.9.6 e correções mobile anteriores.
 
 Assinatura: Tehkné Solutions.
+
+
+## V9.9.9 — Contact UX + Floating Actions + Privacy Layer
+
+Pacote root-only com correções de contato, header, títulos tricolores, botão WhatsApp contextual, botão voltar ao topo e camada de privacidade/cookies.
