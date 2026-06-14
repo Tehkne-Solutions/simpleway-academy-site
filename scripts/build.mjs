@@ -47,4 +47,4 @@ walk(dist);
 
 fs.writeFileSync(path.join(dist, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${pages.map((url) => `  <url><loc>${url}</loc></url>`).join('\n')}\n</urlset>`);
 
-console.log('SWA_STATIC_LIGHT_V9_9_9_CONTACT_PRIVACY_FLOATING build complete. Pages:', pages.length);
+console.log('SWA_STATIC_LIGHT_V9_10_BEACON_HEADER build complete. Pages:', pages.length);

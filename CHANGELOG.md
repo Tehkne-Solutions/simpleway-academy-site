@@ -25,3 +25,14 @@
 - Build local validado.
 
 Assinatura: Tehkné Solutions.
+
+
+## V9.10 — Beacon Header + Premium Navigation System
+
+- Rebuild visual da header e navegação.
+- Logo maior e mais presente.
+- Sticky header reforçada.
+- Menu desktop com navegação em pills e active state.
+- Mega-menu Caminhos com descrição e ícones.
+- Menu mobile convertido em drawer de app.
+- Build validado localmente.

@@ -79,3 +79,25 @@ if (contactForm) {
   }));
   addEventListener('keydown',e=>{ if(e.key==='Escape') closePrivacy(); });
 })();
+
+
+// V9.10 — Beacon Header active states + mobile drawer close behavior
+(function(){
+  const current = location.pathname.replace(/\/$/,'') || '/';
+  document.querySelectorAll('[data-nav-link]').forEach(link => {
+    const href = (link.getAttribute('href') || '').replace(/\/$/,'') || '/';
+    if (href !== '/' && current.startsWith(href)) link.classList.add('is-active');
+    if (href === '/' && current === '/') link.classList.add('is-active');
+  });
+  const menu = document.querySelector('[data-mobile-menu]');
+  const toggle = document.querySelector('[data-menu-toggle]');
+  if(menu && toggle){
+    menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => menu.classList.remove('is-open')));
+    document.addEventListener('keydown', e => { if(e.key === 'Escape') menu.classList.remove('is-open'); });
+    document.addEventListener('click', e => {
+      if(!menu.classList.contains('is-open')) return;
+      if(menu.contains(e.target) || toggle.contains(e.target)) return;
+      menu.classList.remove('is-open');
+    });
+  }
+})();
